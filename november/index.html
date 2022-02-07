@@ -51,7 +51,7 @@
     </div> -->
 
     <div class="row pt-5">
-        <h2 style="color: #2e7d32"><i class="fas fa-sign-in-alt"></i> &nbsp;Submission Statistics</h2>
+        <h2><i class="fas fa-sign-in-alt"></i>&nbsp;Submission Statistics</h2>
         <div class="row pt-2">
             <div class="col-4">
                 <h4>Active Submissions:</h4> <h3 class="counter" id="field-submissions">0</h3>
@@ -86,7 +86,7 @@
 
 
     <div class="row pt-5">
-        <h2 style="color: #283593"><i class="fas fa-user-friends"></i> &nbsp;Reviewer Statistics</h2>
+        <h2><i class="fas fa-user-friends"></i>&nbsp;Reviewer Statistics</h2>
         <div class="row pt-2">
             <div class="col-4">
                 <h4>Area Chair Pool Size:</h4> <h3 class="counter" id="field-ae-pool">0</h3>
@@ -95,8 +95,8 @@
                 <h4>Area Chairs Assigned:</h4> <h3 class="counter" id="field-ae-assigned">0</h3>
             </div>
             <div class="col-4">
-                <h4>Area Chairs Load (Avg, Max, Min):</h4> <h3 id="ae-load">
-                    <div class="row">
+                <h4>Area Chairs Paper Load:</h4> <h3 id="ae-load">
+                    <!-- <div class="row">
                         <div class="col-4">
                             <h3 class="counter" id="field-ae-load-avg">
                                 0
@@ -112,7 +112,8 @@
                                 0
                             </h4>
                         </div>
-                    </div>
+                    </div> -->
+                    <div id="aeloadviz"></div>
                 </h4>
             </div>
         </div>
@@ -124,8 +125,8 @@
                 <h4>Reviewers Assigned:</h4> <h3 class="counter" id="field-rev-assigned">0</h3>
             </div>
             <div class="col-4">
-                <h4>Reviewers Load (Avg, Max, Min):</h4> <h3 id="rev-load">
-                    <div class="row">
+                <h4>Reviewers Paper Load:</h4> <h3 id="rev-load">
+                    <!-- <div class="row">
                         <div class="col-4">
                             <h3 class="counter" id="field-rev-load-avg">
                                 0
@@ -141,14 +142,15 @@
                                 0
                             </h4>
                         </div>
-                    </div>
+                    </div> -->
+                    <div id="revloadviz"></div>
                 </h4>
             </div>
         </div>
     </div>
 
     <div class="row pt-5">
-        <h2 style="color: #c62828"><i class="far fa-file-alt"></i> &nbsp;Review Statistics</h2>
+        <h2><i class="far fa-file-alt"></i>&nbsp;Review Statistics</h2>
         <h5 class="pt-3"> Color Codes: <span style="color: #1976d2">Review</span>, <span style="color: #e64a19">Meta Review</span></h5>
         <div class="row pt-2">
             <h4>Score distributions</h4>
@@ -182,6 +184,9 @@
 <style>
     .counter {
       color:#999
+  }
+  h2 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   }
 </style>
 <!-- JavaScript Bundle with Popper -->
@@ -231,6 +236,63 @@
     });
     var meta_color = "#e64a19"
     var review_color = "#1976d2"
+
+    function draw_loads(selector, type) {
+
+        var margin = {top: 10, right: 10, bottom: 30, left: 10},
+            width = 350 - margin.left - margin.right,
+            height = 100 - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+                .rangeRound([0, width]);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+
+        var svg = d3.select(selector).append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("review_loads.csv").then(function(data) {
+
+            data.forEach(function(d) {
+                d.load = parseInt(d.load);
+                d.value = parseInt(d.value)
+            });
+
+            var review_data = data.filter(d => d.type == type)
+
+            x.domain([d3.min(review_data, function(d) {return d.load}), d3.max(review_data, function(d) {return d.load})]);
+            y.domain([0, d3.max(review_data, function(d) {return d.value})]);
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d.load); })
+            .y(function(d) { return y(d.value); }));
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            svg.append("g")
+                .call(d3.axisLeft(y).ticks(0));
+            
+        });
+        }
+    
+    draw_loads("#aeloadviz", "meta")
+    draw_loads("#revloadviz", "review")
 
     function draw_scores(selector, type) {
 
