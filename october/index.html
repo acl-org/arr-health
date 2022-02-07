@@ -214,6 +214,9 @@
 <script>
 
     var parseDate = d3.timeParse("%Y-%m-%d");
+    
+    var review_deadline = 0
+    var meta_review_deadline = 0
 
     d3.json('dashboard_stats.json').then(function(data) {
 
@@ -227,6 +230,9 @@
         }
 
         d3.select("#field-iteration").text(d3.select("#field-iteration").attr("data-target"));
+
+        review_deadline = parseDate(data['review-deadline'])
+        meta_review_deadline = parseDate(data['meta-deadline'])
 
         const counters = document.querySelectorAll('.counter');
         const speed = 20;
@@ -436,6 +442,8 @@
             var startDate = x.domain()[0]
             var endDate = x.domain()[1]
             
+            console.log(review_deadline)
+            
             var barwidth = Math.floor(width / getDatesBetween(startDate, endDate).length)
             var meta_color = "#e64a19"
             var review_color = "#1976d2"
@@ -509,28 +517,24 @@
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.value); }));
 
-            d3.json('dashboard_stats.json').then(function(data) {
-                var review_deadline = parseDate(data['review-deadline'])
-                var meta_review_deadline = parseDate(data['meta-deadline'])
 
-                svg.append('line')
-                .style("stroke", review_color)
-                .style("stroke-width", 2)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", function (d) {return x(review_deadline)})
-                .attr("y1", 0)
-                .attr("x2", function (d) {return x(review_deadline)})
-                .attr("y2", height);
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", function (d) {return x(review_deadline)})
+            .attr("y1", 0)
+            .attr("x2", function (d) {return x(review_deadline)})
+            .attr("y2", height);
 
-                svg.append('line')
-                .style("stroke", meta_color)
-                .style("stroke-width", 2)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", function (d) {return x(meta_review_deadline)})
-                .attr("y1", 0)
-                .attr("x2", function (d) {return x(meta_review_deadline)})
-                .attr("y2", height);
-            });
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", function (d) {return x(meta_review_deadline)})
+            .attr("y1", 0)
+            .attr("x2", function (d) {return x(meta_review_deadline)})
+            .attr("y2", height); 
 
 
             svg.append("g")
