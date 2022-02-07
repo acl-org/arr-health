@@ -1,4 +1,8 @@
 {
+    "iteration": "November 2021",
+    "submission-deadline": "2021-11-15",
+    "review-deadline": "2021-12-15",
+    "meta-deadline": "2021-12-20",
     "submissions": 2585,
     "withdrawn": 192,
     "desk-rejects": 139,
@@ -10,11 +14,7 @@
     "reassignments": 50,
     "ae-assigned": 358,
     "rev-assigned": 2500,
-    "ae-load-avg": 7.22,
-    "ae-load-max": 19,
-    "ae-load-min": 1,
-    "rev-load-avg": 3.84,
-    "rev-load-max": 9,
-    "rev-load-min": 1,
+    "meta-progress": 100.0,
+    "rev-progress": 100.0,
     "ethical-concerns": 417
 }
