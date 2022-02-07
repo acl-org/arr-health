@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+<meta name="robots" content="noindex">
+<title>ARR Dashboard</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+        
+<!-- Create a div where the graph will take place -->
+
+<div class="container">
+    <header class="blog-header pb-2 pt-4">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-3 pt-1">
+          <!-- <a class="link-secondary" href="#">Subscribe</a> -->
+        </div>
+        <div class="col-6 text-center">
+            <div class="row justify-content-center">
+                <div class="col-3 align-self-center">
+                    <img src="ARR.png" class="img-fluid">
+                </div>
+            </div>
+          <a class="blog-header-logo text-dark pt-2" href="#">November 2021</a>
+        </div>
+        <div class="col-3 d-flex justify-content-end align-items-center">
+          <!-- <a class="link-secondary" href="#" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+          </a> -->
+          <!-- <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
+        </div>
+      </div>
+    </header>
+
+
+    <!-- <div class="d-flex justify-content-center">
+        <div id="my_dataviz"></div>
+    </div> -->
+
+    <div class="row pt-5">
+        <h2 style="color: #2e7d32"><i class="fas fa-sign-in-alt"></i> &nbsp;Submission Statistics</h2>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Active Submissions:</h4> <h3 class="counter" id="field-submissions">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Withdrawn Submissions:</h4> <h3 class="counter" id="field-withdrawn">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Desk Rejected Submissions:</h4> <h3 class="counter" id="field-desk-rejects">0</h3>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Opted-in Anonymous Preprints:</h4> <h3 class="counter" id="field-existing-preprint">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Disclosed Preprints (ArXiv):</h4> <h3 class="counter" id="field-preprint">0</h3>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Resubmissions:</h4> <h3 class="counter" id="field-resubmissions">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Reviewer Reassignment Requests:</h4> <h3 class="counter" id="field-reassignments">0</h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row pt-5">
+        <h2 style="color: #283593"><i class="fas fa-user-friends"></i> &nbsp;Reviewer Statistics</h2>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Area Chair Pool Size:</h4> <h3 class="counter" id="field-ae-pool">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Area Chairs Assigned:</h4> <h3 class="counter" id="field-ae-assigned">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Area Chairs Load (Avg, Max, Min):</h4> <h3 id="ae-load">
+                    <div class="row">
+                        <div class="col-4">
+                            <h3 class="counter" id="field-ae-load-avg">
+                                0
+                            </h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" id="field-ae-load-max">
+                                0
+                            </h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" id="field-ae-load-min">
+                                0
+                            </h4>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Reviewer Pool Size:</h4> <h3 class="counter" id="field-rev-pool">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Reviewers Assigned:</h4> <h3 class="counter" id="field-rev-assigned">0</h3>
+            </div>
+            <div class="col-4">
+                <h4>Reviewers Load (Avg, Max, Min):</h4> <h3 id="rev-load">
+                    <div class="row">
+                        <div class="col-4">
+                            <h3 class="counter" id="field-rev-load-avg">
+                                0
+                            </h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" id="field-rev-load-max">
+                                0
+                            </h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="counter" id="field-rev-load-min">
+                                0
+                            </h4>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <h2 style="color: #c62828"><i class="far fa-file-alt"></i> &nbsp;Review Statistics</h2>
+        <h5 class="pt-3"> Color Codes: <span style="color: #1976d2">Review</span>, <span style="color: #e64a19">Meta Review</span></h5>
+        <div class="row pt-2">
+            <h4>Score distributions</h4>
+            <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
+            <div class="col-6">
+                <div id="revscoreviz"></div>
+            </div>
+            <div class="col-6">
+                <div id="metascoreviz"></div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <h4>Review Turnaround Times</h4>
+            <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
+            <div id="revturnaroundviz"></div>
+        </div>
+        <p>* To avoid biasing reviewers, review statistics will be disabled when an iteration is in progress </p>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Flagged for Ethics Review:</h4> <h3 class="counter" id="field-ethical-concerns">0</h3>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer class="py-3 my-4">
+        <!-- <p class="text-center text-muted">University of Washington</p> -->
+      </footer>
+</div>
+</body>
+<style>
+    .counter {
+      color:#999
+  }
+</style>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<!-- <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<script src="https://d3js.org/d3-voronoi.v1.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/2.7.4/d3.geom.min.js"></script> -->
+<!-- <script src="d3.geom.concaveHull.js" charset="utf-8" type="text/javascript"></script> -->
+<script src="https://unpkg.com/d3fc@12.1.0"></script>
+
+<script>
+    d3.json('dashboard_stats.json').then(function(data) {
+        for (const [k, v] of Object.entries(data)) {
+            if (k != 'distributions') {
+                d3.select("#field-" + k).attr("data-target", v)
+                // d3.select("#field-" + k).text(v)
+                // console.log(k, v)
+            }
+        }
+
+        const counters = document.querySelectorAll('.counter');
+        const speed = 20;
+
+        counters.forEach((counter) => {
+            const updateCount = () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText)
+                var increment = Math.trunc(target / speed);
+                if (increment == 0) {
+                    increment = 1
+                }
+
+                if (count < target) {
+                    counter.innerHTML = count + increment;
+                    setTimeout(updateCount, 30);
+                } else { 
+                    counter.innerHTML = target;
+                }
+            };
+        updateCount();
+        });
+
+    });
+    var meta_color = "#e64a19"
+    var review_color = "#1976d2"
+
+    function draw_scores(selector, type) {
+
+        var margin = {top: 10, right: 30, bottom: 30, left: 40},
+            width = 600 - margin.left - margin.right,
+            height = 250 - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+                .domain([0.5, 5])
+                .rangeRound([0, width]);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+
+        var svg = d3.select(selector).append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("review_scores.csv").then(function(data) {
+
+            data.forEach(function(d) {
+                d.score = parseFloat(d.score);
+                d.value = parseInt(d.value)
+            });
+
+            var barwidth = Math.floor(1.3 * width / data.length)
+            var review_data = data.filter(d => d.type == type)
+
+            y.domain([0, d3.max(review_data, function(d) {return d.value})]);
+
+            var rects = svg
+            .selectAll()
+            .data(review_data).enter().append("g")
+            .append("rect")
+
+            rects
+            .attr('x', function(d) { return x(d.score) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr('opacity', 0.2);
+
+            rects
+            .data(review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d.score); })
+            .y(function(d) { return y(d.value); }));
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+            
+        });
+    }
+
+    draw_scores("#revscoreviz", "review")
+    draw_scores("#metascoreviz", "meta")
+
+    function draw_review_time() {
+
+        const getDatesBetween = (startDate, endDate, includeEndDate) => {
+        const dates = [];
+        const currentDate = startDate;
+        while (currentDate < endDate) {
+            dates.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        if (includeEndDate) 
+            dates.push(endDate);
+            return dates;
+        };
+
+
+        margin = {top: 10, right: 30, bottom: 30, left: 40},
+            width = 1200 - margin.left - margin.right,
+            height = 250 - margin.top - margin.bottom;
+
+        var parseDate = d3.timeParse("%Y-%m-%d");
+
+        x = d3.scaleTime()
+                .rangeRound([0, width]);
+        y = d3.scaleLinear()
+                .range([height, 0]);
+
+        svg = d3.select("#revturnaroundviz").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("review_dates.csv").then(function(data) {
+
+            data.forEach(function(d) {
+                d.date = parseDate(d.dtg);
+                d.value = parseInt(d.value)
+            });
+
+            x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
+            y.domain([0, d3.max(data, function(d) {return d.value})]);
+
+            var startDate = x.domain()[0]
+            var endDate = x.domain()[1]
+            var review_deadline = new Date(2021, 11, 27)
+            var meta_review_deadline = new Date(2022, 00, 08)
+            console.log(review_deadline)
+            
+            var barwidth = Math.floor(width / getDatesBetween(startDate, endDate).length)
+            var meta_color = "#e64a19"
+            var review_color = "#1976d2"
+
+            var review_data = data.filter(d => d.type == "review")
+            var meta_review_data = data.filter(d => d.type == "meta")
+
+            review_rects = svg
+            .selectAll()
+            .data(review_data).enter().append("g")
+            .append("rect")
+            .attr('x', function(d) { return x(d.date) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', review_color)
+            .attr('opacity', 0.2);
+
+            review_rects
+            .data(review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            meta_rects = svg
+            .selectAll()
+            .data(meta_review_data).enter().append("g")
+            .append("rect")
+            .attr('x', function(d) { return x(d.date) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', meta_color)
+            .attr('opacity', 0.2);
+
+            meta_rects
+            .data(meta_review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", review_color)
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.value); }));
+
+            svg.append("path")
+            .datum(meta_review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", meta_color)
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.value); }));
+
+
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", function (d) {return x(review_deadline)})
+            .attr("y1", 0)
+            .attr("x2", function (d) {return x(review_deadline)})
+            .attr("y2", height);
+
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", function (d) {return x(meta_review_deadline)})
+            .attr("y1", 0)
+            .attr("x2", function (d) {return x(meta_review_deadline)})
+            .attr("y2", height); 
+
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+            
+        });
+    }
+
+    draw_review_time()
+
+</script>

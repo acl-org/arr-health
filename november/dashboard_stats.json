@@ -1,0 +1,20 @@
+{
+    "submissions": 2585,
+    "withdrawn": 192,
+    "desk-rejects": 139,
+    "ae-pool": 400,
+    "rev-pool": 3582,
+    "preprint": 878,
+    "existing-preprint": 354,
+    "resubmissions": 208,
+    "reassignments": 50,
+    "ae-assigned": 358,
+    "rev-assigned": 2500,
+    "ae-load-avg": 7.22,
+    "ae-load-max": 19,
+    "ae-load-min": 1,
+    "rev-load-avg": 3.84,
+    "rev-load-max": 9,
+    "rev-load-min": 1,
+    "ethical-concerns": 417
+}
