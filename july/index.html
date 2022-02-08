@@ -448,9 +448,15 @@
             .x(function(d) { return x(d.score); })
             .y(function(d) { return y(d.value); }));
 
-            svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x));
+            if (type == "meta") {
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x).ticks(6));
+            } else {
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x));
+            }
 
             svg.append("g")
                 .call(d3.axisLeft(y));
