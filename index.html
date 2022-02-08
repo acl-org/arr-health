@@ -44,7 +44,25 @@
         </div>
       </div>
     </header>
-    <div id="iterations" class="mt-5">
+    <h2 class="mt-5"><i class="fas fa-chart-line"></i> &nbsp;Overall Statistics</h2>
+    <div class="row mt-4">
+      <div class="col-12">
+        <h4>Number of Submissions</h4>
+        <div id="allsubsviz"></div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-6">
+        <h4>Number of Reviewers</h4>
+        <div id="allsubsviz"></div>
+      </div>
+      <div class="col-6">
+        <h4>Number of Area Chairs</h4>
+        <div id="allsubsviz"></div>
+      </div>
+    </div> -->
+    <h2 class="mt-5"><i class="fas fa-stream"></i> &nbsp;Individual ARR Iterations</h2>
+    <div id="iterations" class="mt-3">
         
     </div>
 
@@ -94,6 +112,9 @@ var month_stats = []
 
 $('#iterations').html('')
 
+var total_subs = []
+var parseDate = d3.timeParse("%Y-%m-%d");
+
 for (i=0; i < months.length; i++) {
     var submissions = 0
     var review_progress = 0
@@ -110,6 +131,10 @@ for (i=0; i < months.length; i++) {
         review_progress = data['rev-progress']
         meta_progress = data['meta-progress']
         iteration = data['iteration']
+
+        sub_deadline = data['submission-deadline']
+
+        total_subs.push({'submissions':submissions, 'month': parseDate(sub_deadline)})
 
         $('#iterations').append(`
           <a href="/arr-health/` + k + `/">
@@ -153,6 +178,51 @@ $(function () {
 		          }
 		      });
 		  });
+
+function draw_times(selector) {
+
+  margin = {top: 10, right: 30, bottom: 30, left: 40},
+      width = 1200 - margin.left - margin.right,
+      height = 250 - margin.top - margin.bottom;
+
+  var x = d3.scaleTime()
+          .domain([d3.min(total_subs, function(d) {return d.month}), d3.max(total_subs, function(d) {return d.month})])
+          .rangeRound([0, width]);
+
+  var y = d3.scaleLinear()
+          .domain([0, d3.max(total_subs, function(d) {return d.submissions})])
+          .range([height, 0]);
+
+  var svg = d3.select(selector).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("path")
+  .datum(total_subs)
+  .transition()
+  .delay(function(d,i){ return 1000*i; }) 
+  .duration(1200)
+  .attr("fill", "none")
+  .attr("stroke", "#d32f2f")
+  .attr("stroke-width", 1.5)
+  .attr("stroke-linejoin", "round")
+  .attr("d",  d3.line()
+  .curve(d3.curveBasis)
+  .x(function(d) { return x(d.month); })
+  .y(function(d) { return y(d.submissions); }));
+
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  svg.append("g")
+      .call(d3.axisLeft(y));
+}
+
+draw_times("#allsubsviz")
 
 </script>
 
