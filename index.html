@@ -100,235 +100,232 @@
 var meta_color = "#e64a19"
 var review_color = "#1976d2"
 
-var months = [
-    ["december", "https://source.unsplash.com/OsNQITphjQQ"],
-    ["november", "https://source.unsplash.com/vLbtQEx64RU"],
-    ["october", "https://source.unsplash.com/zeInZepl_Hw"],
-    ["september", "https://source.unsplash.com/uN0bkEFyhJ8"],
-    ["august", "https://source.unsplash.com/znT5MmTjASY"],
-    ["july", "https://source.unsplash.com/FCxrLk4-WVY"],
-    ["june", "https://source.unsplash.com/RWeO3t9FxG0"],
-    ["may", "https://source.unsplash.com/BxT5oqgztNc"]
-]
+d3.json('months.json').then(function(data) {
 
-var month_stats = []
+  months = []
 
-$('#iterations').html('')
-
-var total_subs = []
-var aes = []
-var revs = []
-var parseDate = d3.timeParse("%Y-%m-%d");
-
-function dtom(date) {
-  splits = date.split('-')
-  return splits[0] + '-' + splits[1] + '-01'
-}
-
-for (i=0; i < months.length; i++) {
-    var submissions = 0
-    var review_progress = 0
-    var meta_progress = 0
-    var k = months[i][0]
-    var v = months[i][1]
-
-    $.ajax({
-      dataType: "json",
-      url: k + '/dashboard_stats.json',
-      async: false, 
-      success: function(data) {
-        submissions = data['submissions']
-        review_progress = data['rev-progress']
-        meta_progress = data['meta-progress']
-        iteration = data['iteration']
-
-        sub_deadline = data['submission-deadline']
-        ae_pool = data['ae-pool']
-        rev_pool = data['rev-pool']
-        ae_assigned = data['ae-assigned']
-        rev_assigned = data['rev-assigned']
-
-        total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
-        aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline))})
-        revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline))})
-
-        $('#iterations').append(`
-                      <div class="col-6">
-                      <a href="/arr-health/` + k + `/">
-                      <div class="card img-fluid flex-md-row mb-4 shadow h-md-250">
-                          <img class="card-img-top" src="` + v + `">
-                          <div class="card-img-overlay">
-                              <div class="card-body d-flex flex-column align-items-start align-self-end">
-                              <h2 class="mb-0">
-                                  <strong class="text-dark" href="#">` + iteration + `</strong>
-                              </h2>
-                              <!-- <div class="mb-1 text-muted">Nov 12</div> -->
-                              <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Review Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6>
-                              <!-- <a href="#">Continue reading</a> -->
-                              </div>
-                          </div>
-                      </div>
-                      </a>
-                      </div>
-          `);
-      }
-    });
-};
-
-$(function () {
-		      $.each(document.images, function () {
-		          var this_image = this;
-		          var src = $(this_image).attr('src') || '';
-		          if (!src.length > 0) {
-		              //this_image.src = options.loading; // show loading
-		              var lsrc = $(this_image).attr('lsrc') || '';
-		              if (lsrc.length > 0) {
-		                  var img = new Image();
-		                  img.src = lsrc;
-		                  $(img).on('load', function () {
-		                      this_image.src = this.src;
-		                  });
-		              }
-		          }
-		      });
-		  });
-
-function draw_times(selector) {
-
-  margin = {top: 10, right: 30, bottom: 30, left: 40},
-      width = 1200 - margin.left - margin.right,
-      height = 250 - margin.top - margin.bottom;
-
-  var x = d3.scaleTime()
-          .domain([d3.min(total_subs, function(d) {return d.month}), d3.max(total_subs, function(d) {return d.month})])
-          .rangeRound([0, width]);
-
-  var y = d3.scaleLinear()
-          .domain([0, d3.max(total_subs, function(d) {return d.submissions})])
-          .range([height, 0]);
-
-  var svg = d3.select(selector).append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", 
-          "translate(" + margin.left + "," + margin.top + ")");
-
-  svg.append("path")
-  .datum(total_subs)
-  .transition()
-  .delay(function(d,i){ return 1000*i; }) 
-  .duration(1200)
-  .attr("fill", "none")
-  .attr("stroke", "#388e3c")
-  .attr("stroke-width", 1.5)
-  .attr("stroke-linejoin", "round")
-  .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0.8))
-  .x(function(d) { return x(d.month); })
-  .y(function(d) { return y(d.submissions); }));
-
-  svg.selectAll("g.dot")
-  .data(total_subs)
-  .enter().append('g')
-  .append("circle")
-  .attr("cx", function (d) { return x(d.month); } )
-  .attr("cy", function (d) { return y(d.submissions); } )
-  .attr("r", 4)
-  .style("stroke", "#388e3c")
-  .attr("stroke-width", 2)
-  .style("fill",  "#fff")
-
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  svg.append("g")
-      .call(d3.axisLeft(y));
-}
-
-draw_times("#allsubsviz")
-
-
-function draw_reviewers(selector, type) {
-
-  margin = {top: 10, right: 30, bottom: 30, left: 40},
-      width = 600 - margin.left - margin.right,
-      height = 250 - margin.top - margin.bottom;
-
-  if (type == "review") {
-    data = revs
-    color = review_color
-  } else {
-    data = aes
-    color = meta_color
+  for (const [k, v] of Object.entries(data)) {
+      months.push([k, v])
   }
-  var x = d3.scaleTime()
-          .domain([d3.min(data, function(d) {return d.month}), d3.max(data, function(d) {return d.month})])
-          .rangeRound([0, width]);
 
-  var y = d3.scaleLinear()
-          .domain([0, d3.max(data, function(d) {return d.total})])
-          .range([height, 0]);
+  var month_stats = []
 
-  var svg = d3.select(selector).append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", 
-          "translate(" + margin.left + "," + margin.top + ")");
+  $('#iterations').html('')
 
-  svg.append("path")
-  .datum(data)
-  .transition()
-  .delay(function(d,i){ return 1000*i; }) 
-  .duration(1200)
-  .attr("fill", "none")
-  .attr("stroke", "#ddd")
-  .attr("stroke-width", 1.5)
-  .attr("stroke-linejoin", "round")
-  .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0.8))
-  .x(function(d) { return x(d.month); })
-  .y(function(d) { return y(d.total); }));
+  var total_subs = []
+  var aes = []
+  var revs = []
+  var parseDate = d3.timeParse("%Y-%m-%d");
+
+  function dtom(date) {
+    splits = date.split('-')
+    return splits[0] + '-' + splits[1] + '-01'
+  }
+
+  for (i=0; i < months.length; i++) {
+      var submissions = 0
+      var review_progress = 0
+      var meta_progress = 0
+      var k = months[i][0]
+      var v = months[i][1]
+
+      $.ajax({
+        dataType: "json",
+        url: k + '/dashboard_stats.json',
+        async: false, 
+        success: function(data) {
+          submissions = data['submissions']
+          review_progress = data['rev-progress']
+          meta_progress = data['meta-progress']
+          iteration = data['iteration']
+
+          sub_deadline = data['submission-deadline']
+          ae_pool = data['ae-pool']
+          rev_pool = data['rev-pool']
+          ae_assigned = data['ae-assigned']
+          rev_assigned = data['rev-assigned']
+
+          total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
+          aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline))})
+          revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline))})
+
+          $('#iterations').append(`
+                        <div class="col-6">
+                        <a href="/arr-health/` + k + `/">
+                        <div class="card img-fluid flex-md-row mb-4 shadow h-md-250">
+                            <img class="card-img-top" src="` + v + `">
+                            <div class="card-img-overlay">
+                                <div class="card-body d-flex flex-column align-items-start align-self-end">
+                                <h2 class="mb-0">
+                                    <strong class="text-dark" href="#">` + iteration + `</strong>
+                                </h2>
+                                <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+                                <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Review Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6>
+                                <!-- <a href="#">Continue reading</a> -->
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                        </div>
+            `);
+        }
+      });
+  };
+
+  $(function () {
+            $.each(document.images, function () {
+                var this_image = this;
+                var src = $(this_image).attr('src') || '';
+                if (!src.length > 0) {
+                    //this_image.src = options.loading; // show loading
+                    var lsrc = $(this_image).attr('lsrc') || '';
+                    if (lsrc.length > 0) {
+                        var img = new Image();
+                        img.src = lsrc;
+                        $(img).on('load', function () {
+                            this_image.src = this.src;
+                        });
+                    }
+                }
+            });
+        });
+
+  function draw_times(selector) {
+
+    margin = {top: 10, right: 30, bottom: 30, left: 40},
+        width = 1200 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
+
+    var x = d3.scaleTime()
+            .domain([d3.min(total_subs, function(d) {return d.month}), d3.max(total_subs, function(d) {return d.month})])
+            .rangeRound([0, width]);
+
+    var y = d3.scaleLinear()
+            .domain([0, d3.max(total_subs, function(d) {return d.submissions})])
+            .range([height, 0]);
+
+    var svg = d3.select(selector).append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", 
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.append("path")
+    .datum(total_subs)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", "#388e3c")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.submissions); }));
+
+    svg.selectAll("g.dot")
+    .data(total_subs)
+    .enter().append('g')
+    .append("circle")
+    .attr("cx", function (d) { return x(d.month); } )
+    .attr("cy", function (d) { return y(d.submissions); } )
+    .attr("r", 4)
+    .style("stroke", "#388e3c")
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+  }
+
+  draw_times("#allsubsviz")
 
 
-  svg.append("path")
-  .datum(data)
-  .transition()
-  .delay(function(d,i){ return 1000*i; }) 
-  .duration(1200)
-  .attr("fill", "none")
-  .attr("stroke", color)
-  .attr("stroke-width", 1.5)
-  .attr("stroke-linejoin", "round")
-  .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0.8))
-  .x(function(d) { return x(d.month); })
-  .y(function(d) { return y(d.assigned); }));
+  function draw_reviewers(selector, type) {
 
-  svg.selectAll("g.dot")
-  .data(data)
-  .enter().append('g')
-  .append("circle")
-  .attr("cx", function (d) { return x(d.month); } )
-  .attr("cy", function (d) { return y(d.assigned); } )
-  .attr("r", 4)
-  .style("stroke", color)
-  .attr("stroke-width", 2)
-  .style("fill",  "#fff")
+    margin = {top: 10, right: 30, bottom: 30, left: 40},
+        width = 600 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
 
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+    if (type == "review") {
+      data = revs
+      color = review_color
+    } else {
+      data = aes
+      color = meta_color
+    }
+    var x = d3.scaleTime()
+            .domain([d3.min(data, function(d) {return d.month}), d3.max(data, function(d) {return d.month})])
+            .rangeRound([0, width]);
 
-  svg.append("g")
-      .call(d3.axisLeft(y));
-}
+    var y = d3.scaleLinear()
+            .domain([0, d3.max(data, function(d) {return d.total})])
+            .range([height, 0]);
 
-draw_reviewers("#aeviz", "meta")
-draw_reviewers("#revviz", "review")
+    var svg = d3.select(selector).append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", 
+            "translate(" + margin.left + "," + margin.top + ")");
 
+    svg.append("path")
+    .datum(data)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", "#ddd")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.total); }));
+
+
+    svg.append("path")
+    .datum(data)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", color)
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.assigned); }));
+
+    svg.selectAll("g.dot")
+    .data(data)
+    .enter().append('g')
+    .append("circle")
+    .attr("cx", function (d) { return x(d.month); } )
+    .attr("cy", function (d) { return y(d.assigned); } )
+    .attr("r", 4)
+    .style("stroke", color)
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+  }
+
+  draw_reviewers("#aeviz", "meta")
+  draw_reviewers("#revviz", "review")
+});
 </script>
 
 </html>
