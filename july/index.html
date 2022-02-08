@@ -34,9 +34,9 @@
                     <img src="ARR.png" class="img-fluid">
                 </div>
             </div>
-          <a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">Dashboard</a>
+          <strong><a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">Dashboard</a></strong>
         </div>
-        <div class="col-3 d-flex justify-content-end align-items-center">
+        <div class="col-3 d-flex align-items-center">
           <!-- <a class="link-secondary" href="#" aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
           </a> -->
@@ -45,9 +45,70 @@
       </div>
     </header>
 
+    <!-- <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <li class="nav-item text-left"> 
+                <a class="p-2 text-muted text-left" href="#">ACL Rolling Review Website</a> <br>
+                <a class="p-2 text-muted" href="#">Open Review Submission Website</a>
+            </li>
 
-    <!-- <div class="d-flex justify-content-center">
-        <div id="my_dataviz"></div>
+            <li>
+                <a class="p-2 text-muted" href="#">Submission Deadline</a> <br>
+                <a class="p-2 text-muted" href="#">Review Deadline</a> <br>
+                <a class="p-2 text-muted" href="#">Meta Review Deadline</a>
+            </li>
+        </nav>
+      </div> -->
+
+      <div class="row">
+          <div class="col-6">
+              <p class="text-start">
+                <span class="p-2 text-muted" href="#">Submission Deadline: <span class="info" id="field-submission-deadline"></span></span> <br>
+                <span class="p-2 text-muted" href="#">Review Deadline: <span class="info" id="field-review-deadline"></span></span><br>
+                <span class="p-2 text-muted" href="#">Meta Review Deadline: <span class="info" id="field-meta-deadline"></span>
+              </p>
+          </div>
+          <div class="col-6 mt-auto">
+            <p class="text-end">
+              <a class="p-2 text-muted" target="_blank" href="https://aclrollingreview.org/">ACL Rolling Review Website</a> <br>
+              <a class="p-2 text-muted" target="_blank" id="or_website" href="#">OpenReview Submission Website</a>
+            </p>
+        </div>
+      </div>
+
+
+    <!-- <div class="row pt-5">
+        <h2 style="color: #000"><i class="fas fa-info-circle"></i> &nbsp;Information</h2>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Submission Deadline:</h4> <h3 class="info" id="field-submission-deadline">0</h3>
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                
+            </div>
+            <div class="col-4">
+                
+            </div>
+        </div>
+
     </div> -->
 
     <div class="row pt-5">
@@ -227,6 +288,15 @@
         }
 
         d3.select("#field-iteration").text(d3.select("#field-iteration").attr("data-target"));
+
+        d3.select("#field-submission-deadline").text(d3.select("#field-submission-deadline").attr("data-target"));
+        d3.select("#field-review-deadline").text(d3.select("#field-review-deadline").attr("data-target"));
+        d3.select("#field-meta-deadline").text(d3.select("#field-meta-deadline").attr("data-target"));
+        d3.select("#or_website").text(d3.select("#field-iteration").attr("data-target") + " OpenReview Site");
+        var my = d3.select("#field-iteration").attr("data-target").split(' ')
+        d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
+
+        
 
         const counters = document.querySelectorAll('.counter');
         const speed = 20;
