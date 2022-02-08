@@ -219,7 +219,7 @@ function draw_times(selector) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveBasis)
+  .curve(d3.curveCardinal.tension(0.3))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.submissions); }));
 
@@ -272,7 +272,7 @@ function draw_reviewers(selector, type) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveBasis)
+  .curve(d3.curveCardinal.tension(0.3))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.total); }));
 
@@ -287,7 +287,7 @@ function draw_reviewers(selector, type) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveBasis)
+  .curve(d3.curveCardinal.tension(0.3))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.assigned); }));
 
