@@ -260,6 +260,9 @@ d3.json('months.json').then(function(data) {
       data = aes
       color = meta_color
     }
+
+    non_null_data = data.filter(d => d.assigned !== null)
+
     var x = d3.scaleTime()
             .domain([d3.min(data, function(d) {return d.month}), d3.max(data, function(d) {return d.month})])
             .rangeRound([0, width]);
@@ -291,7 +294,7 @@ d3.json('months.json').then(function(data) {
 
 
     svg.append("path")
-    .datum(data)
+    .datum(non_null_data)
     .transition()
     .delay(function(d,i){ return 1000*i; }) 
     .duration(1200)
@@ -305,7 +308,7 @@ d3.json('months.json').then(function(data) {
     .y(function(d) { return y(d.assigned); }));
 
     svg.selectAll("g.dot")
-    .data(data)
+    .data(non_null_data)
     .enter().append('g')
     .append("circle")
     .attr("cx", function (d) { return x(d.month); } )

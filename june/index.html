@@ -103,10 +103,10 @@
             <div class="col-4">
                 <h4>Area Chair Pool Size:</h4> <h3 class="counter" id="field-ae-pool">0</h3>
             </div>
-            <div class="col-4">
+            <div class="col-4 in-progress">
                 <h4>Area Chairs Assigned:</h4> <h3 class="counter" id="field-ae-assigned">0</h3>
             </div>
-            <div class="col-4">
+            <div class="col-4 in-progress">
                 <h4>Area Chairs Paper Load:</h4> <h3 id="ae-load">
                     <!-- <div class="row">
                         <div class="col-4">
@@ -133,10 +133,10 @@
             <div class="col-4">
                 <h4>Reviewer Pool Size:</h4> <h3 class="counter" id="field-rev-pool">0</h3>
             </div>
-            <div class="col-4">
+            <div class="col-4 in-progress">
                 <h4>Reviewers Assigned:</h4> <h3 class="counter" id="field-rev-assigned">0</h3>
             </div>
-            <div class="col-4">
+            <div class="col-4 in-progress">
                 <h4>Reviewers Paper Load:</h4> <h3 id="rev-load">
                     <!-- <div class="row">
                         <div class="col-4">
@@ -175,7 +175,7 @@
                 <h4>Flagged for Ethics Review:</h4> <h3 class="counter" id="field-ethical-concerns">0</h3>
             </div>
         </div>
-        <div class="row pt-2">
+        <div class="row pt-2 in-progress">
             <h4>Score distributions</h4>
             <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
             <div class="col-6">
@@ -185,7 +185,7 @@
                 <div id="metascoreviz"></div>
             </div>
         </div>
-        <div class="row pt-2">
+        <div class="row pt-2 in-progress">
             <h4>Review Turnaround Times</h4>
             <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
             <div id="revturnaroundviz"></div>
@@ -243,6 +243,14 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
+
+    function fileExists(url)
+    {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        return http.status!=404;
+    }
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var formatDate = d3.timeFormat("%d %b %Y")
@@ -353,9 +361,6 @@
             
         });
         }
-    
-    draw_loads("#aeloadviz", "meta")
-    draw_loads("#revloadviz", "review")
 
     function draw_scores(selector, type) {
 
@@ -438,9 +443,6 @@
             
         });
     }
-
-    draw_scores("#revscoreviz", "review")
-    draw_scores("#metascoreviz", "meta")
 
     function draw_review_time() {
 
@@ -595,6 +597,14 @@
         });
     }
 
-    draw_review_time()
+    if (fileExists('review_dates.csv')) {
+        draw_loads("#aeloadviz", "meta")
+        draw_loads("#revloadviz", "review")
+        draw_scores("#revscoreviz", "review")
+        draw_scores("#metascoreviz", "meta")
+        draw_review_time()
+    } else {
+        document.querySelectorAll(".in-progress").forEach(el => el.remove());
+    }
 
 </script>
