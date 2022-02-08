@@ -275,6 +275,7 @@
 <script>
 
     var parseDate = d3.timeParse("%Y-%m-%d");
+    var formatDate = d3.timeFormat("%d %b %Y")
 
     d3.json('dashboard_stats.json').then(function(data) {
 
@@ -289,9 +290,9 @@
 
         d3.select("#field-iteration").text(d3.select("#field-iteration").attr("data-target"));
 
-        d3.select("#field-submission-deadline").text(d3.select("#field-submission-deadline").attr("data-target"));
-        d3.select("#field-review-deadline").text(d3.select("#field-review-deadline").attr("data-target"));
-        d3.select("#field-meta-deadline").text(d3.select("#field-meta-deadline").attr("data-target"));
+        d3.select("#field-submission-deadline").text(formatDate(parseDate(d3.select("#field-submission-deadline").attr("data-target"))));
+        d3.select("#field-review-deadline").text(formatDate(parseDate(d3.select("#field-review-deadline").attr("data-target"))));
+        d3.select("#field-meta-deadline").text(formatDate(parseDate(d3.select("#field-meta-deadline").attr("data-target"))));
         d3.select("#or_website").text(d3.select("#field-iteration").attr("data-target") + " OpenReview Site");
         var my = d3.select("#field-iteration").attr("data-target").split(' ')
         d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
