@@ -51,18 +51,18 @@
         <div id="allsubsviz"></div>
       </div>
     </div>
-    <!-- <div class="row">
+    <div class="row mt-4">
       <div class="col-6">
-        <h4>Number of Reviewers</h4>
-        <div id="allsubsviz"></div>
+        <h4>Total and Assigned Area Chairs</h4>
+        <div id="aeviz"></div>
       </div>
       <div class="col-6">
-        <h4>Number of Area Chairs</h4>
-        <div id="allsubsviz"></div>
+        <h4>Total and Assigned Reviewers</h4>
+        <div id="revviz"></div>
       </div>
-    </div> -->
-    <h2 class="mt-5"><i class="fas fa-stream"></i> &nbsp;Individual ARR Iterations</h2>
-    <div id="iterations" class="mt-3">
+    </div>
+    <h2 class="mt-5 pt-5"><i class="fas fa-stream"></i> &nbsp;Individual ARR Iterations</h2>
+    <div id="iterations" class="mt-3 row">
         
     </div>
 
@@ -97,6 +97,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
+var meta_color = "#e64a19"
+var review_color = "#1976d2"
+
 var months = [
     ["december", "https://source.unsplash.com/OsNQITphjQQ"],
     ["november", "https://source.unsplash.com/vLbtQEx64RU"],
@@ -113,6 +116,8 @@ var month_stats = []
 $('#iterations').html('')
 
 var total_subs = []
+var aes = []
+var revs = []
 var parseDate = d3.timeParse("%Y-%m-%d");
 
 for (i=0; i < months.length; i++) {
@@ -133,13 +138,18 @@ for (i=0; i < months.length; i++) {
         iteration = data['iteration']
 
         sub_deadline = data['submission-deadline']
+        ae_pool = data['ae-pool']
+        rev_pool = data['rev-pool']
+        ae_assigned = data['ae-assigned']
+        rev_assigned = data['rev-assigned']
 
         total_subs.push({'submissions':submissions, 'month': parseDate(sub_deadline)})
+        aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(sub_deadline)})
+        revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(sub_deadline)})
 
         $('#iterations').append(`
-          <a href="/arr-health/` + k + `/">
-                  <div class="row m-2">
-                      <div class="col-md-12">
+                      <div class="col-6">
+                      <a href="/arr-health/` + k + `/">
                       <div class="card img-fluid flex-md-row mb-4 shadow h-md-250">
                           <img class="card-img-top" src="` + v + `">
                           <div class="card-img-overlay">
@@ -148,14 +158,13 @@ for (i=0; i < months.length; i++) {
                                   <strong class="text-dark" href="#">` + iteration + `</strong>
                               </h2>
                               <!-- <div class="mb-1 text-muted">Nov 12</div> -->
-                              <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` | Review Progress: ` + review_progress + `% | Meta Review Progress: ` + meta_progress + `%</h6>
+                              <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Review Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6>
                               <!-- <a href="#">Continue reading</a> -->
                               </div>
                           </div>
                       </div>
+                      </a>
                       </div>
-                  </div>
-              </a>
           `);
       }
     });
@@ -206,7 +215,7 @@ function draw_times(selector) {
   .delay(function(d,i){ return 1000*i; }) 
   .duration(1200)
   .attr("fill", "none")
-  .attr("stroke", "#d32f2f")
+  .attr("stroke", "#388e3c")
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
@@ -223,6 +232,75 @@ function draw_times(selector) {
 }
 
 draw_times("#allsubsviz")
+
+
+function draw_reviewers(selector, type) {
+
+  margin = {top: 10, right: 30, bottom: 30, left: 40},
+      width = 600 - margin.left - margin.right,
+      height = 250 - margin.top - margin.bottom;
+
+  if (type == "review") {
+    data = revs
+    color = review_color
+  } else {
+    data = aes
+    color = meta_color
+  }
+  var x = d3.scaleTime()
+          .domain([d3.min(data, function(d) {return d.month}), d3.max(data, function(d) {return d.month})])
+          .rangeRound([0, width]);
+
+  var y = d3.scaleLinear()
+          .domain([0, d3.max(data, function(d) {return d.total})])
+          .range([height, 0]);
+
+  var svg = d3.select(selector).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("path")
+  .datum(data)
+  .transition()
+  .delay(function(d,i){ return 1000*i; }) 
+  .duration(1200)
+  .attr("fill", "none")
+  .attr("stroke", "#ddd")
+  .attr("stroke-width", 1.5)
+  .attr("stroke-linejoin", "round")
+  .attr("d",  d3.line()
+  .curve(d3.curveBasis)
+  .x(function(d) { return x(d.month); })
+  .y(function(d) { return y(d.total); }));
+
+
+  svg.append("path")
+  .datum(data)
+  .transition()
+  .delay(function(d,i){ return 1000*i; }) 
+  .duration(1200)
+  .attr("fill", "none")
+  .attr("stroke", color)
+  .attr("stroke-width", 1.5)
+  .attr("stroke-linejoin", "round")
+  .attr("d",  d3.line()
+  .curve(d3.curveBasis)
+  .x(function(d) { return x(d.month); })
+  .y(function(d) { return y(d.assigned); }));
+
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  svg.append("g")
+      .call(d3.axisLeft(y));
+}
+
+draw_reviewers("#aeviz", "meta")
+draw_reviewers("#revviz", "review")
 
 </script>
 
