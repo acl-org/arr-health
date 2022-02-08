@@ -120,6 +120,11 @@ var aes = []
 var revs = []
 var parseDate = d3.timeParse("%Y-%m-%d");
 
+function dtom(date) {
+  splits = date.split('-')
+  return splits[0] + '-' + splits[1] + '-01'
+}
+
 for (i=0; i < months.length; i++) {
     var submissions = 0
     var review_progress = 0
@@ -143,9 +148,9 @@ for (i=0; i < months.length; i++) {
         ae_assigned = data['ae-assigned']
         rev_assigned = data['rev-assigned']
 
-        total_subs.push({'submissions':submissions, 'month': parseDate(sub_deadline)})
-        aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(sub_deadline)})
-        revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(sub_deadline)})
+        total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
+        aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline))})
+        revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline))})
 
         $('#iterations').append(`
                       <div class="col-6">
@@ -219,9 +224,20 @@ function draw_times(selector) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0))
+  .curve(d3.curveCardinal.tension(0.8))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.submissions); }));
+
+  svg.selectAll("g.dot")
+  .data(total_subs)
+  .enter().append('g')
+  .append("circle")
+  .attr("cx", function (d) { return x(d.month); } )
+  .attr("cy", function (d) { return y(d.submissions); } )
+  .attr("r", 4)
+  .style("stroke", "#388e3c")
+  .attr("stroke-width", 2)
+  .style("fill",  "#fff")
 
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -272,7 +288,7 @@ function draw_reviewers(selector, type) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0))
+  .curve(d3.curveCardinal.tension(0.8))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.total); }));
 
@@ -287,9 +303,20 @@ function draw_reviewers(selector, type) {
   .attr("stroke-width", 1.5)
   .attr("stroke-linejoin", "round")
   .attr("d",  d3.line()
-  .curve(d3.curveCardinal.tension(0))
+  .curve(d3.curveCardinal.tension(0.8))
   .x(function(d) { return x(d.month); })
   .y(function(d) { return y(d.assigned); }));
+
+  svg.selectAll("g.dot")
+  .data(data)
+  .enter().append('g')
+  .append("circle")
+  .attr("cx", function (d) { return x(d.month); } )
+  .attr("cy", function (d) { return y(d.assigned); } )
+  .attr("r", 4)
+  .style("stroke", color)
+  .attr("stroke-width", 2)
+  .style("fill",  "#fff")
 
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")

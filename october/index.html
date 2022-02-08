@@ -365,7 +365,7 @@
             .attr("stroke-width", 1.5)
             .attr("stroke-linejoin", "round")
             .attr("d",  d3.line()
-            .curve(d3.curveCardinal.tension(0.3))
+            .curve(d3.curveCardinal.tension(0.8))
             .x(function(d) { return x(d.load); })
             .y(function(d) { return y(d.value); }));
 
@@ -444,7 +444,7 @@
             .attr("stroke-width", 1.5)
             .attr("stroke-linejoin", "round")
             .attr("d",  d3.line()
-            .curve(d3.curveCardinal.tension(0.3))
+            .curve(d3.curveCardinal.tension(0.8))
             .x(function(d) { return x(d.score); })
             .y(function(d) { return y(d.value); }));
 
@@ -568,7 +568,7 @@
             .attr("stroke-width", 1.5)
             .attr("stroke-linejoin", "round")
             .attr("d",  d3.line()
-            .curve(d3.curveCardinal.tension(0.3))
+            .curve(d3.curveCardinal.tension(0.8))
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.value); }));
 
@@ -582,7 +582,7 @@
             .attr("stroke-width", 1.5)
             .attr("stroke-linejoin", "round")
             .attr("d",  d3.line()
-            .curve(d3.curveCardinal.tension(0.3))
+            .curve(d3.curveCardinal.tension(0.8))
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.value); }));
 
