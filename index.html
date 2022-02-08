@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+<meta name="robots" content="noindex">
+<title>ARR Dashboard</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+        
+<!-- Create a div where the graph will take place -->
+
+<div class="container">
+    <header class="blog-header pb-2 pt-4">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-3 pt-1">
+          <!-- <a class="link-secondary" href="#">Subscribe</a> -->
+        </div>
+        <div class="col-6 text-center">
+            <div class="row justify-content-center">
+                <div class="col-3 align-self-center">
+                    <img src="ARR.png" class="img-fluid">
+                </div>
+            </div>
+          <a class="blog-header-logo text-dark pt-2" href="#">Health Dashboard</a>
+        </div>
+        <div class="col-3 d-flex justify-content-end align-items-center">
+          <!-- <a class="link-secondary" href="#" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+          </a> -->
+          <!-- <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
+        </div>
+      </div>
+    </header>
+    <div id="iterations" class="mt-5">
+        
+    </div>
+
+
+
+    <footer class="py-3 my-4">
+        <!-- <p class="text-center text-muted">University of Washington</p> -->
+      </footer>
+</div>
+</body>
+<style>
+    .counter {
+      color:#999
+  }
+
+  .counter-h3 {
+      color:#999
+  }
+
+  .card-img-top {
+    width: 100%;
+    /* height: 15vw; */
+    object-fit: cover;
+    opacity: 0.2;
+}
+</style>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+var months = [
+    ["december", "https://source.unsplash.com/OsNQITphjQQ"],
+    ["november", "https://source.unsplash.com/vLbtQEx64RU"],
+    ["october", "https://source.unsplash.com/zeInZepl_Hw"],
+    ["september", "https://source.unsplash.com/uN0bkEFyhJ8"],
+    ["august", "https://source.unsplash.com/znT5MmTjASY"],
+    ["july", "https://source.unsplash.com/FCxrLk4-WVY"],
+    ["june", "https://source.unsplash.com/RWeO3t9FxG0"],
+    ["may", "https://source.unsplash.com/BxT5oqgztNc"]
+]
+
+var month_stats = []
+
+$('#iterations').html('')
+
+for (i=0; i < months.length; i++) {
+    var submissions = 0
+    var review_progress = 0
+    var meta_progress = 0
+    var k = months[i][0]
+    var v = months[i][1]
+
+    $.ajax({
+      dataType: "json",
+      url: k + '/dashboard_stats.json',
+      async: false, 
+      success: function(data) {
+        submissions = data['submissions']
+        review_progress = data['rev-progress']
+        meta_progress = data['meta-progress']
+        iteration = data['iteration']
+
+        $('#iterations').append(`
+          <a href="/` + k + `/">
+                  <div class="row m-2">
+                      <div class="col-md-12">
+                      <div class="card img-fluid flex-md-row mb-4 shadow h-md-250">
+                          <img class="card-img-top" src="` + v + `">
+                          <div class="card-img-overlay">
+                              <div class="card-body d-flex flex-column align-items-start align-self-end">
+                              <h2 class="mb-0">
+                                  <strong class="text-dark" href="#">` + iteration + `</strong>
+                              </h2>
+                              <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+                              <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` | Review Progress: ` + review_progress + `% | Meta Review Progress: ` + meta_progress + `%</h6>
+                              <!-- <a href="#">Continue reading</a> -->
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
+              </a>
+          `);
+      }
+    });
+};
+
+$(function () {
+		      $.each(document.images, function () {
+		          var this_image = this;
+		          var src = $(this_image).attr('src') || '';
+		          if (!src.length > 0) {
+		              //this_image.src = options.loading; // show loading
+		              var lsrc = $(this_image).attr('lsrc') || '';
+		              if (lsrc.length > 0) {
+		                  var img = new Image();
+		                  img.src = lsrc;
+		                  $(img).on('load', function () {
+		                      this_image.src = this.src;
+		                  });
+		              }
+		          }
+		      });
+		  });
+
+</script>
+
+</html>
