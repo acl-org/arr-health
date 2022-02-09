@@ -217,7 +217,7 @@ d3.json('months.json').then(function(data) {
     .delay(function(d,i){ return 1000*i; }) 
     .duration(1200)
     .attr("fill", "none")
-    .attr("stroke", "#388e3c")
+    .attr("stroke", "#000")
     .attr("stroke-width", 1.5)
     .attr("stroke-linejoin", "round")
     .attr("d",  d3.line()
@@ -232,7 +232,7 @@ d3.json('months.json').then(function(data) {
     .attr("cx", function (d) { return x(d.month); } )
     .attr("cy", function (d) { return y(d.submissions); } )
     .attr("r", 4)
-    .style("stroke", "#388e3c")
+    .style("stroke", "#000")
     .attr("stroke-width", 2)
     .style("fill",  "#fff")
 
