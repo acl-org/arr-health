@@ -341,7 +341,7 @@
                                 (height + margin.top + 20) + ")")
             .style("text-anchor", "middle")
             .style("font-size", "10px")
-            .text("Paper Load");
+            .text("Paper Load ⟶");
 
             svg.append("text")
             .attr("transform", "rotate(-90)")
@@ -350,7 +350,7 @@
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .style("font-size", "10px")
-            .text("No. of X");
+            .text(function(d) { if (type == "review") {return "# Reviewers"} else {return "# Area Chairs"} });
             
             const xTicks = x.ticks().filter(tick => Number.isInteger(tick));
 
@@ -366,9 +366,9 @@
 
     function draw_scores(selector, type) {
 
-        var margin = {top: 10, right: 30, bottom: 30, left: 40},
+        var margin = {top: 10, right: 30, bottom: 40, left: 50},
             width = 600 - margin.left - margin.right,
-            height = 250 - margin.top - margin.bottom;
+            height = 280 - margin.top - margin.bottom;
 
         var x = d3.scaleLinear()
                 .domain([0, 5])
@@ -465,6 +465,23 @@
             .attr("alignment-baseline","middle")
             .attr("opacity", 0.7)
 
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text(function(d) { if (type == "review") {return "No. of Reviews ⟶"} else {return "No. of Meta Reviews ⟶"} });
+
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text(function(d) { if (type == "review") {return "Avg. Review Scores per Paper ⟶"} else {return "Meta Review Scores per Paper ⟶"} });
+
             if (type == "meta") {
                 svg.append("g")
                     .attr("transform", "translate(0," + height + ")")
@@ -496,9 +513,9 @@
         };
 
 
-        margin = {top: 10, right: 30, bottom: 30, left: 40},
+        margin = {top: 10, right: 30, bottom: 40, left: 60},
             width = 1200 - margin.left - margin.right,
-            height = 250 - margin.top - margin.bottom;
+            height = 300 - margin.top - margin.bottom;
 
         
 
@@ -730,6 +747,23 @@
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
             .attr("opacity", 0.7)
+
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1.2em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("No. of Reviews ⟶");
+
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Submission Date ⟶");
 
 
             svg.append("g")
