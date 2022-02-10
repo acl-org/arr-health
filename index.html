@@ -53,11 +53,11 @@
     </div>
     <div class="row mt-4">
       <div class="col-6">
-        <h4>Total and Assigned Area Chairs</h4>
+        <h4>Assigned Area Chairs</h4>
         <div id="aeviz"></div>
       </div>
       <div class="col-6">
-        <h4>Total and Assigned Reviewers</h4>
+        <h4>Assigned Reviewers</h4>
         <div id="revviz"></div>
       </div>
     </div>
@@ -320,9 +320,11 @@ d3.json('months.json').then(function(data) {
     if (type == "review") {
       data = revs
       color = review_color
+      legtext = "Assigned Reviewers"
     } else {
       data = aes
       color = meta_color
+      legtext = "Assigned Area Chairs"
     }
 
     non_null_data = data.filter(d => d.assigned !== null)
@@ -342,19 +344,19 @@ d3.json('months.json').then(function(data) {
         .attr("transform", 
             "translate(" + margin.left + "," + margin.top + ")");
 
-    svg.append("path")
-    .datum(data)
-    .transition()
-    .delay(function(d,i){ return 1000*i; }) 
-    .duration(1200)
-    .attr("fill", "none")
-    .attr("stroke", "#ddd")
-    .attr("stroke-width", 1.5)
-    .attr("stroke-linejoin", "round")
-    .attr("d",  d3.line()
-    .curve(d3.curveCardinal.tension(0.8))
-    .x(function(d) { return x(d.month); })
-    .y(function(d) { return y(d.total); }));
+    // svg.append("path")
+    // .datum(data)
+    // .transition()
+    // .delay(function(d,i){ return 1000*i; }) 
+    // .duration(1200)
+    // .attr("fill", "none")
+    // .attr("stroke", "#ddd")
+    // .attr("stroke-width", 1.5)
+    // .attr("stroke-linejoin", "round")
+    // .attr("d",  d3.line()
+    // .curve(d3.curveCardinal.tension(0.8))
+    // .x(function(d) { return x(d.month); })
+    // .y(function(d) { return y(d.total); }));
 
 
     svg.append("path")
@@ -401,28 +403,28 @@ d3.json('months.json').then(function(data) {
     legx = 25
     legy = 10
     legxoff = 15
-    legtext = "Total"
+    // legtext = "Total"
 
-    svg.append('line')
-    .style("stroke", "#ddd")
-    .style("stroke-width", 1.5)
-    .attr("x1", legx-legxoff)
-    .attr("y1", legy)
-    .attr("x2", legx+legxoff)
-    .attr("y2", legy);
+    // svg.append('line')
+    // .style("stroke", "#ddd")
+    // .style("stroke-width", 1.5)
+    // .attr("x1", legx-legxoff)
+    // .attr("y1", legy)
+    // .attr("x2", legx+legxoff)
+    // .attr("y2", legy);
 
-    svg.append("text")
-    .attr("x", legx + 20)
-    .attr("y", legy + 5)
-    .text(legtext)
-    .style("font-size", "13px")
-    .attr("alignment-baseline","middle")
-    .attr("opacity", 0.7)
+    // svg.append("text")
+    // .attr("x", legx + 20)
+    // .attr("y", legy + 5)
+    // .text(legtext)
+    // .style("font-size", "13px")
+    // .attr("alignment-baseline","middle")
+    // .attr("opacity", 0.7)
 
-    legx = 25
-    legy = 28
-    legxoff = 15
-    legtext = "Assigned"
+    // legx = 25
+    // legy = 28
+    // legxoff = 15
+    // legtext = "Assigned"
 
     svg.append('line')
     .style("stroke", color)
