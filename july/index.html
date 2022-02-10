@@ -107,26 +107,8 @@
                 <h4>Area Chairs Assigned:</h4> <h3 class="counter" id="field-ae-assigned">0</h3>
             </div>
             <div class="col-4 in-progress">
-                <h4>Area Chairs Paper Load:</h4> <h3 id="ae-load">
-                    <!-- <div class="row">
-                        <div class="col-4">
-                            <h3 class="counter" id="field-ae-load-avg">
-                                0
-                            </h4>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="counter" id="field-ae-load-max">
-                                0
-                            </h4>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="counter" id="field-ae-load-min">
-                                0
-                            </h4>
-                        </div>
-                    </div> -->
-                    <div id="aeloadviz"></div>
-                </h4>
+                <h4>Area Chairs Paper Load:</h4>
+                <div id="aeloadviz"></div>
             </div>
         </div>
         <div class="row pt-2">
@@ -137,26 +119,8 @@
                 <h4>Reviewers Assigned:</h4> <h3 class="counter" id="field-rev-assigned">0</h3>
             </div>
             <div class="col-4 in-progress">
-                <h4>Reviewers Paper Load:</h4> <h3 id="rev-load">
-                    <!-- <div class="row">
-                        <div class="col-4">
-                            <h3 class="counter" id="field-rev-load-avg">
-                                0
-                            </h4>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="counter" id="field-rev-load-max">
-                                0
-                            </h4>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="counter" id="field-rev-load-min">
-                                0
-                            </h4>
-                        </div>
-                    </div> -->
-                    <div id="revloadviz"></div>
-                </h4>
+                <h4>Reviewers Paper Load:</h4>
+                <div id="revloadviz"></div>
             </div>
         </div>
     </div>
@@ -233,7 +197,22 @@
     background-position: center center;
     }
 
-   
+    div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 10px;					
+    padding: 2px;				
+    font: 12px sans-serif;
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;		
+  }
+
+  .npointer {
+    cursor: pointer;
+  }
+
 </style>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -254,6 +233,10 @@
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var formatDate = d3.timeFormat("%d %b %Y")
+
+    var div = d3.select("body").append("div")	
+            .attr("class", "tooltip")				
+            .style("opacity", 1);
 
     d3.json('dashboard_stats.json').then(function(data) {
 
@@ -310,9 +293,9 @@
 
     function draw_loads(selector, type) {
 
-        var margin = {top: 10, right: 10, bottom: 20, left: 10},
+        var margin = {top: 10, right: 10, bottom: 35, left: 50},
             width = 350 - margin.left - margin.right,
-            height = 80 - margin.top - margin.bottom;
+            height = 100 - margin.top - margin.bottom;
 
         var x = d3.scaleLinear()
                 .rangeRound([0, width]);
@@ -352,12 +335,31 @@
             .x(function(d) { return x(d.load); })
             .y(function(d) { return y(d.value); }));
 
-            svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x));
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "10px")
+            .text("Paper Load");
+
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "10px")
+            .text("No. of X");
+            
+            const xTicks = x.ticks().filter(tick => Number.isInteger(tick));
 
             svg.append("g")
-                .call(d3.axisLeft(y).ticks(0));
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x).tickValues(xTicks).tickFormat(d3.format('d')));
+
+            svg.append("g")
+                .call(d3.axisLeft(y).ticks(2));
             
         });
         }
@@ -405,7 +407,22 @@
             .attr('height', function(d) { return height - y(0)})
             .attr('stroke', '#eee')
             .attr('fill', function(d) { if (type == "review") {return review_color} else {return meta_color} })
-            .attr('opacity', 0.2);
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
 
             rects
             .data(review_data)
@@ -427,6 +444,26 @@
             .curve(d3.curveCardinal.tension(0.8))
             .x(function(d) { return x(d.score); })
             .y(function(d) { return y(d.value); }));
+
+            legx = 25
+            legy = 10
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text(function(d) { if (type == "review") {return "Avg. Review Score"} else {return "Meta Review Score"} })
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
 
             if (type == "meta") {
                 svg.append("g")
@@ -507,7 +544,22 @@
             .attr('height', function(d) { return height - y(0)})
             .attr('stroke', '#eee')
             .attr('fill', review_color)
-            .attr('opacity', 0.2);
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", review_color)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
 
             review_rects
             .data(review_data)
@@ -526,7 +578,22 @@
             .attr('height', function(d) { return height - y(0)})
             .attr('stroke', '#eee')
             .attr('fill', meta_color)
-            .attr('opacity', 0.2);
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", meta_color)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
 
             meta_rects
             .data(meta_review_data)
@@ -580,11 +647,89 @@
                 .style("stroke", meta_color)
                 .style("stroke-width", 2)
                 .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", function (d) {return x(meta_review_deadline)})
+                .attr("x1", x(meta_review_deadline))
                 .attr("y1", 0)
-                .attr("x2", function (d) {return x(meta_review_deadline)})
+                .attr("x2", x(meta_review_deadline))
                 .attr("y2", height);
+
+                svg.append("text")
+                .attr("transform", "translate(" + x(review_deadline) + ", " + (height-10) + ")rotate(-90)")
+                .attr("dy", "-0.5em")
+                .text(formatDate(review_deadline))
+                .style("font-size", "11px")
+                .style("text-anchor", "left")
+                .style("fill", review_color)
+
+                svg.append("text")
+                .attr("transform", "translate(" + x(meta_review_deadline) + ", " + (height-10) + ")rotate(-90)")
+                .attr("dy", "-0.5em")
+                .text(formatDate(meta_review_deadline))
+                .style("font-size", "11px")
+                .style("text-anchor", "left")
+                .style("fill", meta_color)
+                
             });
+
+            legx = 25
+            legy = 10
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Review Submission Time")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            legx = 25
+            legy = 28
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Meta Review Submission Time")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            legx = 25
+            legy = 46
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", "#000")
+            .style("stroke-dasharray", ("3, 3"))
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Respective Review and Meta Review Deadlines")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
 
 
             svg.append("g")
