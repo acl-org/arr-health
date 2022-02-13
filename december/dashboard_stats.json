@@ -3,7 +3,7 @@
     "submission-deadline": "2021-12-15",
     "review-deadline": "2022-01-15",
     "meta-deadline": "2022-01-20",
-    "submissions": 179,
+    "submissions": 196,
     "withdrawn": 7,
     "desk-rejects": 10,
     "ae-pool": 343,
@@ -20,7 +20,7 @@
     "returned-revs": 624,
     "requested-mrevs": 184,
     "returned-mrevs": 176,
-    "meta-progress": 98.32,
-    "rev-progress": 100.0,
+    "meta-progress": 89.8,
+    "rev-progress": 91.33,
     "ethical-concerns": 31
 }
