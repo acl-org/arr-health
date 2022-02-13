@@ -51,6 +51,7 @@
         <div id="allsubsviz"></div>
       </div>
     </div>
+
     <div class="row mt-4">
       <div class="col-6">
         <h4>Assigned Area Chairs</h4>
@@ -61,6 +62,18 @@
         <div id="revviz"></div>
       </div>
     </div>
+
+    <div class="row mt-4">
+      <div class="col-6">
+        <h4>Requested vs. Returned Meta Reviews</h4>
+        <div id="mreviewviz"></div>
+      </div>
+      <div class="col-6">
+        <h4>Requested vs. Returned Reviews</h4>
+        <div id="reviewviz"></div>
+      </div>
+    </div>
+
     <h2 class="mt-5 pt-5"><i class="fas fa-stream"></i> &nbsp;Individual ARR Iterations</h2>
     <h5 class="my-4" style="color: #bf360c">Click (<i class="fas fa-hand-pointer"></i>) on the ARR iteration you want to check more</h5>
     <div id="iterations" class="mt-3 row">
@@ -132,6 +145,10 @@ d3.json('months.json').then(function(data) {
   var total_subs = []
   var aes = []
   var revs = []
+
+  var reviews = []
+  var mreviews = []
+
   var parseDate = d3.timeParse("%Y-%m-%d");
 
   function dtom(date) {
@@ -157,14 +174,21 @@ d3.json('months.json').then(function(data) {
           iteration = data['iteration']
 
           sub_deadline = data['submission-deadline']
+          total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
+
           ae_pool = data['ae-pool']
           rev_pool = data['rev-pool']
           ae_assigned = data['ae-assigned']
           rev_assigned = data['rev-assigned']
-
-          total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
           aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline))})
           revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline))})
+
+          requested_revs = data['requested-revs']
+          returned_revs = data['returned-revs']
+          requested_mrevs = data['requested-mrevs']
+          returned_mrevs = data['returned-mrevs']
+          reviews.push({'requested': requested_revs, 'returned': returned_revs, 'month': parseDate(dtom(sub_deadline))})
+          mreviews.push({'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline))})
 
           $('#iterations').append(`
                         <div class="col-6">
@@ -222,7 +246,7 @@ d3.json('months.json').then(function(data) {
             .rangeRound([0, width]);
 
     var y = d3.scaleLinear()
-            .domain([0, d3.max(total_subs, function(d) {return d.submissions})])
+            .domain([0, d3.max(total_subs, function(d) {return 1.1 * d.submissions})])
             .range([height, 0]);
 
     var svg = d3.select(selector).append("svg")
@@ -334,7 +358,7 @@ d3.json('months.json').then(function(data) {
             .rangeRound([0, width]);
 
     var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function(d) {return d.total})])
+            .domain([0, d3.max(data, function(d) {return 1.2 * d.assigned})])
             .range([height, 0]);
 
     var svg = d3.select(selector).append("svg")
@@ -460,6 +484,160 @@ d3.json('months.json').then(function(data) {
 
   draw_reviewers("#aeviz", "meta")
   draw_reviewers("#revviz", "review")
+
+  console.log(reviews)
+  console.log(mreviews)
+
+  function draw_reviews(selector, type) {
+
+    margin = {top: 10, right: 30, bottom: 30, left: 40},
+        width = 600 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
+
+    if (type == "review") {
+      data = reviews
+      color = review_color
+      legtext = "No. of Reviews"
+    } else {
+      data = mreviews
+      color = meta_color
+      legtext = "No. of Meta Reviews"
+    }
+
+    // non_null_data = data.filter(d => d.assigned !== null)
+
+    var x = d3.scaleTime()
+            .domain([d3.min(data, function(d) {return d.month}), d3.max(data, function(d) {return d.month})])
+            .rangeRound([0, width]);
+
+    var y = d3.scaleLinear()
+            .domain([0, d3.max(data, function(d) {return 1.2 * d.requested})])
+            .range([height, 0]);
+
+    var svg = d3.select(selector).append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", 
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.append("path")
+    .datum(data)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", "#ddd")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.requested); }));
+
+
+    svg.append("path")
+    .datum(data)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", color)
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.returned); }));
+
+
+    svg.selectAll("g.dot")
+    .data(data)
+    .enter().append('g')
+    .append("circle")
+    .attr("class", "npointer")
+    .attr("cx", function (d) { return x(d.month); } )
+    .attr("cy", function (d) { return y(d.returned); } )
+    .attr("r", 4)
+    .style("stroke", color)
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+    .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            // console.log()
+            div.html(d.requested)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+    .on("mouseout", function(d) {		
+        div.transition()		
+            .duration(500)		
+            .style("opacity", 0);	
+    });
+
+    legx = 25
+    legy = 10
+    legxoff = 15
+    legtext = "Requested"
+
+    svg.append('line')
+    .style("stroke", "#ddd")
+    .style("stroke-width", 1.5)
+    .attr("x1", legx-legxoff)
+    .attr("y1", legy)
+    .attr("x2", legx+legxoff)
+    .attr("y2", legy);
+
+    svg.append("text")
+    .attr("x", legx + 20)
+    .attr("y", legy + 5)
+    .text(legtext)
+    .style("font-size", "13px")
+    .attr("alignment-baseline","middle")
+    .attr("opacity", 0.7)
+
+    legx = 25
+    legy = 28
+    legxoff = 15
+    legtext = "Returned"
+
+    svg.append('line')
+    .style("stroke", color)
+    .style("stroke-width", 1.5)
+    .attr("x1", legx-legxoff)
+    .attr("y1", legy)
+    .attr("x2", legx+legxoff)
+    .attr("y2", legy);
+
+    svg.append("text")
+    .attr("x", legx + 20)
+    .attr("y", legy + 5)
+    .text(legtext)
+    .style("font-size", "13px")
+    .attr("alignment-baseline","middle")
+    .attr("opacity", 0.7)
+
+    svg.append("circle")
+    .attr("cx", legx)
+    .attr("cy",legy)
+    .attr("r", 4)
+    .style("stroke", color)
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+  }
+
+  draw_reviews("#mreviewviz", "meta")
+  draw_reviews("#reviewviz", "review")
+  
 });
 </script>
 
