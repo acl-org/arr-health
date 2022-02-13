@@ -4,6 +4,7 @@
     "review-deadline": "2021-06-15",
     "meta-deadline": "2021-06-20",
     "submissions": 71,
+    "active-submissions": 63,
     "withdrawn": 7,
     "desk-rejects": 1,
     "ae-pool": 67,
@@ -20,7 +21,7 @@
     "returned-revs": 188,
     "requested-mrevs": 73,
     "returned-mrevs": 63,
-    "meta-progress": 88.73,
-    "rev-progress": 87.32,
+    "meta-progress": 100.0,
+    "rev-progress": 98.41,
     "ethical-concerns": 12
 }
