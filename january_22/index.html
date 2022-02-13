@@ -531,14 +531,28 @@
             .attr("transform", 
                 "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.csv("review_dates.csv").then(function(data) {
+        Promise.all([
+            d3.csv("review_dates.csv"),
+            d3.json('dashboard_stats.json')
+        ])
+        .then(function(files) {
+            data = files[0]
+            data_dash = files[1]
+
+            var review_deadline = parseDate(data_dash['review-deadline'])
+            var meta_review_deadline = parseDate(data_dash['meta-deadline'])
 
             data.forEach(function(d) {
                 d.date = parseDate(d.dtg);
                 d.value = parseInt(d.value)
             });
 
-            x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
+            if (meta_review_deadline > d3.max(data, function(d) {return d.date})) {
+                x.domain([d3.min(data, function(d) {return d.date}), meta_review_deadline])
+            } else {
+                x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
+            }
+
             y.domain([0, d3.max(data, function(d) {return d.value})]);
 
             var startDate = x.domain()[0]
@@ -647,45 +661,41 @@
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.value); }));
 
-            d3.json('dashboard_stats.json').then(function(data) {
-                var review_deadline = parseDate(data['review-deadline'])
-                var meta_review_deadline = parseDate(data['meta-deadline'])
+            
+            // Plotting Review Deadlines
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(review_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(review_deadline))
+            .attr("y2", height);
 
-                svg.append('line')
-                .style("stroke", review_color)
-                .style("stroke-width", 2)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", function (d) {return x(review_deadline)})
-                .attr("y1", 0)
-                .attr("x2", function (d) {return x(review_deadline)})
-                .attr("y2", height);
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(meta_review_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(meta_review_deadline))
+            .attr("y2", height);
 
-                svg.append('line')
-                .style("stroke", meta_color)
-                .style("stroke-width", 2)
-                .style("stroke-dasharray", ("3, 3"))
-                .attr("x1", x(meta_review_deadline))
-                .attr("y1", 0)
-                .attr("x2", x(meta_review_deadline))
-                .attr("y2", height);
+            svg.append("text")
+            .attr("transform", "translate(" + x(review_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(review_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", review_color)
 
-                svg.append("text")
-                .attr("transform", "translate(" + x(review_deadline) + ", " + (height-10) + ")rotate(-90)")
-                .attr("dy", "-0.5em")
-                .text(formatDate(review_deadline))
-                .style("font-size", "11px")
-                .style("text-anchor", "left")
-                .style("fill", review_color)
-
-                svg.append("text")
-                .attr("transform", "translate(" + x(meta_review_deadline) + ", " + (height-10) + ")rotate(-90)")
-                .attr("dy", "-0.5em")
-                .text(formatDate(meta_review_deadline))
-                .style("font-size", "11px")
-                .style("text-anchor", "left")
-                .style("fill", meta_color)
-                
-            });
+            svg.append("text")
+            .attr("transform", "translate(" + x(meta_review_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(meta_review_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", meta_color)
 
             legx = 25
             legy = 10
@@ -776,14 +786,22 @@
         });
     }
 
-    if (fileExists('review_dates.csv')) {
+    if (fileExists('review_loads.csv')) {
         draw_loads("#aeloadviz", "meta")
         draw_loads("#revloadviz", "review")
+    } else {
+        // $("#revloadviz").closest('.col-').remove()
+    }
+
+    if (fileExists('review_scores.csv')) {
         draw_scores("#revscoreviz", "review")
         draw_scores("#metascoreviz", "meta")
-        draw_review_time()
     } else {
-        document.querySelectorAll(".in-progress").forEach(el => el.remove());
+        $("#revscoreviz").closest('.row').remove()
+    }
+
+    if (fileExists('review_dates.csv')) {
+        draw_review_time()
     }
 
 </script>
