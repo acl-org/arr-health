@@ -29,7 +29,7 @@
       <div class="col-6 text-center">
           <div class="row justify-content-center">
               <div class="col-2 align-self-center">
-                  <a href="/arr-health/"><img src="ARR.png" class="img-fluid"></a>
+                  <a href="/"><img src="ARR.png" class="img-fluid"></a>
               </div>
           </div>
         <strong><a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">Dashboard</a></strong>
@@ -52,7 +52,7 @@
             </div>
             <div class="col-6 mt-auto">
             <p class="text-end">
-                <a class="p-2 text-dark" href="/arr-health/">Back to Main Dashboard</a> <br>
+                <a class="p-2 text-dark" href="/">Back to Main Dashboard</a> <br>
                 <a class="p-2 text-dark" target="_blank" href="https://aclrollingreview.org/">ACL Rolling Review Website</a> <br>
                 <a class="p-2 text-dark" target="_blank" id="or_website" href="#">OpenReview Submission Website</a>
             </p>
@@ -260,7 +260,7 @@
 
         var iteration = d3.select("#field-iteration").attr("data-target").split(' ')[0].toLowerCase();
 
-        d3.json('/arr-health/months.json').then(function(data) {
+        d3.json('/months.json').then(function(data) {
             var image = 'url("' + data[iteration] + '")';
             document.documentElement.style.setProperty("--selection-background", image);
         });
