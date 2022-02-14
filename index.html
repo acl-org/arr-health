@@ -44,7 +44,7 @@
         </div>
       </div>
     </header>
-    <h2 class="mt-5"><i class="fas fa-chart-line"></i> &nbsp;Overall Statistics</h2>
+    <h2 class="mt-5"><i class="fas fa-chart-line"></i> &nbsp;Conference Statistics</h2>
     <div class="row mt-4">
       <div class="col-12">
         <h4>Number of Submissions</h4>
@@ -71,6 +71,18 @@
       <div class="col-6">
         <h4>Requested vs. Returned Reviews</h4>
         <div id="reviewviz"></div>
+      </div>
+    </div>
+
+    <h2 class="mt-5 pt-5"><i class="fas fa-chart-line"></i> &nbsp;Resubmission Statistics</h2>
+    <div class="row mt-4">
+      <div class="col-6">
+        <h4>Meta Review Score Changes</h4>
+        <div id="mrev-resubs"></div>
+      </div>
+      <div class="col-6">
+        <h4>Review Score Changes</h4>
+        <div id="rev-resubs"></div>
       </div>
     </div>
 
@@ -124,6 +136,7 @@
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3-collection.v1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
@@ -485,9 +498,6 @@ d3.json('months.json').then(function(data) {
   draw_reviewers("#aeviz", "meta")
   draw_reviewers("#revviz", "review")
 
-  console.log(reviews)
-  console.log(mreviews)
-
   function draw_reviews(selector, type) {
 
     margin = {top: 10, right: 30, bottom: 30, left: 40},
@@ -637,6 +647,199 @@ d3.json('months.json').then(function(data) {
 
   draw_reviews("#mreviewviz", "meta")
   draw_reviews("#reviewviz", "review")
+
+  function draw_resubs(selector, type) {
+
+    if (type == "review") {
+      file = "resub_rev.csv"
+    } else {
+      file = "resub_meta.csv"
+    }
+
+    d3.csv(file).then(function (data) {
+      max_counter = 0
+      data_arr = []
+      data_arr_f = []
+
+      if (type == "review") {
+        color = review_color
+      } else {
+        color = meta_color
+      }
+
+      data.forEach(function (d) {
+        
+        var counter = 0
+        data_ins = []
+        for (const [_, num] of Object.entries(d)) {
+          counter += 1
+          if (num != "") {
+            data_ins.push({"iteration": 'Iteration ' + counter, "value": parseFloat(num)})
+            data_arr_f.push({"iteration": 'Iteration ' + counter, "value": parseFloat(num)})
+          } 
+          // else {
+            // data_ins[counter] = 0.0
+          // }
+        }
+        data_arr.push(data_ins)
+        if (counter > max_counter) {
+          max_counter = counter
+        }
+      })
+
+      xdomain = []
+      for (i=1; i <= max_counter; i++) {
+        xdomain.push("Iteration " + i)
+      }
+
+      margin = {top: 10, right: 30, bottom: 30, left: 40},
+          width = 600 - margin.left - margin.right,
+          height = 250 - margin.top - margin.bottom;
+
+      var x = d3.scaleBand()
+              .domain(xdomain)
+              .paddingInner(1)
+              .paddingOuter(.5)
+              .rangeRound([0, width]);
+
+      var y = d3.scaleLinear()
+              .domain([-3, 3])
+              .range([height, 0]);
+
+
+      var svg = d3.select(selector).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
+
+      
+      function hexToRgbA(hex, alpha){
+        var c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + alpha + ')';
+          }
+        throw new Error('Bad Hex');
+      }
+
+
+
+      var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+      .key(function(d) { return d.iteration;})
+      .rollup(function(d) {
+        q1 = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.25)
+        median = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.5)
+        q3 = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.75)
+        interQuantileRange = q3 - q1
+        min = q1 - 1.5 * interQuantileRange
+        max = q3 + 1.5 * interQuantileRange
+        return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
+      })
+      .entries(data_arr_f)
+
+
+      svg
+      .selectAll("vertLines")
+      .data(sumstat)
+      .enter()
+      .append("line")
+        .attr("x1", function(d){return(x(d.key))})
+        .attr("x2", function(d){return(x(d.key))})
+        .attr("y1", function(d){return(y(d.value.min))})
+        .attr("y2", function(d){return(y(d.value.max))})
+        .attr("stroke", "#999")
+        .style("stroke-width", 1)
+        .style("width", 40)
+
+      
+
+      data_arr.forEach(function (linea) {
+        svg.append("path")
+        .datum(linea)
+        .transition()
+        .delay(function(d,i){ return 1000*i; }) 
+        .duration(1200)
+        .attr("fill", "none")
+        .attr("stroke", hexToRgbA("#ddd", 0.1))
+        .attr("stroke-width", 1)
+        .attr("stroke-linejoin", "round")
+        .attr("d",  d3.line()
+        .curve(d3.curveCardinal.tension(0))
+        .x(function(d) { return x(d.iteration); })
+        .y(function(d) { return y(d.value); }));
+
+
+        svg.selectAll("g.dot")
+        .data(linea)
+        .enter().append('g')
+        .append("circle")
+        .attr("cx", function (d) { return x(d.iteration); } )
+        .attr("cy", function (d) { return y(d.value); } )
+        .attr("r", 1)
+        .style("stroke", color)
+        .attr("stroke-width", 1)
+        .style("fill",  color)
+
+      })
+
+      // rectangle for the main box
+    var boxWidth = 40
+    svg
+      .selectAll("boxes")
+      .data(sumstat)
+      .enter()
+      .append("rect")
+          .attr("x", function(d){return(x(d.key)-boxWidth/2)})
+          .attr("y", function(d){return(y(d.value.q3))})
+          .attr("height", function(d){return(y(d.value.q1)-y(d.value.q3))})
+          .attr("width", boxWidth )
+          .attr("stroke", color)
+          .style("stroke-width", 1.8)
+          .style("fill", "none")
+
+    // Show the median
+    svg
+      .selectAll("medianLines")
+      .data(sumstat)
+      .enter()
+      .append("line")
+        .attr("x1", function(d){return(x(d.key)-boxWidth/2) })
+        .attr("x2", function(d){return(x(d.key)+boxWidth/2) })
+        .attr("y1", function(d){return(y(d.value.median))})
+        .attr("y2", function(d){return(y(d.value.median))})
+        .attr("stroke", color)
+        .style("stroke-width", 1.4)
+        .style("width", 80)
+
+      
+
+      svg.append('line')
+      .style("stroke", "#000")
+      .style("stroke-width", 1)
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("x1", 0)
+      .attr("y1", y(0))
+      .attr("x2", width)
+      .attr("y2", y(0));
+
+      svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+      svg.append("g")
+          .call(d3.axisLeft(y));
+    })
+  }
+
+  draw_resubs("#mrev-resubs", "meta")
+  draw_resubs("#rev-resubs", "review")
   
 });
 </script>
