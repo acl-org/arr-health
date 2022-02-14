@@ -86,8 +86,9 @@
       </div>
     </div>
 
-    <h2 class="mt-5 pt-5"><i class="fas fa-stream"></i> &nbsp;Individual ARR Iterations</h2>
-    <h5 class="my-4" style="color: #bf360c">Click (<i class="fas fa-hand-pointer"></i>) on the ARR iteration you want to check more</h5>
+    <h2 class="mt-5 pt-5"><i class="fas fa-stream"></i> &nbsp;Check Individual Iteration Statistics</h2>
+    <h5 class="my-4 text-muted">Click (<i class="fas fa-hand-pointer"></i>) on the ARR iteration you want to check more</h5>
+    <!-- style="color: #bf360c" -->
     <div id="iterations" class="mt-3 row">
         
     </div>
@@ -156,6 +157,7 @@ d3.json('months.json').then(function(data) {
   $('#iterations').html('')
 
   var total_subs = []
+  var total_resubs = []
   var aes = []
   var revs = []
 
@@ -182,12 +184,14 @@ d3.json('months.json').then(function(data) {
         async: false, 
         success: function(data) {
           submissions = data['submissions']
+          resubmissions = data['resubmissions']
           review_progress = data['rev-progress']
           meta_progress = data['meta-progress']
           iteration = data['iteration']
 
           sub_deadline = data['submission-deadline']
           total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
+          total_resubs.push({'submissions':resubmissions, 'month': parseDate(dtom(sub_deadline))})
 
           ae_pool = data['ae-pool']
           rev_pool = data['rev-pool']
@@ -308,6 +312,45 @@ d3.json('months.json').then(function(data) {
             .style("opacity", 0);	
     });
 
+    svg.append("path")
+    .datum(total_resubs)
+    .transition()
+    .delay(function(d,i){ return 1000*i; }) 
+    .duration(1200)
+    .attr("fill", "none")
+    .attr("stroke", "#999")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d",  d3.line()
+    .curve(d3.curveCardinal.tension(0.8))
+    .x(function(d) { return x(d.month); })
+    .y(function(d) { return y(d.submissions); }));
+
+    svg.selectAll("g.dot")
+    .data(total_resubs)
+    .enter().append('g')
+    .append("circle")
+    .attr("class", "npointer")
+    .attr("cx", function (d) { return x(d.month); } )
+    .attr("cy", function (d) { return y(d.submissions); } )
+    .attr("r", 4)
+    .style("stroke", "#aaa")
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+    .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.submissions)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+    .on("mouseout", function(d) {		
+        div.transition()		
+            .duration(500)		
+            .style("opacity", 0);	
+    });
+
     var legx = 25
     var legy = 10
     var legxoff = 15
@@ -334,6 +377,35 @@ d3.json('months.json').then(function(data) {
     .attr("cy",legy)
     .attr("r", 4)
     .style("stroke", "#000")
+    .attr("stroke-width", 2)
+    .style("fill",  "#fff")
+
+    var legx = 25
+    var legy = 28
+    var legxoff = 15
+    var legtext = "No. of resubmissions"
+
+    svg.append('line')
+    .style("stroke", "#aaa")
+    .style("stroke-width", 1.5)
+    .attr("x1", legx-legxoff)
+    .attr("y1", legy)
+    .attr("x2", legx+legxoff)
+    .attr("y2", legy);
+
+    svg.append("text")
+    .attr("x", legx + 20)
+    .attr("y", legy + 5)
+    .text(legtext)
+    .style("font-size", "13px")
+    .attr("alignment-baseline","middle")
+    .attr("opacity", 0.7)
+
+    svg.append("circle")
+    .attr("cx", legx)
+    .attr("cy",legy)
+    .attr("r", 4)
+    .style("stroke", "#aaa")
     .attr("stroke-width", 2)
     .style("fill",  "#fff")
 
