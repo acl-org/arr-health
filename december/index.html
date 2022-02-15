@@ -47,7 +47,8 @@
                 <p class="text-start">
                 <span class="p-2 text-dark" href="#">Submission Deadline: <span class="info" id="field-submission-deadline"></span></span> <br>
                 <span class="p-2 text-dark" href="#">Review Deadline: <span class="info" id="field-review-deadline"></span></span><br>
-                <span class="p-2 text-dark" href="#">Meta Review Deadline: <span class="info" id="field-meta-deadline"></span>
+                <span class="p-2 text-dark" href="#">Meta Review Deadline: <span class="info" id="field-meta-deadline"></span><br>
+                <span class="p-2 text-dark" href="#">Earliest Notification: <span class="info" id="field-notification"></span>
                 </p>
             </div>
             <div class="col-6 mt-auto">
@@ -131,6 +132,7 @@
         <div class="row pt-2">
             <div class="col-4">
                 <h4>Paper Progress:</h4> <h3 class="counter-h3"><span class="counter" id="field-rev-progress">0</span>%</h3>
+                <p class="text-muted">(Papers with 3 or more reviews)</p>
             </div>
             <div class="col-4">
                 <h4>Meta Review Progress:</h4> <h3 class="counter-h3"><span class="counter" id="field-meta-progress">0</span>%</h3>
@@ -254,6 +256,7 @@
         d3.select("#field-submission-deadline").text(formatDate(parseDate(d3.select("#field-submission-deadline").attr("data-target"))));
         d3.select("#field-review-deadline").text(formatDate(parseDate(d3.select("#field-review-deadline").attr("data-target"))));
         d3.select("#field-meta-deadline").text(formatDate(parseDate(d3.select("#field-meta-deadline").attr("data-target"))));
+        d3.select("#field-notification").text(formatDate(parseDate(d3.select("#field-notification").attr("data-target"))));
         d3.select("#or_website").text(d3.select("#field-iteration").attr("data-target") + " OpenReview Site");
         var my = d3.select("#field-iteration").attr("data-target").split(' ')
         d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
@@ -541,6 +544,7 @@
 
             var review_deadline = parseDate(data_dash['review-deadline'])
             var meta_review_deadline = parseDate(data_dash['meta-deadline'])
+            var notification_deadline = parseDate(data_dash['notification'])
 
             data.forEach(function(d) {
                 d.date = parseDate(d.dtg);
@@ -548,7 +552,7 @@
             });
 
             if (meta_review_deadline > d3.max(data, function(d) {return d.date})) {
-                x.domain([d3.min(data, function(d) {return d.date}), meta_review_deadline])
+                x.domain([d3.min(data, function(d) {return d.date}), notification_deadline])
             } else {
                 x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
             }
@@ -681,6 +685,15 @@
             .attr("x2", x(meta_review_deadline))
             .attr("y2", height);
 
+            svg.append('line')
+            .style("stroke", "#000")
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(notification_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(notification_deadline))
+            .attr("y2", height);
+
             svg.append("text")
             .attr("transform", "translate(" + x(review_deadline) + ", " + (height-10) + ")rotate(-90)")
             .attr("dy", "-0.5em")
@@ -696,6 +709,14 @@
             .style("font-size", "11px")
             .style("text-anchor", "left")
             .style("fill", meta_color)
+
+            svg.append("text")
+            .attr("transform", "translate(" + x(notification_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(notification_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", "#000")
 
             legx = 25
             legy = 10
@@ -753,7 +774,7 @@
             svg.append("text")
             .attr("x", legx + 20)
             .attr("y", legy + 5)
-            .text("Respective Review and Meta Review Deadlines")
+            .text("Review, Meta Review and Notification Deadlines")
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
             .attr("opacity", 0.7)

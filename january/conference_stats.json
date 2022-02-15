@@ -3,10 +3,11 @@
     "submission-deadline": "2022-01-15",
     "review-deadline": "2022-02-15",
     "meta-deadline": "2022-02-20",
+    "notification": "2022-02-21",
     "submissions": 1897,
-    "active-submissions": 1777,
+    "active-submissions": 1776,
     "withdrawn": 11,
-    "desk-rejects": 109,
+    "desk-rejects": 110,
     "ae-pool": 354,
-    "rev-pool": 3700
+    "rev-pool": 3701
 }
