@@ -179,6 +179,7 @@ d3.json('months.json').then(function(data) {
   var mreviews = []
 
   var parseDate = d3.timeParse("%Y-%m-%d");
+  var formatDate = d3.timeFormat("%d %b %Y");
 
   function dtom(date) {
     splits = date.split('-')
@@ -202,6 +203,8 @@ d3.json('months.json').then(function(data) {
           review_progress = data['rev-progress']
           meta_progress = data['meta-progress']
           iteration = data['iteration']
+          update_date = formatDate(parseDate(data['update-date']))
+          console.log(k, update_date)
 
           sub_deadline = data['submission-deadline']
           total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
@@ -232,7 +235,7 @@ d3.json('months.json').then(function(data) {
                                     <strong class="text-dark" href="#">` + iteration + `</strong>
                                 </h2>
                                 <!-- <div class="mb-1 text-muted">Nov 12</div> -->
-                                <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Paper Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6>
+                                <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Paper Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6><p class="text-muted font-italic">(Updated on: ` + update_date + `)</p>
                                 <!-- <a href="#">Continue reading</a> -->
                                 </div>
                             </div>

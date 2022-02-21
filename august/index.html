@@ -161,6 +161,8 @@
             <div id="revturnaroundviz"></div>
         </div>
         <p>* To avoid biasing reviewers, score statistics will be disabled when an iteration is in progress </p>
+
+        <h5> (Updated on: <span id="field-update-date"></span>)</h5>
         <!-- <div class="row pt-2">
             
         </div> -->
@@ -261,6 +263,8 @@
         d3.select("#field-review-deadline").text(formatDate(parseDate(d3.select("#field-review-deadline").attr("data-target"))));
         d3.select("#field-meta-deadline").text(formatDate(parseDate(d3.select("#field-meta-deadline").attr("data-target"))));
         d3.select("#field-notification").text(formatDate(parseDate(d3.select("#field-notification").attr("data-target"))));
+        d3.select("#field-update-date").text(formatDate(parseDate(d3.select("#field-update-date").attr("data-target"))));
+
         d3.select("#or_website").text(d3.select("#field-iteration").attr("data-target") + " OpenReview Site");
         var my = d3.select("#field-iteration").attr("data-target").split(' ')
         d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
