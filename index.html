@@ -57,22 +57,22 @@
     </div>
 
     <div class="row mt-4">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Assigned Area Chairs</h4>
         <div id="aeviz"></div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Assigned Reviewers</h4>
         <div id="revviz"></div>
       </div>
     </div>
 
     <div class="row mt-4">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Requested vs. Returned Meta Reviews</h4>
         <div id="mreviewviz"></div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Requested vs. Returned Reviews</h4>
         <div id="reviewviz"></div>
       </div>
@@ -80,11 +80,11 @@
 
     <h2 class="mt-5 pt-5"><i class="fas fa-chart-line"></i> &nbsp;Resubmission Statistics</h2>
     <div class="row mt-4">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Meta Review Score Changes</h4>
         <div id="mrev-resubs"></div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-12">
         <h4>Review Score Changes</h4>
         <div id="rev-resubs"></div>
       </div>
@@ -222,7 +222,7 @@ d3.json('months.json').then(function(data) {
           mreviews.push({'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline))})
 
           $('#iterations').append(`
-                        <div class="col-6">
+                        <div class="col-md-6 col-md-12">
                         <a href="/` + k + `/">
                         <div class="card img-fluid flex-md-row mb-4 shadow h-md-250 monthcard">
                             <img class="card-img-top" src="` + v + `">
