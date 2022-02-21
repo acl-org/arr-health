@@ -204,7 +204,6 @@ d3.json('months.json').then(function(data) {
           meta_progress = data['meta-progress']
           iteration = data['iteration']
           update_date = formatDate(parseDate(data['update-date']))
-          console.log(k, update_date)
 
           sub_deadline = data['submission-deadline']
           total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
@@ -283,9 +282,10 @@ d3.json('months.json').then(function(data) {
             .domain([0, d3.max(total_subs, function(d) {return 1.1 * d.submissions})])
             .range([height, 0]);
 
+    var netHeight = (height + margin.top + margin.bottom)
+    var netWidth = (width + margin.left + margin.right)
     var svg = d3.select(selector).append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
         .append("g")
         .attr("transform", 
             "translate(" + margin.left + "," + margin.top + ")");
@@ -463,9 +463,11 @@ d3.json('months.json').then(function(data) {
             .domain([0, d3.max(data, function(d) {return 1.2 * d.assigned})])
             .range([height, 0]);
 
+    var netHeight = (height + margin.top + margin.bottom)
+    var netWidth = (width + margin.left + margin.right)
+
     var svg = d3.select(selector).append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
         .append("g")
         .attr("transform", 
             "translate(" + margin.left + "," + margin.top + ")");
@@ -613,9 +615,11 @@ d3.json('months.json').then(function(data) {
             .domain([0, d3.max(data, function(d) {return 1.2 * d.requested})])
             .range([height, 0]);
 
+    var netHeight = (height + margin.top + margin.bottom)
+    var netWidth = (width + margin.left + margin.right)
+
     var svg = d3.select(selector).append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
         .append("g")
         .attr("transform", 
             "translate(" + margin.left + "," + margin.top + ")");
@@ -795,10 +799,11 @@ d3.json('months.json').then(function(data) {
               .domain([-3, 3])
               .range([height, 0]);
 
+      var netHeight = (height + margin.top + margin.bottom)
+      var netWidth = (width + margin.left + margin.right)
 
       var svg = d3.select(selector).append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
       .append("g")
       .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
