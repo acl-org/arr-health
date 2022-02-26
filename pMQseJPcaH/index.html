@@ -563,7 +563,7 @@
                 d.value = parseInt(d.value)
             });
 
-            if (meta_review_deadline > d3.max(data, function(d) {return d.date})) {
+            if (notification_deadline > d3.max(data, function(d) {return d.date})) {
                 x.domain([d3.min(data, function(d) {return d.date}), notification_deadline])
             } else {
                 x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
