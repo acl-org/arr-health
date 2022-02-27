@@ -60,7 +60,8 @@
     </div>
     <div class="mt-2">
       <a class="btn btn-outline-primary" href="/submissions/word-clouds/"><i class="fas fa-sort-alpha-down"></i> &nbsp;Word Clouds</a>
-      <button class="btn btn-outline-primary" type="button" disabled><i class="fas fa-globe"></i> &nbsp;Geographic and Linguistic Diversity</button>
+      <a class="btn btn-outline-primary" href="/submissions/linguistic-diversity/"><i class="fas fa-language"></i> &nbsp;Linguistic Diversity</a>
+      <button class="btn btn-outline-primary" type="button" disabled><i class="fas fa-globe-africa"></i> &nbsp;Geographic Diversity</button>
     </div>
 
     <h2 class="mt-5 pt-5"><i class="fas fa-user-friends"></i> &nbsp;Review Statistics</h2>
@@ -169,7 +170,7 @@ var review_color = "#1976d2"
 d3.json('months.json').then(function(data) {
 
   months = []
-
+ 
   for (const [k, v] of Object.entries(data)) {
       months.push([k, v])
   }
