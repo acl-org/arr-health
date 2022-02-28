@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+<meta name="robots" content="noindex">
+
+<title>ARR Dashboard</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+        
+<!-- Create a div where the graph will take place -->
+<header class="blog-header pb-2 pt-5">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-3 pt-1">
+        <!-- <a class="link-secondary" href="#">Subscribe</a> -->
+      </div>
+      <div class="col-6 text-center">
+          <div class="row justify-content-center">
+              <div class="col-2 align-self-center">
+                  <a href="/"><img src="/ARR.png" class="img-fluid"></a>
+              </div>
+          </div>
+        <strong><a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">ARR Statistics</a></strong>
+      </div>
+      <div class="col-3 d-flex align-items-center">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+        <div class="col-12 mt-auto">
+        <p class="text-center">
+            <a class="p-2 text-dark" href="/">Back to Main Dashboard</a> <br>
+        </p>
+    </div>
+    </div>
+</div>
+
+<div id="statsbody">
+<div class="container pt-3">
+
+    <div class = "row">
+        <div class = "col-lg-8 col-md-12 offset-lg-2">
+            <h3 class="text-center">Countries of First Authors</h3>
+            <div id="langviz"></div>
+            <p class="text-muted text-center">* (Some affiliations did not match with countries (reported as Undetected), so statistics may not be entirely accurate)</p>
+        </div>
+    </div>
+  <!-- <div class="row">
+    <h2 class="text-muted text-center">Title Word Cloud</h2>
+    <div class="col" id="titlecloud"></div>
+  </div>
+
+  <div class="row pt-5">
+    <h2 class="text-muted text-center">Abstract Word Cloud</h2>
+    <div class="col" id="abstractcloud"></div>
+  </div> -->
+
+</div>
+</div>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+d3.json("langs-stat.json").then(function(data) {
+    console.log(String(data.percent))
+    d3.select("#lang-percent").text(data.mentions + ' / ' + data.total + ' (' + String(data.percent) + '%)');
+})
+    // set the dimensions and margins of the graph
+var margin = {top: 20, right: 90, bottom: 40, left: 90},
+    width = 640 - margin.left - margin.right,
+    height = 1200 - margin.top - margin.bottom;
+
+var netHeight = (height + margin.top + margin.bottom)
+var netWidth = (width + margin.left + margin.right)
+
+// append the svg object to the body of the page
+var svg = d3.select("#langviz")
+  .append("svg")
+  .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.csv("countries.csv").then(function(data) {
+    data.forEach(function(d) {
+            d.papers = parseInt(d.papers);
+            d.class = parseInt(d.class);
+            d.country = d.country;
+    });
+
+    // var myColor = d3.scaleOrdinal(d3.schemePastel1);
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) {return d.papers})])
+    .range([ 0, width]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Y axis
+  var y = d3.scaleBand()
+    .range([ 0, height])
+    .domain(data.map(d => d.country))
+    .padding(.1);
+  var yaxis = svg.append("g")
+    .call(d3.axisLeft(y))
+
+    svg.selectAll("gridLines")
+    .data(data)
+    .enter()
+    .append("line")
+    .attr("x1", x(0))
+    .attr("x2", width)
+    .style("stroke", "#ddd")
+    .style("stroke-dasharray", ("3, 3"))
+    .attr("y1", function(d) { return y(d.country) + y.bandwidth()/2; })
+    .attr("y2", function(d) { return y(d.country) + y.bandwidth()/2; })
+
+  //Bars
+  svg.selectAll("myRect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("x", function(d) { return width/2 - x(d.papers)/2; })
+    .attr("y", function(d) { return y(d.country); })
+    .attr("width", function(d) { return x(d.papers); })
+    .attr("height", y.bandwidth() )
+    .attr("fill", "#69b3a2")
+
+    svg.selectAll("numTexts")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("x", function(d) { return width/2;})
+    .attr("y", function(d) { return y(d.country) + y.bandwidth()/1.5; })
+    .style("font-size", "10px")
+    .style("text-anchor", "middle")
+    .style("alignment-baseline", "baseline")
+    // .attr("fill", function(d) {return myColor(d.class)})
+    .text(function(d) { return d.papers;})
+
+    
+
+
+    // .attr("x", function(d) { return x(d.Country); })
+    // .attr("y", function(d) { return y(d.Value); })
+    // .attr("width", x.bandwidth())
+    // .attr("height", function(d) { return height - y(d.Value); })
+    // .attr("fill", "#69b3a2")
+
+})
+</script>
+
+</html>
