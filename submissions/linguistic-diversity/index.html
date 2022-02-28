@@ -59,7 +59,7 @@
             <p class="text-muted">(Paper Abstracts from May to January)</p>
         </div>
         <div class = "col-lg-6 col-md-12">
-            <h3 class="">Languages mentioned in Paper Abstracts</h3>
+            <h3 class="text-center">Languages mentioned in Paper Abstracts</h3>
             <div id="langviz"></div>
         </div>
     </div>
@@ -92,13 +92,18 @@ d3.json("langs-stat.json").then(function(data) {
     // set the dimensions and margins of the graph
 var margin = {top: 20, right: 30, bottom: 40, left: 90},
     width = 460 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+    height = 1400 - margin.top - margin.bottom;
+
+var netHeight = (height + margin.top + margin.bottom)
+var netWidth = (width + margin.left + margin.right)
+
 
 // append the svg object to the body of the page
 var svg = d3.select("#langviz")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+  .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -134,7 +139,7 @@ d3.csv("langs.csv").then(function(data) {
 
     var ch = yaxis.selectAll("text");
     // console.log(data.find(x => x.id === 'English').class)
-    // ch.style("fill", function(d) {return "#ddd"})
+    ch.style("font-size", "11px")
 
   //Bars
   svg.selectAll("myRect")
@@ -151,9 +156,10 @@ d3.csv("langs.csv").then(function(data) {
     .data(data)
     .enter()
     .append("text")
-    .attr("x", function(d) { return x(d.mentions) + 1;})
-    .attr("y", function(d) { return y(d.Lang) + y.bandwidth(); })
-    .style("font-size", "11px")
+    .attr("x", function(d) { return x(d.mentions) + 1.5;})
+    .attr("y", function(d) { return y(d.Lang) + y.bandwidth()/2; })
+    .attr("dy", "0.4em")
+    .style("font-size", "12px")
     // .attr("fill", function(d) {return myColor(d.class)})
     .text(function(d) { return d.mentions;})
 

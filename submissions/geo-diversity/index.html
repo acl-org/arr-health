@@ -54,9 +54,9 @@
 
     <div class = "row">
         <div class = "col-lg-8 col-md-12 offset-lg-2">
-            <h3 class="text-center">Countries of First Authors</h3>
+            <h3 class="text-center">First Authors' Country of Affiliation</h3>
             <div id="langviz"></div>
-            <p class="text-muted text-center">* (Some affiliations did not match with countries (reported as Undetected), so statistics may not be entirely accurate)</p>
+            <p class="text-muted text-center">* Some affiliations did not match with countries, so statistics may not be entirely accurate<br>(Reported as "Undetected")</p>
         </div>
     </div>
   <!-- <div class="row">
@@ -115,14 +115,15 @@ d3.csv("countries.csv").then(function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) {return d.papers})])
+    .domain([0, d3.max(data, function(d) {return d.papers}) + 20])
     .range([ 0, width]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
-      .attr("transform", "translate(-10,0)rotate(-45)")
-      .style("text-anchor", "end");
+    .style("display", "none")
+    //   .attr("transform", "translate(-10,0)rotate(-45)")
+    //   .style("text-anchor", "end");
 
   // Y axis
   var y = d3.scaleBand()
@@ -159,10 +160,10 @@ d3.csv("countries.csv").then(function(data) {
     .enter()
     .append("text")
     .attr("x", function(d) { return width/2;})
-    .attr("y", function(d) { return y(d.country) + y.bandwidth()/1.5; })
+    .attr("y", function(d) { return y(d.country) + y.bandwidth()/2; })
+    .attr("dy", "0.5em")
     .style("font-size", "10px")
     .style("text-anchor", "middle")
-    .style("alignment-baseline", "baseline")
     // .attr("fill", function(d) {return myColor(d.class)})
     .text(function(d) { return d.papers;})
 
