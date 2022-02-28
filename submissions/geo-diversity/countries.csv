@@ -1,65 +1,252 @@
-country,papers,alpha
-USA,1618,USA
-China,1562,CHN
-UK,239,GBR
-India,188,IND
-Germany,177,DEU
-South Korea,145,KOR
-Canada,134,CAN
-Japan,112,JPN
-Australia,94,AUS
-Singapore,83,SGP
-France,73,FRA
-Israel,71,ISR
-Italy,60,ITA
-Switzerland,60,CHE
-Netherlands,48,NLD
-Taiwan,47,TWN
-Russia,38,RUS
-Denmark,34,DNK
-Vietnam,18,VNM
-Sweden,17,SWE
-Spain,16,ESP
-Iran,15,IRN
-Ireland,15,IRL
-Macau,15,MAC
-Czech Republic,13,CZE
-Greece,13,GRC
-New Zealand,13,NZL
-Romania,12,ROU
-Belgium,11,BEL
-Portugal,11,PRT
-Brazil,9,BRA
-Turkey,9,TUR
-Poland,8,POL
-Austria,7,AUT
-Norway,5,NOR
-Sri Lanka,5,LKA
-Finland,4,FIN
-Hong Kong,4,HKG
-Qatar,4,QAT
-Saudi Arabia,4,SAU
-Hungary,3,HUN
-South Africa,3,ZAF
-Thailand,3,THA
-Algeria,2,DZA
-Argentina,2,ARG
-Chile,2,CHL
-Estonia,2,EST
-Irland,2,IRL
-Kazakhstan,2,KAZ
-Malaysia,2,MYS
-Ukraine,2,UKR
-Armenia,1,ARM
-Bangladesh,1,BGD
-Bulgaria,1,BGR
-Cameroon,1,CMR
-Cyprus,1,CYP
-Indonesia,1,IDN
-Lebanon,1,LBN
-Malta,1,MLT
-Nigeria,1,NGA
-Peru,1,PER
-Tunisia,1,TUN
-Uruguay,1,URY
-Undetected,238,ZZZ
+country,papers,alpha,percent
+USA,1618,USA,30.61
+China,1562,CHN,29.55
+UK,239,GBR,4.52
+India,188,IND,3.56
+Germany,177,DEU,3.35
+South Korea,145,KOR,2.74
+Canada,134,CAN,2.53
+Japan,112,JPN,2.12
+Australia,94,AUS,1.78
+Singapore,83,SGP,1.57
+France,73,FRA,1.38
+Israel,71,ISR,1.34
+Italy,60,ITA,1.14
+Switzerland,60,CHE,1.14
+Netherlands,48,NLD,0.91
+Taiwan,47,TWN,0.89
+Russia,38,RUS,0.72
+Denmark,34,DNK,0.64
+Vietnam,18,VNM,0.34
+Sweden,17,SWE,0.32
+Spain,16,ESP,0.3
+Iran,15,IRN,0.28
+Ireland,15,IRL,0.28
+Macau,15,MAC,0.28
+Czech Republic,13,CZE,0.25
+Greece,13,GRC,0.25
+New Zealand,13,NZL,0.25
+Romania,12,ROU,0.23
+Belgium,11,BEL,0.21
+Portugal,11,PRT,0.21
+Brazil,9,BRA,0.17
+Turkey,9,TUR,0.17
+Poland,8,POL,0.15
+Austria,7,AUT,0.13
+Norway,5,NOR,0.09
+Sri Lanka,5,LKA,0.09
+Finland,4,FIN,0.08
+Hong Kong,4,HKG,0.08
+Qatar,4,QAT,0.08
+Saudi Arabia,4,SAU,0.08
+Hungary,3,HUN,0.06
+South Africa,3,ZAF,0.06
+Thailand,3,THA,0.06
+Algeria,2,DZA,0.04
+Argentina,2,ARG,0.04
+Chile,2,CHL,0.04
+Estonia,2,EST,0.04
+Irland,2,IRL,0.04
+Kazakhstan,2,KAZ,0.04
+Malaysia,2,MYS,0.04
+Ukraine,2,UKR,0.04
+Armenia,1,ARM,0.02
+Bangladesh,1,BGD,0.02
+Bulgaria,1,BGR,0.02
+Cameroon,1,CMR,0.02
+Cyprus,1,CYP,0.02
+Indonesia,1,IDN,0.02
+Lebanon,1,LBN,0.02
+Malta,1,MLT,0.02
+Nigeria,1,NGA,0.02
+Peru,1,PER,0.02
+Tunisia,1,TUN,0.02
+Uruguay,1,URY,0.02
+Afghanistan,0,AFG,0.0
+Albania,0,ALB,0.0
+American Samoa,0,ASM,0.0
+Andorra,0,AND,0.0
+Angola,0,AGO,0.0
+Anguilla,0,AIA,0.0
+Antarctica,0,ATA,0.0
+Antigua and Barbuda,0,ATG,0.0
+Aruba,0,ABW,0.0
+Azerbaijan,0,AZE,0.0
+Bahamas,0,BHS,0.0
+Bahrain,0,BHR,0.0
+Barbados,0,BRB,0.0
+Belarus,0,BLR,0.0
+Belize,0,BLZ,0.0
+Benin,0,BEN,0.0
+Bermuda,0,BMU,0.0
+Bhutan,0,BTN,0.0
+Bolivia (Plurinational State of),0,BOL,0.0
+"Bonaire, Sint Eustatius and Saba",0,BES,0.0
+Bosnia and Herzegovina,0,BIH,0.0
+Botswana,0,BWA,0.0
+Bouvet Island,0,BVT,0.0
+British Indian Ocean Territory,0,IOT,0.0
+Brunei Darussalam,0,BRN,0.0
+Burkina Faso,0,BFA,0.0
+Burundi,0,BDI,0.0
+Cabo Verde,0,CPV,0.0
+Cambodia,0,KHM,0.0
+Cayman Islands,0,CYM,0.0
+Central African Republic,0,CAF,0.0
+Chad,0,TCD,0.0
+Christmas Island,0,CXR,0.0
+Cocos (Keeling) Islands,0,CCK,0.0
+Colombia,0,COL,0.0
+Comoros,0,COM,0.0
+Congo,0,COG,0.0
+"Congo, Democratic Republic of the",0,COD,0.0
+Cook Islands,0,COK,0.0
+Costa Rica,0,CRI,0.0
+Croatia,0,HRV,0.0
+Cuba,0,CUB,0.0
+Curaçao,0,CUW,0.0
+Côte d'Ivoire,0,CIV,0.0
+Djibouti,0,DJI,0.0
+Dominica,0,DMA,0.0
+Dominican Republic,0,DOM,0.0
+Ecuador,0,ECU,0.0
+Egypt,0,EGY,0.0
+El Salvador,0,SLV,0.0
+Equatorial Guinea,0,GNQ,0.0
+Eritrea,0,ERI,0.0
+Eswatini,0,SWZ,0.0
+Ethiopia,0,ETH,0.0
+Falkland Islands (Malvinas),0,FLK,0.0
+Faroe Islands,0,FRO,0.0
+Fiji,0,FJI,0.0
+French Guiana,0,GUF,0.0
+French Polynesia,0,PYF,0.0
+French Southern Territories,0,ATF,0.0
+Gabon,0,GAB,0.0
+Gambia,0,GMB,0.0
+Georgia,0,GEO,0.0
+Ghana,0,GHA,0.0
+Gibraltar,0,GIB,0.0
+Greenland,0,GRL,0.0
+Grenada,0,GRD,0.0
+Guadeloupe,0,GLP,0.0
+Guam,0,GUM,0.0
+Guatemala,0,GTM,0.0
+Guernsey,0,GGY,0.0
+Guinea,0,GIN,0.0
+Guinea-Bissau,0,GNB,0.0
+Guyana,0,GUY,0.0
+Haiti,0,HTI,0.0
+Heard Island and McDonald Islands,0,HMD,0.0
+Holy See,0,VAT,0.0
+Honduras,0,HND,0.0
+Iceland,0,ISL,0.0
+Iraq,0,IRQ,0.0
+Isle of Man,0,IMN,0.0
+Jamaica,0,JAM,0.0
+Jersey,0,JEY,0.0
+Jordan,0,JOR,0.0
+Kenya,0,KEN,0.0
+Kiribati,0,KIR,0.0
+Korea (Democratic People's Republic of),0,PRK,0.0
+Kuwait,0,KWT,0.0
+Kyrgyzstan,0,KGZ,0.0
+Lao People's Democratic Republic,0,LAO,0.0
+Latvia,0,LVA,0.0
+Lesotho,0,LSO,0.0
+Liberia,0,LBR,0.0
+Libya,0,LBY,0.0
+Liechtenstein,0,LIE,0.0
+Lithuania,0,LTU,0.0
+Luxembourg,0,LUX,0.0
+Madagascar,0,MDG,0.0
+Malawi,0,MWI,0.0
+Maldives,0,MDV,0.0
+Mali,0,MLI,0.0
+Marshall Islands,0,MHL,0.0
+Martinique,0,MTQ,0.0
+Mauritania,0,MRT,0.0
+Mauritius,0,MUS,0.0
+Mayotte,0,MYT,0.0
+Mexico,0,MEX,0.0
+Micronesia (Federated States of),0,FSM,0.0
+"Moldova, Republic of",0,MDA,0.0
+Monaco,0,MCO,0.0
+Mongolia,0,MNG,0.0
+Montenegro,0,MNE,0.0
+Montserrat,0,MSR,0.0
+Morocco,0,MAR,0.0
+Mozambique,0,MOZ,0.0
+Myanmar,0,MMR,0.0
+Namibia,0,NAM,0.0
+Nauru,0,NRU,0.0
+Nepal,0,NPL,0.0
+New Caledonia,0,NCL,0.0
+Nicaragua,0,NIC,0.0
+Niger,0,NER,0.0
+Niue,0,NIU,0.0
+Norfolk Island,0,NFK,0.0
+North Macedonia,0,MKD,0.0
+Northern Mariana Islands,0,MNP,0.0
+Oman,0,OMN,0.0
+Pakistan,0,PAK,0.0
+Palau,0,PLW,0.0
+"Palestine, State of",0,PSE,0.0
+Panama,0,PAN,0.0
+Papua New Guinea,0,PNG,0.0
+Paraguay,0,PRY,0.0
+Philippines,0,PHL,0.0
+Pitcairn,0,PCN,0.0
+Puerto Rico,0,PRI,0.0
+Rwanda,0,RWA,0.0
+Réunion,0,REU,0.0
+Saint Barthélemy,0,BLM,0.0
+"Saint Helena, Ascension and Tristan da Cunha",0,SHN,0.0
+Saint Kitts and Nevis,0,KNA,0.0
+Saint Lucia,0,LCA,0.0
+Saint Martin (French part),0,MAF,0.0
+Saint Pierre and Miquelon,0,SPM,0.0
+Saint Vincent and the Grenadines,0,VCT,0.0
+Samoa,0,WSM,0.0
+San Marino,0,SMR,0.0
+Sao Tome and Principe,0,STP,0.0
+Senegal,0,SEN,0.0
+Serbia,0,SRB,0.0
+Seychelles,0,SYC,0.0
+Sierra Leone,0,SLE,0.0
+Sint Maarten (Dutch part),0,SXM,0.0
+Slovakia,0,SVK,0.0
+Slovenia,0,SVN,0.0
+Solomon Islands,0,SLB,0.0
+Somalia,0,SOM,0.0
+South Georgia and the South Sandwich Islands,0,SGS,0.0
+South Sudan,0,SSD,0.0
+Sudan,0,SDN,0.0
+Suriname,0,SUR,0.0
+Svalbard and Jan Mayen,0,SJM,0.0
+Syrian Arab Republic,0,SYR,0.0
+Tajikistan,0,TJK,0.0
+"Tanzania, United Republic of",0,TZA,0.0
+Timor-Leste,0,TLS,0.0
+Togo,0,TGO,0.0
+Tokelau,0,TKL,0.0
+Tonga,0,TON,0.0
+Trinidad and Tobago,0,TTO,0.0
+Turkmenistan,0,TKM,0.0
+Turks and Caicos Islands,0,TCA,0.0
+Tuvalu,0,TUV,0.0
+Uganda,0,UGA,0.0
+United Arab Emirates,0,ARE,0.0
+United States Minor Outlying Islands,0,UMI,0.0
+Uzbekistan,0,UZB,0.0
+Vanuatu,0,VUT,0.0
+Venezuela (Bolivarian Republic of),0,VEN,0.0
+Virgin Islands (British),0,VGB,0.0
+Virgin Islands (U.S.),0,VIR,0.0
+Wallis and Futuna,0,WLF,0.0
+Western Sahara,0,ESH,0.0
+Yemen,0,YEM,0.0
+Zambia,0,ZMB,0.0
+Zimbabwe,0,ZWE,0.0
+Åland Islands,0,ALA,0.0
+Undetected,238,ZZZ,2.4

@@ -77,6 +77,25 @@
 </div>
 </div>
 </body>
+
+<style>
+    path {
+        cursor: pointer;
+    }
+    div.tooltip {   
+        position: absolute;         
+        text-align: center;         
+        /* width: 80px;                    
+        height: 28px;                    */
+        padding: 12px;               
+        font: 12px sans-serif;      
+        background: none; 
+        border: 0px;        
+        border-radius: 8px;
+        font-weight: 700;        
+        pointer-events: none;           
+    }
+</style>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -99,12 +118,16 @@ height = 400 - margin.top - margin.bottom;
 var netHeight = (height + margin.top + margin.bottom)
 var netWidth = (width + margin.left + margin.right)
 
+
+console.log(netWidth, netHeight)
+
 var svg = d3.select("#my_dataviz")
 .append("svg")
 .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
 .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+
 
 // Map and projection
 var path = d3.geoPath();
@@ -113,8 +136,19 @@ var projection = d3.geoMercator()
   .center([0,20])
   .translate([width / 2, height / 2]);
 
+var placements = projection([width / 2, height / 2])
+console.log(placements)
+
+var tooltipDiv = d3.select("body").append("div")    
+    .attr("class", "tooltip")               
+    .style("opacity", 0)
+    // .style("left", placements[0] + "px")     
+    // .style("top", placements[1] + "px"); 
+
 // Data and color scale
 var data = d3.map();
+var percent = d3.map();
+var country = d3.map();
 var colorScale = d3.scaleThreshold()
   .domain([0, 5, 30, 100, 500, 1000, 1700])
   .range(d3.schemeGreys[8]);
@@ -122,16 +156,17 @@ var colorScale = d3.scaleThreshold()
 // Load external data and boot
 d3.queue()
   .defer(d3.json, "world.geojson")
-  .defer(d3.csv, "countries.csv", function(d) { data.set(d.alpha, +d.papers); })
+  .defer(d3.csv, "countries.csv", function(d) { data.set(d.alpha, +d.papers); percent.set(d.alpha, d.percent); country.set(d.alpha, d.country)})
   .await(ready);
 
 function ready(error, topo) {
-    console.log(data)
+    console.log(data, country)
   // Draw the map
-  svg.append("g")
+  var mapper = svg.append("g")
     .selectAll("path")
     .data(topo.features)
-    .enter()
+    
+    mapper.enter()
     .append("path")
       // draw each country
       .attr("d", d3.geoPath()
@@ -141,9 +176,39 @@ function ready(error, topo) {
       .attr("fill", function (d) {
         d.total = data.get(d.id) || -1;
         return colorScale(d.total);
-      })
+      })  
       .attr("stroke", "#ccc")
-      .attr("stroke-width", "0.2px");
+      .attr("stroke-width", "0.2px")
+      .on("mouseover", function(d) {
+        d3.select(this)
+        .attr("fill", "#69b3a2")
+        .attr("fill-opacity", 0.8)
+
+        tooltipDiv.transition()     
+            .duration(200)      
+            .style("opacity", .9);      
+        tooltipDiv.html(country.get(d.id) + ' : ' + (percent.get(d.id) + '%'))  
+            .style("left", (d3.event.pageX) + "px")     
+            .style("top", (d3.event.pageY - 28) + "px"); 
+        })
+        .on("mouseout", function(d) {
+        d3.select(this)
+        .attr("fill-opacity", 1)
+        .attr("fill", function (d) {
+        d.total = data.get(d.id) || -1;
+        return colorScale(d.total)
+        
+      })
+      tooltipDiv.transition()     
+            .duration(500)      
+            .style("opacity", 0);
+    });
+
+    // mapper.append("svg:title")
+    // .attr("class", function(d) { return "path " + d.id; })
+    // .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+    // .attr("dy", ".35em")
+    // .text(function(d) { return d.id; });
     }
 }
 draw_map();
@@ -174,6 +239,8 @@ d3.csv("countries.csv", function(data) {
             d.class = parseInt(d.class);
             d.country = d.country;
     });
+
+    data = data.filter(function (d) {return d.papers > 0})
 
     // var myColor = d3.scaleOrdinal(d3.schemePastel1);
 
