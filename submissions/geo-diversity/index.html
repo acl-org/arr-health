@@ -51,10 +51,15 @@
 
 <div id="statsbody">
 <div class="container pt-3">
-
     <div class = "row">
-        <div class = "col-lg-8 col-md-12 offset-lg-2">
+        <div class = "col-12">
             <h3 class="text-center">First Authors' Country of Affiliation</h3>
+            <div id="my_dataviz"></div>
+        </div>
+    </div>
+    <div class = "row mt-5">
+        <div class = "col-lg-8 col-md-12 offset-lg-2">
+            <h3 class="text-center text-muted">in numbers ↓</h3>
             <div id="langviz"></div>
             <p class="text-muted text-center">* Some affiliations did not match with countries, so statistics may not be entirely accurate<br>(Reported as "Undetected")</p>
         </div>
@@ -76,15 +81,74 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
 
-d3.json("langs-stat.json").then(function(data) {
-    console.log(String(data.percent))
-    d3.select("#lang-percent").text(data.mentions + ' / ' + data.total + ' (' + String(data.percent) + '%)');
-})
+
+function draw_map() {
+// The svg
+
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+width = 600 - margin.left - margin.right,
+height = 400 - margin.top - margin.bottom;
+
+var netHeight = (height + margin.top + margin.bottom)
+var netWidth = (width + margin.left + margin.right)
+
+var svg = d3.select("#my_dataviz")
+.append("svg")
+.attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+.append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Map and projection
+var path = d3.geoPath();
+var projection = d3.geoMercator()
+  .scale(70)
+  .center([0,20])
+  .translate([width / 2, height / 2]);
+
+// Data and color scale
+var data = d3.map();
+var colorScale = d3.scaleThreshold()
+  .domain([0, 5, 30, 100, 500, 1000, 1700])
+  .range(d3.schemeGreys[8]);
+
+// Load external data and boot
+d3.queue()
+  .defer(d3.json, "world.geojson")
+  .defer(d3.csv, "countries.csv", function(d) { data.set(d.alpha, +d.papers); })
+  .await(ready);
+
+function ready(error, topo) {
+    console.log(data)
+  // Draw the map
+  svg.append("g")
+    .selectAll("path")
+    .data(topo.features)
+    .enter()
+    .append("path")
+      // draw each country
+      .attr("d", d3.geoPath()
+        .projection(projection)
+      )
+      // set the color of each country
+      .attr("fill", function (d) {
+        d.total = data.get(d.id) || -1;
+        return colorScale(d.total);
+      })
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", "0.2px");
+    }
+}
+draw_map();
+
+function draw_bars() {
     // set the dimensions and margins of the graph
 var margin = {top: 20, right: 90, bottom: 40, left: 90},
     width = 640 - margin.left - margin.right,
@@ -104,7 +168,7 @@ var svg = d3.select("#langviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("countries.csv").then(function(data) {
+d3.csv("countries.csv", function(data) {
     data.forEach(function(d) {
             d.papers = parseInt(d.papers);
             d.class = parseInt(d.class);
@@ -177,6 +241,8 @@ d3.csv("countries.csv").then(function(data) {
     // .attr("fill", "#69b3a2")
 
 })
+}
+draw_bars();
 </script>
 
 </html>

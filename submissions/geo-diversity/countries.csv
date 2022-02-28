@@ -1,65 +1,65 @@
-country,papers
-USA,1618
-China,1562
-UK,239
-India,188
-Germany,177
-South Korea,145
-Canada,134
-Japan,112
-Australia,94
-Singapore,83
-France,73
-Israel,71
-Italy,60
-Switzerland,60
-Netherlands,48
-Taiwan,47
-Russia,38
-Denmark,34
-Vietnam,18
-Sweden,17
-Spain,16
-Iran,15
-Ireland,15
-Macau,15
-Czech Republic,13
-Greece,13
-New Zealand,13
-Romania,12
-Belgium,11
-Portugal,11
-Brazil,9
-Turkey,9
-Poland,8
-Austria,7
-Norway,5
-Sri Lanka,5
-Finland,4
-Hong Kong,4
-Qatar,4
-Saudi Arabia,4
-Hungary,3
-South Africa,3
-Thailand,3
-Algeria,2
-Argentina,2
-Chile,2
-Estonia,2
-Irland,2
-Kazakhstan,2
-Malaysia,2
-Ukraine,2
-Armenia,1
-Bangladesh,1
-Bulgaria,1
-Cameroon,1
-Cyprus,1
-Indonesia,1
-Lebanon,1
-Malta,1
-Nigeria,1
-Peru,1
-Tunisia,1
-Uruguay,1
-Undetected,238
+country,papers,alpha
+USA,1618,USA
+China,1562,CHN
+UK,239,GBR
+India,188,IND
+Germany,177,DEU
+South Korea,145,KOR
+Canada,134,CAN
+Japan,112,JPN
+Australia,94,AUS
+Singapore,83,SGP
+France,73,FRA
+Israel,71,ISR
+Italy,60,ITA
+Switzerland,60,CHE
+Netherlands,48,NLD
+Taiwan,47,TWN
+Russia,38,RUS
+Denmark,34,DNK
+Vietnam,18,VNM
+Sweden,17,SWE
+Spain,16,ESP
+Iran,15,IRN
+Ireland,15,IRL
+Macau,15,MAC
+Czech Republic,13,CZE
+Greece,13,GRC
+New Zealand,13,NZL
+Romania,12,ROU
+Belgium,11,BEL
+Portugal,11,PRT
+Brazil,9,BRA
+Turkey,9,TUR
+Poland,8,POL
+Austria,7,AUT
+Norway,5,NOR
+Sri Lanka,5,LKA
+Finland,4,FIN
+Hong Kong,4,HKG
+Qatar,4,QAT
+Saudi Arabia,4,SAU
+Hungary,3,HUN
+South Africa,3,ZAF
+Thailand,3,THA
+Algeria,2,DZA
+Argentina,2,ARG
+Chile,2,CHL
+Estonia,2,EST
+Irland,2,IRL
+Kazakhstan,2,KAZ
+Malaysia,2,MYS
+Ukraine,2,UKR
+Armenia,1,ARM
+Bangladesh,1,BGD
+Bulgaria,1,BGR
+Cameroon,1,CMR
+Cyprus,1,CYP
+Indonesia,1,IDN
+Lebanon,1,LBN
+Malta,1,MLT
+Nigeria,1,NGA
+Peru,1,PER
+Tunisia,1,TUN
+Uruguay,1,URY
+Undetected,238,ZZZ
