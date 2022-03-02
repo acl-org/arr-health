@@ -270,7 +270,8 @@
         var my = d3.select("#field-iteration").attr("data-target").split(' ')
         d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
 
-        var iteration = d3.select("#field-iteration").attr("data-target").split(' ')[0].toLowerCase();
+        var month_year = d3.select("#field-iteration").attr("data-target").split(' ')
+        var iteration = month_year[1] + '/' + month_year[0].toLowerCase();
 
         d3.json('/months.json').then(function(data) {
             var image = 'url("' + data[iteration] + '")';

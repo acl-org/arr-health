@@ -102,10 +102,12 @@
     <h2 class="mt-5 pt-5"><i class="fas fa-stream"></i> &nbsp;Check Individual Iteration Statistics</h2>
     <h5 class="my-4 text-muted">Click (<i class="fas fa-hand-pointer"></i>) on the ARR iteration you want to check more</h5>
     <!-- style="color: #bf360c" -->
-    <div id="iterations" class="mt-3 row">
-        
+    <h1 class="my-3"><strong class="text-dark" href="#">2022</strong></h1>
+    <div id="iterations-2022" class="mt-3 row iterations">
     </div>
-
+    <h1 class="my-3"><strong class="text-dark" href="#">2021</strong></h1>
+    <div id="iterations-2021" class="mt-3 row iterations">
+    </div>
 
 
     <footer class="py-3 my-4">
@@ -177,7 +179,7 @@ d3.json('months.json').then(function(data) {
 
   var month_stats = []
 
-  $('#iterations').html('')
+  $('.iterations').html('')
 
   var total_subs = []
   var total_resubs = []
@@ -200,11 +202,14 @@ d3.json('months.json').then(function(data) {
       var review_progress = 0
       var meta_progress = 0
       var k = months[i][0]
+      var month = k.split('/')[1]
+      var year = k.split('/')[0]
       var v = months[i][1]
+      const dir = "iterations/"
 
       $.ajax({
         dataType: "json",
-        url: k + '/dashboard_stats.json',
+        url: dir + k + '/dashboard_stats.json',
         async: false, 
         success: function(data) {
           submissions = data['submissions']
@@ -232,9 +237,9 @@ d3.json('months.json').then(function(data) {
           reviews.push({'requested': requested_revs, 'returned': returned_revs, 'month': parseDate(dtom(sub_deadline))})
           mreviews.push({'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline))})
 
-          $('#iterations').append(`
+          $('#iterations' + '-' + year).append(`
                         <div class="col-lg-6 col-md-12">
-                        <a href="/` + k + `/">
+                        <a href="/` + dir + k + `/">
                         <div class="card img-fluid flex-md-row mb-4 shadow h-md-250 monthcard">
                             <img class="card-img-top" src="` + v + `">
                             <div class="card-img-overlay">
