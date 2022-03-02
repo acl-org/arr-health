@@ -9,12 +9,16 @@ def get_argparser():
     return parser
 
 args = get_argparser().parse_args()
+iter_path = "iterations"
 template_folder = "pMQseJPcaH"
 
+os.chdir(os.path.join(os.getcwd(), iter_path))
+
 if args.month == "all":
-    months = [a for a in os.listdir() if os.path.isdir(a)]
-    months.remove(template_folder)
-    months.remove(".git")
+    years = os.listdir()
+    years.remove(template_folder)
+    months = [os.path.join(y,m) for y in years for m in os.listdir(y)]
+    # months = [a for a in os.listdir() if os.path.isdir(a)]
 else:
     months = [args.month]
 
