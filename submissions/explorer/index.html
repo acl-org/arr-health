@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+<meta name="robots" content="noindex">
+
+<title>ARR Dashboard</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+        
+<!-- Create a div where the graph will take place -->
+<header class="blog-header pb-2 pt-5">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-3 pt-1">
+        <!-- <a class="link-secondary" href="#">Subscribe</a> -->
+      </div>
+      <div class="col-6 text-center">
+          <div class="row justify-content-center">
+              <div class="col-2 align-self-center">
+                  <a href="/"><img src="/ARR.png" class="img-fluid"></a>
+              </div>
+          </div>
+        <strong><a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">ARR Statistics</a></strong>
+      </div>
+      <div class="col-3 d-flex align-items-center">
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+        <div class="col-12 mt-auto">
+        <p class="text-center">
+            <a class="p-2 text-dark" href="/">Back to Main Dashboard</a> <br>
+        </p>
+    </div>
+    </div>
+</div>
+
+<div id="statsbody">
+<div class="container pt-3">
+    <h2 class="text-center">Paper Explorer</h2>
+    <div class = "row">
+        
+        <div class = "col-md-9">
+            <div id="my_dataviz"></div>
+        </div>
+        <div class = "col-md-3">
+            <div id="maincard" class="card img-fluid mb-4 shadow h-100">
+                <div id="cardhead" class="card-header">
+                    
+                </div>
+                <div class="card-body d-flex flex-column align-items-start">
+                    <h5 class="mb-0">
+                        <strong id="paper-title" class="text-dark" href="#">Click on the Paper</strong>
+                    </h5>
+                    <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+                    <p id="paper-abstract" class="mt-2 card-text text-justify"></p>
+                    <!-- <a href="#">Continue reading</a> -->
+                    <div class="mt-auto">
+                        <a id="paper-link" target="_blank" href="#" class="btn btn-outline-primary btn-block" role="button" aria-pressed="true">Visit Paper on OpenReview</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+
+<style>
+    path {
+        cursor: pointer;
+    }
+    div.tooltip {   
+        position: absolute;         
+        text-align: center;         
+        /* width: 80px;                    
+        height: 28px;                    */
+        padding: 12px;               
+        font: 14px sans-serif;      
+        background-color: "#fff"; 
+        border-width: 1px;
+        border-color: #555;    
+        border-radius: 8px;
+        font-weight: 700;        
+        pointer-events: none;           
+    }
+
+    #cardhead::first-letter {
+    text-transform:capitalize;
+}
+    #paper-abstract {
+        /* overflow-y: scroll; */
+    }
+
+
+</style>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+width = 600 - margin.left - margin.right,
+height = 400 - margin.top - margin.bottom;
+
+var netHeight = (height + margin.top + margin.bottom)
+var netWidth = (width + margin.left + margin.right)
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+  .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("paper_tsne.csv", function(data) {
+
+var myColor = d3.scaleOrdinal(d3.schemeSet2);
+
+
+data.forEach(function(d) {
+            d.index = d.index;
+            d.title = d.title;
+            d.abstract = d.abstract
+            d.month = d.month
+            d.preprint = d.preprint
+            d.vis_x = parseFloat(d.vis_x)
+            d.vis_y = parseFloat(d.vis_y)
+        });
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([d3.min(data, function(d) {return d.vis_x}), d3.max(data, function(d) {return d.vis_x})])
+    .range([ 0, width ]);
+//   svg.append("g")
+    // .attr("transform", "translate(0," + height + ")")
+    // .call(d3.axisBottom(x));
+
+    console.log(d3.max(data, function(d) {return d.vis_y}))
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([d3.min(data, function(d) {return d.vis_y}), d3.max(data, function(d) {return d.vis_y})])
+    .range([ height, 0]);
+//   svg.append("g")
+    // .call(d3.axisLeft(y));
+
+  // Add dots
+    yes_data = data.filter(function (d) {if (d.preprint == "False") {return false} else {return true}})
+    no_data = data.filter(function (d) {if (d.preprint == "True") {return false} else {return true}})
+
+    var div = d3.select("body").append("div")	
+    .attr("class", "tooltip card shadow")			
+    .style("opacity", 1);
+
+    svg.append('g')
+    .selectAll("dot")
+    .data(no_data)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x(d.vis_x); } )
+      .attr("cy", function (d) { return y(d.vis_y); } )
+      .attr("r", 3)
+      .style("cursor", "not-allowed")
+      .attr("stroke", "#555")
+      .attr("stroke-width", 1)
+      .attr("opacity", 0.1)
+      .attr("fill", function(d) {return myColor(d.month)})
+      .on("mouseover", function(i, d) {
+        // var month = myColor(i.month)
+            div.transition()		
+                .duration(100)
+                .style("background", "repeating-linear-gradient(45deg, #ddd, #ddd 10px, #bbb 10px, #bbb 20px)")
+                // .style("border-color", month)
+                // .style("border-width", "2px")	
+                .style("opacity", 1)
+                
+            // console.log()
+            div.html("Preprint not disclosed")
+                
+            div.style("left", (event.pageX - div.node().getBoundingClientRect().width/2) + "px")
+                .style("top", (event.pageY - 50) + "px")
+
+            
+      })
+
+
+
+  svg.append('g')
+    .selectAll("dot")
+    .data(yes_data)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x(d.vis_x); } )
+      .attr("cy", function (d) { return y(d.vis_y); } )
+      .attr("r", 3)
+      .attr("stroke", "#555")
+      .attr("stroke-width", 1)
+      .style("cursor", "pointer")
+      .attr("opacity", 1)
+      .attr("fill", function(d) {return myColor(d.month)})
+      .on("click", function(d, i) {
+        // div.transition()		
+        //     .duration(200)		
+        //     .style("opacity", 0);
+          $("#paper-title").html(d.title)
+          $("#paper-abstract").html(String(d.abstract).slice(0, 450) + " ...")
+          $("#paper-link").attr("href", "https://openreview.net/forum?id=" + d.index)
+          $("#cardhead").html(d.month)
+          $("#cardhead").css("background-color", myColor(d.month))
+        //   $("#maincard").css("border-color", myColor(d.month))
+        })
+        .on("mouseover", function(i, d) {
+            d3.select(event.currentTarget).transition()		
+                .duration(40).attr("r", 6).attr("stroke-width", 3)
+            // var month = myColor(i.month)
+            div.transition()		
+                .duration(100)
+                .style("background", "#fff")
+                // .style("border-color", month)
+                // .style("border-width", "2px")	
+                .style("opacity", 1);
+            // console.log()
+            div.html(i.title)
+                
+            div.style("left", (event.pageX - div.node().getBoundingClientRect().width/2) + "px")		
+                .style("top", (event.pageY - 50) + "px")
+        
+        }).on("mouseout", function(i, d) {
+            d3.select(event.currentTarget).transition()		
+                .duration(100).attr("r", 3).attr("stroke-width", 1)
+            div.transition()
+            .duration(500)
+            .style("opacity", 0)
+        })
+
+})
+</script>
+
+</html>

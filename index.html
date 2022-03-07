@@ -59,6 +59,7 @@
       </div>
     </div>
     <div class="mt-3 text-center">
+      <a class="btn btn-outline-primary" href="/submissions/explorer/"><i class="fab fa-wpexplorer"></i> &nbsp;Paper Explorer</a>
       <a class="btn btn-outline-primary" href="/submissions/word-clouds/"><i class="fas fa-sort-alpha-down"></i> &nbsp;Word Clouds</a>
       <a class="btn btn-outline-primary" href="/submissions/linguistic-diversity/"><i class="fas fa-language"></i> &nbsp;Linguistic Diversity</a>
       <a class="btn btn-outline-primary" href="/submissions/geo-diversity/"><i class="fas fa-globe-africa"></i> &nbsp;Geographic Diversity</a>
@@ -238,7 +239,7 @@ d3.json('months.json').then(function(data) {
           mreviews.push({'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline))})
 
           $('#iterations' + '-' + year).append(`
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                         <a href="/` + dir + k + `/">
                         <div class="card img-fluid flex-md-row mb-4 shadow h-md-250 monthcard">
                             <img class="card-img-top" src="` + v + `">
