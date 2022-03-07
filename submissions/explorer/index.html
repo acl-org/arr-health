@@ -205,7 +205,13 @@ data.forEach(function(d) {
                 .style("top", (event.pageY - 50) + "px")
 
             
-      })
+      }).on("mouseout", function(i, d) {
+            d3.select(event.currentTarget).transition()		
+                .duration(100).attr("r", 3).attr("stroke-width", 1)
+            div.transition()
+            .duration(500)
+            .style("opacity", 0)
+        })
 
 
 
@@ -226,11 +232,15 @@ data.forEach(function(d) {
         // div.transition()		
         //     .duration(200)		
         //     .style("opacity", 0);
-          $("#paper-title").html(d.title)
-          $("#paper-abstract").html(String(d.abstract).slice(0, 450) + " ...")
-          $("#paper-link").attr("href", "https://openreview.net/forum?id=" + d.index)
-          $("#cardhead").html(d.month)
-          $("#cardhead").css("background-color", myColor(d.month))
+          d3.select("#paper-title").html(d.title).style('opacity', 0)
+          d3.select("#paper-title").html(d.title).transition().duration(400).style('opacity', 1)
+          d3.select("#paper-abstract").html(String(d.abstract).slice(0, 450) + " ...").style('opacity', 0)
+          d3.select("#paper-abstract").html(String(d.abstract).slice(0, 450) + " ...").transition().duration(400).style('opacity', 1)
+          d3.select("#paper-link").attr("href", "https://openreview.net/forum?id=" + d.index)
+          d3.select("#cardhead").html(d.month).style('opacity', 0)
+          d3.select("#cardhead").html(d.month).transition().duration(400).style('opacity', 1).style("background-color", myColor(d.month))
+        //   d3.select("#cardhead").transition()		
+        //         .duration(300)
         //   $("#maincard").css("border-color", myColor(d.month))
         })
         .on("mouseover", function(i, d) {
