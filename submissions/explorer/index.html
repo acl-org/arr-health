@@ -63,7 +63,10 @@
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i>&nbsp;</span>
                 </div>
                 <input id="search" type="text" class="form-control" placeholder="Search terms (≥3 chars)" aria-label="Search terms (≥3 chars)" aria-describedby="basic-addon1">
-              </div>
+                <div class="input-group-append">
+                    <span id="papertotal" class="input-group-text">&nbsp;</span>
+                  </div>
+            </div>
             <div id="maincard" class="card img-fluid mb-4 shadow h-100">
                 <div id="cardhead" class="card-header">
                     
@@ -300,15 +303,19 @@ data.forEach(function(d) {
         wto = setTimeout(function() {
             var text = $("#search").val()
             if (text.length >= 3) {
+                counter = 0
                 yes_data.forEach(function(d) {
                     d.search = d.title.toLowerCase().includes(text.toLowerCase())
+                    counter += Number(d.search);
                 });
+                $("#papertotal").html(counter)
                 d3.selectAll(".no-preprint").transition()
             .duration(200).style("visibility", 'hidden');
             } else {
                 yes_data.forEach(function(d) {d.search = true});
                 d3.selectAll(".no-preprint").transition()
             .duration(200).style("visibility", 'visible');
+                $("#papertotal").html("&nbsp;");
             }
             changeOpacity(yes_data)
         }, 500);
