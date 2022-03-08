@@ -58,6 +58,12 @@
             <div id="my_dataviz"></div>
         </div>
         <div class = "col-lg-3 col-md-12">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i>&nbsp;</span>
+                </div>
+                <input id="search" type="text" class="form-control" placeholder="Search terms (≥3 chars)" aria-label="Search terms (≥3 chars)" aria-describedby="basic-addon1">
+              </div>
             <div id="maincard" class="card img-fluid mb-4 shadow h-100">
                 <div id="cardhead" class="card-header">
                     
@@ -169,25 +175,28 @@ data.forEach(function(d) {
     // .call(d3.axisLeft(y));
 
   // Add dots
-    yes_data = data.filter(function (d) {if (d.preprint == "False") {return false} else {return true}})
-    no_data = data.filter(function (d) {if (d.preprint == "True") {return false} else {return true}})
+
+    var dots = svg.append('g')
+    .selectAll("dot")
+
+    function add_dots(yes_data, no_data) {
 
     var div = d3.select("body").append("div")	
     .attr("class", "tooltip card shadow")			
     .style("opacity", 1);
 
-    svg.append('g')
-    .selectAll("dot")
-    .data(no_data)
+    
+    dots.data(no_data)
     .enter()
     .append("circle")
+    .attr('class', 'no-preprint')
       .attr("cx", function (d) { return x(d.vis_x); } )
       .attr("cy", function (d) { return y(d.vis_y); } )
       .attr("r", 3)
       .style("cursor", "not-allowed")
       .attr("stroke", "#555")
       .attr("stroke-width", 1)
-      .attr("opacity", 0.1)
+      .attr("opacity", 0.08)
       .attr("fill", function(d) {return myColor(d.month)})
       .on("mouseover", function(i, d) {
         // var month = myColor(i.month)
@@ -202,9 +211,7 @@ data.forEach(function(d) {
             div.html("Preprint not disclosed")
                 
             div.style("left", (event.pageX - div.node().getBoundingClientRect().width/2) + "px")
-                .style("top", (event.pageY - 50) + "px")
-
-            
+                .style("top", (event.pageY - 50) + "px")          
       }).on("mouseout", function(i, d) {
             d3.select(event.currentTarget).transition()		
                 .duration(100).attr("r", 3).attr("stroke-width", 1)
@@ -213,13 +220,14 @@ data.forEach(function(d) {
             .style("opacity", 0)
         })
 
+        // search_data = yes_data.filter(function (d) {if (d.search) {return true} else {return false}})
+        // nonsearch_data = yes_data.filter(function (d) {if (d.search) {return false} else {return true}})
 
-
-  svg.append('g')
-    .selectAll("dot")
+        dots
     .data(yes_data)
     .enter()
     .append("circle")
+    .attr('class', 'yes-preprint')
       .attr("cx", function (d) { return x(d.vis_x); } )
       .attr("cy", function (d) { return y(d.vis_y); } )
       .attr("r", 3)
@@ -266,6 +274,46 @@ data.forEach(function(d) {
             .duration(500)
             .style("opacity", 0)
         })
+    }
+    yes_data = data.filter(function (d) {if (d.preprint == "False") {return false} else {return true}})
+    yes_data.forEach(function(d) {d.search = true});
+    no_data = data.filter(function (d) {if (d.preprint == "True") {return false} else {return true}})
+    add_dots(yes_data, no_data)
+
+    function changeOpacity(data){
+        d3.selectAll(".yes-preprint")
+            .data(data)
+            .transition()
+            .duration(200)
+            .style("opacity", function(d) {
+                        if (d.search) {return 1} else {return 0.08}
+                    })
+            // .style("visibility", function(d) {
+            //             if (d.search) {return 'visible'} else {return 'hidden'}
+            //         })
+    }
+
+    var wto;
+    
+    $("#search").on('input',function(e){
+        clearTimeout(wto);
+        wto = setTimeout(function() {
+            var text = $("#search").val()
+            if (text.length >= 3) {
+                yes_data.forEach(function(d) {
+                    d.search = d.title.toLowerCase().includes(text.toLowerCase())
+                });
+                d3.selectAll(".no-preprint").transition()
+            .duration(200).style("visibility", 'hidden');
+            } else {
+                yes_data.forEach(function(d) {d.search = true});
+                d3.selectAll(".no-preprint").transition()
+            .duration(200).style("visibility", 'visible');
+            }
+            changeOpacity(yes_data)
+        }, 500);
+    });
+
 
 })
 </script>
