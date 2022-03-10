@@ -5,9 +5,9 @@
     "meta-deadline": "2022-03-20",
     "notification": "2022-03-21",
     "submissions": 180,
-    "active-submissions": 167,
+    "active-submissions": 163,
     "withdrawn": 9,
-    "desk-rejects": 4,
+    "desk-rejects": 8,
     "ae-pool": 350,
     "rev-pool": 3704,
     "update-date": "2022-03-10",
@@ -17,13 +17,13 @@
     "reassignments": 0,
     "ae-assigned-reviewed": 0,
     "ae-assigned": 85,
-    "rev-assigned-reviewed": 36,
+    "rev-assigned-reviewed": 39,
     "rev-assigned": 560,
     "requested-revs": 685,
-    "returned-revs": 41,
+    "returned-revs": 44,
     "requested-mrevs": 171,
     "returned-mrevs": 0,
     "meta-progress": 0.0,
     "rev-progress": 0.0,
-    "ethical-concerns": 2
+    "ethical-concerns": 3
 }
