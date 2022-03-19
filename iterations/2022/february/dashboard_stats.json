@@ -17,13 +17,13 @@
     "reassignments": 0,
     "ae-assigned-reviewed": 4,
     "ae-assigned": 85,
-    "rev-assigned-reviewed": 377,
+    "rev-assigned-reviewed": 384,
     "rev-assigned": 574,
     "requested-revs": 692,
-    "returned-revs": 443,
+    "returned-revs": 452,
     "requested-mrevs": 171,
     "returned-mrevs": 8,
     "meta-progress": 4.97,
-    "rev-progress": 63.35,
+    "rev-progress": 65.22,
     "ethical-concerns": 9
 }
