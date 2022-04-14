@@ -15,15 +15,15 @@
     "existing-preprint": 23,
     "resubmissions": 84,
     "reassignments": 0,
-    "ae-assigned-reviewed": 84,
+    "ae-assigned-reviewed": 85,
     "ae-assigned": 103,
     "rev-assigned-reviewed": 472,
     "rev-assigned": 611,
     "requested-revs": 739,
     "returned-revs": 563,
     "requested-mrevs": 196,
-    "returned-mrevs": 154,
-    "meta-progress": 95.65,
+    "returned-mrevs": 155,
+    "meta-progress": 96.27,
     "rev-progress": 100.0,
     "ethical-concerns": 20
 }
