@@ -15,15 +15,15 @@
     "existing-preprint": 81,
     "resubmissions": 148,
     "reassignments": 0,
-    "ae-assigned-reviewed": 4,
+    "ae-assigned-reviewed": 5,
     "ae-assigned": 104,
-    "rev-assigned-reviewed": 606,
+    "rev-assigned-reviewed": 632,
     "rev-assigned": 997,
-    "requested-revs": 1498,
-    "returned-revs": 887,
+    "requested-revs": 1500,
+    "returned-revs": 926,
     "requested-mrevs": 380,
-    "returned-mrevs": 6,
-    "meta-progress": 1.59,
-    "rev-progress": 47.75,
-    "ethical-concerns": 30
+    "returned-mrevs": 8,
+    "meta-progress": 2.12,
+    "rev-progress": 53.05,
+    "ethical-concerns": 31
 }
