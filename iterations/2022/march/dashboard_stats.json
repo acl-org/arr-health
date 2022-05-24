@@ -5,9 +5,9 @@
     "meta-deadline": "2022-04-20",
     "notification": "2022-04-21",
     "submissions": 395,
-    "active-submissions": 367,
+    "active-submissions": 349,
     "withdrawn": 17,
-    "desk-rejects": 11,
+    "desk-rejects": 29,
     "ae-pool": 353,
     "rev-pool": 3720,
     "update-date": "2022-05-24",
@@ -22,8 +22,8 @@
     "requested-revs": 1628,
     "returned-revs": 1229,
     "requested-mrevs": 396,
-    "returned-mrevs": 299,
-    "meta-progress": 81.47,
-    "rev-progress": 94.28,
+    "returned-mrevs": 300,
+    "meta-progress": 85.96,
+    "rev-progress": 99.14,
     "ethical-concerns": 61
 }
