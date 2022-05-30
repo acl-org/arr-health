@@ -19,11 +19,11 @@
     "ae-assigned": 108,
     "rev-assigned-reviewed": 831,
     "rev-assigned": 1085,
-    "requested-revs": 1630,
+    "requested-revs": 1632,
     "returned-revs": 1234,
     "requested-mrevs": 396,
-    "returned-mrevs": 303,
-    "meta-progress": 87.83,
+    "returned-mrevs": 306,
+    "meta-progress": 88.7,
     "rev-progress": 101.16,
     "ethical-concerns": 61
 }
