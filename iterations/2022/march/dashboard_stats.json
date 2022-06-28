@@ -16,14 +16,14 @@
     "resubmissions": 148,
     "reassignments": 0,
     "ae-assigned-reviewed": 93,
-    "ae-assigned": 108,
+    "ae-assigned": 109,
     "rev-assigned-reviewed": 842,
     "rev-assigned": 1090,
     "requested-revs": 1640,
     "returned-revs": 1250,
-    "requested-mrevs": 397,
-    "returned-mrevs": 311,
-    "meta-progress": 92.01,
+    "requested-mrevs": 399,
+    "returned-mrevs": 312,
+    "meta-progress": 92.31,
     "rev-progress": 105.92,
     "ethical-concerns": 61
 }
