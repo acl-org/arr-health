@@ -10,7 +10,7 @@
     "desk-rejects": 33,
     "ae-pool": 353,
     "rev-pool": 3723,
-    "update-date": "2022-07-02",
+    "update-date": "2022-07-03",
     "preprint": 144,
     "existing-preprint": 81,
     "resubmissions": 148,
@@ -20,10 +20,10 @@
     "rev-assigned-reviewed": 844,
     "rev-assigned": 1097,
     "requested-revs": 1649,
-    "returned-revs": 1252,
+    "returned-revs": 1253,
     "requested-mrevs": 400,
     "returned-mrevs": 318,
     "meta-progress": 94.08,
-    "rev-progress": 106.51,
+    "rev-progress": 106.8,
     "ethical-concerns": 62
 }
