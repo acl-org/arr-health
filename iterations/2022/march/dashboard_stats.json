@@ -20,10 +20,10 @@
     "rev-assigned-reviewed": 845,
     "rev-assigned": 1098,
     "requested-revs": 1650,
-    "returned-revs": 1254,
+    "returned-revs": 1255,
     "requested-mrevs": 400,
-    "returned-mrevs": 318,
-    "meta-progress": 94.08,
-    "rev-progress": 107.1,
+    "returned-mrevs": 319,
+    "meta-progress": 94.38,
+    "rev-progress": 107.4,
     "ethical-concerns": 62
 }
