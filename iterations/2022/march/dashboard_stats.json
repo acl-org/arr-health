@@ -21,9 +21,9 @@
     "rev-assigned": 1098,
     "requested-revs": 1650,
     "returned-revs": 1255,
-    "requested-mrevs": 400,
-    "returned-mrevs": 320,
-    "meta-progress": 94.4,
+    "requested-mrevs": 402,
+    "returned-mrevs": 321,
+    "meta-progress": 94.69,
     "rev-progress": 107.08,
     "ethical-concerns": 63
 }
