@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+<meta name="robots" content="noindex">
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+
+<title>ARR Dashboard</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"> 
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+        
+<!-- Create a div where the graph will take place -->
+<header class="blog-header pb-2 pt-5">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-3 pt-1">
+        <!-- <a class="link-secondary" href="#">Subscribe</a> -->
+      </div>
+      <div class="col-6 text-center">
+          <div class="row justify-content-center">
+              <div class="col-2 align-self-center">
+                  <a href="/"><img src="/ARR.png" class="img-fluid"></a>
+              </div>
+          </div>
+        <strong><a id="field-iteration" class="blog-header-logo text-dark pt-2" href="#">Dashboard</a></strong>
+      </div>
+      <div class="col-3 d-flex align-items-center">
+        <!-- <a class="link-secondary" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        </a> -->
+        <!-- <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p class="text-start">
+                <span class="p-2 text-dark" href="#">Submission Deadline: <span class="info" id="field-submission-deadline"></span></span> <br>
+                <span class="p-2 text-dark" href="#">Review Deadline: <span class="info" id="field-review-deadline"></span></span><br>
+                <span class="p-2 text-dark" href="#">Meta Review Deadline: <span class="info" id="field-meta-deadline"></span><br>
+                <span class="p-2 text-dark" href="#">Earliest Notification: <span class="info" id="field-notification"></span>
+                </p>
+            </div>
+            <div class="col-6 mt-auto">
+            <p class="text-end">
+                <a class="p-2 text-dark" href="/">Back to Main Dashboard</a> <br>
+                <a class="p-2 text-dark" target="_blank" href="https://aclrollingreview.org/">ACL Rolling Review Website</a> <br>
+                <a class="p-2 text-dark" target="_blank" id="or_website" href="#">OpenReview Submission Website</a>
+            </p>
+        </div>
+        </div>
+    </div>
+  </header>
+
+<div id="statsbody">
+<div class="container pt-3">
+    <div class="row pt-5">
+        <h2 style="color: #00796b"><i class="far fa-file-alt"></i> &nbsp;Submission Statistics</h2>
+        <div class="row pt-2">
+            <div class="col-lg-4 col-md-6">
+                <h4>Total Submissions:</h4> <h3 class="counter" id="field-submissions">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4>Withdrawn Submissions:</h4> <h3><span class="counter" id="field-withdrawn">0</span></h3><small class="text-muted">*Includes submissions withdrawn after receiving all reviews.</small>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4>Desk Rejected Submissions:</h4> <h3 class="counter" id="field-desk-rejects">0</h3>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-lg-4 col-md-6">
+                <h4>Opted-in Anonymous Preprints:</h4> <h3 class="counter" id="field-existing-preprint">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4>Disclosed Preprints (ArXiv):</h4> <h3 class="counter" id="field-preprint">0</h3>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-lg-4 col-md-6">
+                <h4>Resubmissions:</h4> <h3 class="counter" id="field-resubmissions">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4>Reviewer Reassignment Requests:</h4> <h3 class="counter" id="field-reassignments">0</h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row pt-5">
+        <h2 style="color: #303f9f"><i class="fas fa-user-friends"></i> &nbsp;Reviewer Statistics</h2>
+        <div class="row pt-2">
+            <div class="col-lg-4 col-md-6">
+                <h4>Area Chair Pool Size:</h4> <h3 class="counter" id="field-ae-pool">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 in-progress">
+                <h4>Area Chairs Assigned:</h4> <h3 class="counter" id="field-ae-assigned">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 in-progress">
+                <h4>Area Chairs Paper Load:</h4>
+                <div id="aeloadviz"></div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-lg-4 col-md-6">
+                <h4>Reviewer Pool Size:</h4> <h3 class="counter" id="field-rev-pool">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 in-progress">
+                <h4>Reviewers Assigned:</h4> <h3 class="counter" id="field-rev-assigned">0</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 in-progress">
+                <h4>Reviewers Paper Load:</h4>
+                <div id="revloadviz"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <h2 style="color: #c2185b"><i class="far fa-folder-open"></i> &nbsp;Review Statistics</h2>
+        <div class="row pt-2">
+            <div class="col-4">
+                <h4>Paper Progress:</h4> <h3 class="counter-h3"><span class="counter" id="field-rev-progress">0</span>%</h3>
+                <p class="text-muted">(Papers with 3 or more reviews)</p>
+            </div>
+            <div class="col-4">
+                <h4>Meta Review Progress:</h4> <h3 class="counter-h3"><span class="counter" id="field-meta-progress">0</span>%</h3>
+            </div>
+            <div class="col-4">
+                <h4>Flagged for Ethics Review:</h4> <h3 class="counter" id="field-ethical-concerns">0</h3>
+            </div>
+        </div>
+        <div class="row pt-2 in-progress">
+            <h4>Score distributions</h4>
+            <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
+            <div class="col-lg-6 col-md-12">
+                <div id="revscoreviz"></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div id="metascoreviz"></div>
+            </div>
+            <p class="text-muted text-center">(Scores are rounded to the nearest 0.5. '0' score means that there is no score assigned yet.)</p>
+        </div>
+        <div class="row pt-2 in-progress">
+            <h4>Review Turnaround Times</h4>
+            <!-- <p>* If iteration is going on, this will be disabled to avoid biasing reviewers</p> -->
+            <div id="revturnaroundviz"></div>
+        </div>
+        <p>* To avoid biasing reviewers, score statistics will be disabled when an iteration is in progress </p>
+
+        <h5> (Updated on: <span id="field-update-date"></span>)</h5>
+        <!-- <div class="row pt-2">
+            
+        </div> -->
+        
+    </div>
+
+    <footer class="py-3 my-4">
+        <!-- <p class="text-center text-muted">University of Washington</p> -->
+      </footer>
+</div>
+</div>
+</body>
+<style>
+:root {
+    --selection-background: #888;
+}
+    .counter {
+      color:#999
+  }
+
+  .counter-h3 {
+      color:#999
+  }
+
+  #statsbody {
+        background-color: #fff !important;
+    }
+
+  header::before {
+    content: "";
+    background: var(--selection-background);
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -100;
+    background-size: cover;
+    background-position: center center;
+    }
+
+    div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 10px;					
+    padding: 2px;				
+    font: 12px sans-serif;
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;		
+  }
+
+  .npointer {
+    cursor: pointer;
+  }
+
+</style>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+    function fileExists(url)
+    {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        return http.status!=404;
+    }
+
+    var parseDate = d3.timeParse("%Y-%m-%d");
+    var formatDate = d3.timeFormat("%d %b %Y")
+
+    var div = d3.select("body").append("div")	
+            .attr("class", "tooltip")				
+            .style("opacity", 1);
+
+    d3.json('dashboard_stats.json').then(function(data) {
+
+        const dashboard_stats = Object.entries(data)
+
+        for (const [k, v] of dashboard_stats) {
+            if (k != 'distributions') {
+                d3.select("#field-" + k).attr("data-target", v)
+                // d3.select("#field-" + k).text(v)
+            }
+        }
+
+        d3.select("#field-iteration").text(d3.select("#field-iteration").attr("data-target"));
+
+        d3.select("#field-submission-deadline").text(formatDate(parseDate(d3.select("#field-submission-deadline").attr("data-target"))));
+        d3.select("#field-review-deadline").text(formatDate(parseDate(d3.select("#field-review-deadline").attr("data-target"))));
+        d3.select("#field-meta-deadline").text(formatDate(parseDate(d3.select("#field-meta-deadline").attr("data-target"))));
+        d3.select("#field-notification").text(formatDate(parseDate(d3.select("#field-notification").attr("data-target"))));
+        d3.select("#field-update-date").text(formatDate(parseDate(d3.select("#field-update-date").attr("data-target"))));
+
+        d3.select("#or_website").text(d3.select("#field-iteration").attr("data-target") + " OpenReview Site");
+        var my = d3.select("#field-iteration").attr("data-target").split(' ')
+        d3.select("#or_website").attr("href", "https://openreview.net/group?id=aclweb.org/ACL/ARR/" + my[1] + '/' + my[0]);
+
+        var month_year = d3.select("#field-iteration").attr("data-target").split(' ')
+        var iteration = month_year[1] + '/' + month_year[0].toLowerCase();
+
+        d3.json('/months.json').then(function(data) {
+            var image = 'url("' + data[iteration] + '")';
+            document.documentElement.style.setProperty("--selection-background", image);
+        });
+        
+        const counters = document.querySelectorAll('.counter');
+        const speed = 20;
+
+        counters.forEach((counter) => {
+            const updateCount = () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText)
+                var increment = Math.trunc(target / speed);
+                if (increment == 0) {
+                    increment = 1
+                }
+
+                if (count < target) {
+                    counter.innerHTML = count + increment;
+                    setTimeout(updateCount, 30);
+                } else { 
+                    counter.innerHTML = target;
+                }
+            };
+        updateCount();
+        });
+
+    });
+    var meta_color = "#e64a19"
+    var review_color = "#1976d2"
+
+    function draw_loads(selector, type) {
+
+        var margin = {top: 10, right: 10, bottom: 35, left: 50},
+            width = 350 - margin.left - margin.right,
+            height = 100 - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+                .rangeRound([0, width]);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+
+        var svg = d3.select(selector).append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("review_loads.csv").then(function(data) {
+
+            data.forEach(function(d) {
+                d.load = parseInt(d.load);
+                d.value = parseInt(d.value)
+            });
+
+            var review_data = data.filter(d => d.type == type)
+
+            x.domain([d3.min(review_data, function(d) {return d.load}), d3.max(review_data, function(d) {return d.load})]);
+            y.domain([0, d3.max(review_data, function(d) {return d.value})]);
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveCardinal.tension(0.8))
+            .x(function(d) { return x(d.load); })
+            .y(function(d) { return y(d.value); }));
+
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "10px")
+            .text("Paper Load ⟶");
+
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "10px")
+            .text(function(d) { if (type == "review") {return "# Reviewers"} else {return "# Area Chairs"} });
+            
+            const xTicks = x.ticks().filter(tick => Number.isInteger(tick));
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x).tickValues(xTicks).tickFormat(d3.format('d')));
+
+            svg.append("g")
+                .call(d3.axisLeft(y).ticks(2));
+            
+        });
+        }
+
+    function draw_scores(selector, type) {
+
+        var margin = {top: 10, right: 30, bottom: 40, left: 50},
+            width = 600 - margin.left - margin.right,
+            height = 280 - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+                .domain([0, 5])
+                .rangeRound([0, width]);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+
+        var netHeight = (height + margin.top + margin.bottom)
+        var netWidth = (width + margin.left + margin.right)
+
+        var svg = d3.select(selector).append("svg")
+            .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("review_scores.csv").then(function(data) {
+
+            data.forEach(function(d) {
+                d.score = parseFloat(d.score);
+                d.value = parseInt(d.value)
+            });
+
+            var barwidth = Math.floor(1.3 * width / data.length)
+            var review_data = data.filter(d => d.type == type)
+
+            y.domain([0, d3.max(review_data, function(d) {return d.value})]);
+
+            var rects = svg
+            .selectAll()
+            .data(review_data).enter().append("g")
+            .append("rect")
+
+            rects
+            .attr('x', function(d) { return x(d.score) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+
+            rects
+            .data(review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveCardinal.tension(0.8))
+            .x(function(d) { return x(d.score); })
+            .y(function(d) { return y(d.value); }));
+
+            legx = 25
+            legy = 10
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", function(d) { if (type == "review") {return review_color} else {return meta_color} })
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text(function(d) { if (type == "review") {return "Avg. Review Score"} else {return "Meta Review Score"} })
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text(function(d) { if (type == "review") {return "No. of Reviews ⟶"} else {return "No. of Meta Reviews ⟶"} });
+
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text(function(d) { if (type == "review") {return "Avg. Review Scores per Paper ⟶"} else {return "Meta Review Scores per Paper ⟶"} });
+
+            if (type == "meta") {
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x).ticks(6));
+            } else {
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x));
+            }
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+            
+        });
+    }
+
+    function draw_review_time() {
+
+        const getDatesBetween = (startDate, endDate, includeEndDate) => {
+        const dates = [];
+        const currentDate = startDate;
+        while (currentDate < endDate) {
+            dates.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        if (includeEndDate) 
+            dates.push(endDate);
+            return dates;
+        };
+
+
+        margin = {top: 10, right: 30, bottom: 40, left: 60},
+            width = 1200 - margin.left - margin.right,
+            height = 300 - margin.top - margin.bottom;
+
+        
+
+        x = d3.scaleTime()
+                .rangeRound([0, width]);
+        y = d3.scaleLinear()
+                .range([height, 0]);
+
+        var netHeight = (height + margin.top + margin.bottom)
+        var netWidth = (width + margin.left + margin.right)
+
+        svg = d3.select("#revturnaroundviz").append("svg")
+            .attr("viewBox", `0 0 ` + netWidth + ` ` + netHeight)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        Promise.all([
+            d3.csv("review_dates.csv"),
+            d3.json('dashboard_stats.json')
+        ])
+        .then(function(files) {
+            data = files[0]
+            data_dash = files[1]
+
+            var review_deadline = parseDate(data_dash['review-deadline'])
+            var meta_review_deadline = parseDate(data_dash['meta-deadline'])
+            var notification_deadline = parseDate(data_dash['notification'])
+
+            data.forEach(function(d) {
+                d.date = parseDate(d.dtg);
+                d.value = parseInt(d.value)
+            });
+
+            if (notification_deadline > d3.max(data, function(d) {return d.date})) {
+                x.domain([d3.min(data, function(d) {return d.date}), notification_deadline])
+            } else {
+                x.domain([d3.min(data, function(d) {return d.date}), d3.max(data, function(d) {return d.date})])
+            }
+
+            y.domain([0, d3.max(data, function(d) {return d.value})]);
+
+            var startDate = x.domain()[0]
+            var endDate = x.domain()[1]
+            
+            var barwidth = Math.floor(width / getDatesBetween(startDate, endDate).length)
+            var meta_color = "#e64a19"
+            var review_color = "#1976d2"
+
+            var review_data = data.filter(d => d.type == "review")
+            var meta_review_data = data.filter(d => d.type == "meta")
+
+            review_rects = svg
+            .selectAll()
+            .data(review_data).enter().append("g")
+            .append("rect")
+            .attr('x', function(d) { return x(d.date) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', review_color)
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", review_color)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+
+            review_rects
+            .data(review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            meta_rects = svg
+            .selectAll()
+            .data(meta_review_data).enter().append("g")
+            .append("rect")
+            .attr('x', function(d) { return x(d.date) - barwidth/2; })
+            .attr('y', function(d) { return y(0); })
+            .attr('width', barwidth)
+            .attr('height', function(d) { return height - y(0)})
+            .attr('stroke', '#eee')
+            .attr('fill', meta_color)
+            .attr('opacity', 0.2)
+            .attr('class', 'npointer')
+            .on("mouseover", function(i, d) {
+            div.transition()		
+                .duration(100)		
+                .style("opacity", .9);
+            div.html(d.value)
+                .style("color", meta_color)
+                .style("left", (event.pageX - 20) + "px")		
+                .style("top", (event.pageY - 20) + "px");	
+            })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+
+            meta_rects
+            .data(meta_review_data)
+            .transition()
+            .duration(800)
+            .attr('y', function(d) { return y(d.value); })
+            .attr('height', function(d) { return height - y(d.value)})
+
+            svg.append("path")
+            .datum(review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", review_color)
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveCardinal.tension(0.8))
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.value); }));
+
+            svg.append("path")
+            .datum(meta_review_data)
+            .transition()
+            .delay(function(d,i){ return 1000*i; }) 
+            .duration(1200)
+            .attr("fill", "none")
+            .attr("stroke", meta_color)
+            .attr("stroke-width", 1.5)
+            .attr("stroke-linejoin", "round")
+            .attr("d",  d3.line()
+            .curve(d3.curveCardinal.tension(0.8))
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.value); }));
+
+            
+            // Plotting Review Deadlines
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(review_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(review_deadline))
+            .attr("y2", height);
+
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(meta_review_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(meta_review_deadline))
+            .attr("y2", height);
+
+            svg.append('line')
+            .style("stroke", "#000")
+            .style("stroke-width", 2)
+            .style("stroke-dasharray", ("3, 3"))
+            .attr("x1", x(notification_deadline))
+            .attr("y1", 0)
+            .attr("x2", x(notification_deadline))
+            .attr("y2", height);
+
+            svg.append("text")
+            .attr("transform", "translate(" + x(review_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(review_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", review_color)
+
+            svg.append("text")
+            .attr("transform", "translate(" + x(meta_review_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(meta_review_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", meta_color)
+
+            svg.append("text")
+            .attr("transform", "translate(" + x(notification_deadline) + ", " + (height-10) + ")rotate(-90)")
+            .attr("dy", "-0.5em")
+            .text(formatDate(notification_deadline))
+            .style("font-size", "11px")
+            .style("text-anchor", "left")
+            .style("fill", "#000")
+
+            legx = 25
+            legy = 10
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", review_color)
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Review Submission Time")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            legx = 25
+            legy = 28
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", meta_color)
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Meta Review Submission Time")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            legx = 25
+            legy = 46
+            legxoff = 15
+
+            svg.append('line')
+            .style("stroke", "#000")
+            .style("stroke-dasharray", ("3, 3"))
+            .style("stroke-width", 1.5)
+            .attr("x1", legx-legxoff)
+            .attr("y1", legy)
+            .attr("x2", legx+legxoff)
+            .attr("y2", legy);
+
+            svg.append("text")
+            .attr("x", legx + 20)
+            .attr("y", legy + 5)
+            .text("Review, Meta Review and Notification Deadlines")
+            .style("font-size", "13px")
+            .attr("alignment-baseline","middle")
+            .attr("opacity", 0.7)
+
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1.2em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("No. of Reviews ⟶");
+
+            svg.append("text")             
+            .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Submission Date ⟶");
+
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+            
+        });
+    }
+
+    if (fileExists('review_loads.csv')) {
+        draw_loads("#aeloadviz", "meta")
+        draw_loads("#revloadviz", "review")
+    } else {
+        // $("#revloadviz").closest('.col-').remove()
+    }
+
+    if (fileExists('review_scores.csv')) {
+        draw_scores("#revscoreviz", "review")
+        draw_scores("#metascoreviz", "meta")
+    } else {
+        $("#revscoreviz").closest('.row').remove()
+    }
+
+    if (fileExists('review_dates.csv')) {
+        draw_review_time()
+    }
+
+</script>
