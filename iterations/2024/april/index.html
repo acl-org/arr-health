@@ -273,10 +273,11 @@
         var month_year = d3.select("#field-iteration").attr("data-target").split(' ')
         var iteration = month_year[1] + '/' + month_year[0].toLowerCase();
 
-        d3.json('/months.json').then(function(data) {
-            var image = 'url("' + data[iteration] + '")';
-            document.documentElement.style.setProperty("--selection-background", image);
-        });
+//        d3.json('/months.json').then(function(data) {
+//            var image = 'url("' + data[iteration] + '")';
+        var image = 'banner.png';
+        document.documentElement.style.setProperty("--selection-background", image);
+//        });
         
         const counters = document.querySelectorAll('.counter');
         const speed = 20;
