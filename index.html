@@ -205,83 +205,69 @@ d3.json('months.json').then(function(data) {
     return splits[0] + '-' + splits[1] + '-01'
   }
 
-  for (let i = 0; i < months.length; i++) {
-    (function(i) {
-      const k = months[i][0];
-      const month = k.split('/')[1];
-      const year = k.split('/')[0];
-      const v = "iterations/" + k + "/banner.png";
-      const imgpath = "banner.png";
-      const dir = "iterations/";
-  
-      $.ajax({
-        url: v,
-        type: 'HEAD',
-        error: function() {
-          const v = "img/" + month + ".png";
-          console.log(">>>" + v);
-        },
-        success: function() {}
-      });
-  
-      console.log("<<<>>>," + v);
-  
+  for (i=0; i < months.length; i++) {
+      var submissions = 0
+      var review_progress = 0
+      var meta_progress = 0
+      var k = months[i][0]
+      var month = k.split('/')[1]
+      var year = k.split('/')[0]
+      var v = months[i][1] //"iterations/"+k+"/banner.png"
+      var imgpath = "banner.png"
+      const dir = "iterations/"
+
       $.ajax({
         dataType: "json",
         url: dir + k + '/dashboard_stats.json',
+        async: false, 
         success: function(data) {
-          const submissions = data['submissions'];
-          const resubmissions = data['resubmissions'];
-          const review_progress = data['rev-progress'];
-          const meta_progress = data['meta-progress'];
-          const iteration = data['iteration'];
-          const update_date = formatDate(parseDate(data['update-date']));
-          const sub_deadline = data['submission-deadline'];
-  
-          total_subs.push({ 'submissions': submissions, 'month': parseDate(dtom(sub_deadline)) });
-          total_resubs.push({ 'submissions': resubmissions, 'month': parseDate(dtom(sub_deadline)) });
-  
-          const ae_pool = data['ae-pool'];
-          const rev_pool = data['rev-pool'];
-          const ae_assigned = data['ae-assigned'];
-          const rev_assigned = data['rev-assigned'];
-          aes.push({ 'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline)) });
-          revs.push({ 'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline)) });
-  
-          const requested_revs = data['requested-revs'];
-          const returned_revs = data['returned-revs'];
-          const requested_mrevs = data['requested-mrevs'];
-          const returned_mrevs = data['returned-mrevs'];
-          reviews.push({ 'requested': requested_revs, 'returned': returned_revs, 'month': parseDate(dtom(sub_deadline)) });
-          mreviews.push({ 'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline)) });
-  
-          const html = `
-            <div class="col-lg-4 col-md-12">
-              <a href="/${dir}${k}/">
-                <div class="card img-fluid flex-md-row mb-4 shadow h-md-250 monthcard">
-                  <img class="card-img-top" src="${v}">
-                  <div class="card-img-overlay">
-                    <div class="card-body d-flex flex-column align-items-start align-self-end">
-                      <h2 class="mb-0">
-                        <strong class="text-dark" href="#">${iteration}</strong>
-                      </h2>
-                      <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ${submissions}<br>Paper Progress: ${review_progress}%<br>Meta Review Progress: ${meta_progress}%</h6>
-                      <p class="text-muted font-italic">(Updated on: ${update_date})</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          `;
-  
-          $(`#iterations-${year}`).append(html);
-        },
-        error: function(xhr, status, error) {
-          console.error("Error fetching dashboard_stats.json: " + error);
+          submissions = data['submissions']
+          resubmissions = data['resubmissions']
+          review_progress = data['rev-progress']
+          meta_progress = data['meta-progress']
+          iteration = data['iteration']
+          update_date = formatDate(parseDate(data['update-date']))
+
+          sub_deadline = data['submission-deadline']
+          total_subs.push({'submissions':submissions, 'month': parseDate(dtom(sub_deadline))})
+          total_resubs.push({'submissions':resubmissions, 'month': parseDate(dtom(sub_deadline))})
+
+          ae_pool = data['ae-pool']
+          rev_pool = data['rev-pool']
+          ae_assigned = data['ae-assigned']
+          rev_assigned = data['rev-assigned']
+          aes.push({'total': ae_pool, 'assigned': ae_assigned, 'month': parseDate(dtom(sub_deadline))})
+          revs.push({'total': rev_pool, 'assigned': rev_assigned, 'month': parseDate(dtom(sub_deadline))})
+
+          requested_revs = data['requested-revs']
+          returned_revs = data['returned-revs']
+          requested_mrevs = data['requested-mrevs']
+          returned_mrevs = data['returned-mrevs']
+          reviews.push({'requested': requested_revs, 'returned': returned_revs, 'month': parseDate(dtom(sub_deadline))})
+          mreviews.push({'requested': requested_mrevs, 'returned': returned_mrevs, 'month': parseDate(dtom(sub_deadline))})
+
+          $('#iterations' + '-' + year).append(`
+                        <div class="col-lg-4 col-md-12">
+                        <a href="/` + dir + k + `/">
+                        <div class="card img-fluid flex-md-row mb-4 shadow h-md-250 monthcard">
+                            <img class="card-img-top" src="` + v + `">
+                            <div class="card-img-overlay">
+                                <div class="card-body d-flex flex-column align-items-start align-self-end">
+                                <h2 class="mb-0">
+                                    <strong class="text-dark" href="#">` + iteration + `</strong>
+                                </h2>
+                                <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+                                <h6 class="mt-2 card-text text-dark mb-auto">Submissions: ` + submissions + ` <br> Paper Progress: ` + review_progress + `% <br> Meta Review Progress: ` + meta_progress + `%</h6><p class="text-muted font-italic">(Updated on: ` + update_date + `)</p>
+                                <!-- <a href="#">Continue reading</a> -->
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                        </div>
+            `);
         }
       });
-    })(i);
-  }
+  };
 
   $(function () {
             $.each(document.images, function () {
