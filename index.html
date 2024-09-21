@@ -221,7 +221,7 @@ d3.json('months.json').then(function(data) {
         type: 'HEAD',
         error: function () {
           // If the image doesn't exist, load the image from 'img/{month}.png'
-          v = "img/" + month + ".png";
+          var v = "img/" + month + ".png";
           console.log(">>>,"+v);
         },
         success: function () {
