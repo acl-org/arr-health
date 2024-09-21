@@ -232,9 +232,7 @@
         error: function () {
           // If the image doesn't exist, load the image from 'img/{month}.png'
           v = "img/" + month + ".png";
-        }});
-
-      $.ajax({
+        },
         dataType: "json",
         url: dir + k + '/dashboard_stats.json',
         async: false,
