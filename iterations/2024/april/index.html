@@ -476,7 +476,7 @@
             svg.append("text")
             .attr("x", legx + 20)
             .attr("y", legy + 5)
-            .text(function(d) { if (type == "review") {return "Review Scores"} else {return "Meta Review Score"} })
+            .text(function(d) { if (type == "review") {return "Avg. Review Score"} else {return "Meta Review Score"} })
             .style("font-size", "13px")
             .attr("alignment-baseline","middle")
             .attr("opacity", 0.7)
@@ -496,7 +496,7 @@
                                 (height + margin.top + 20) + ")")
             .style("text-anchor", "middle")
             .style("font-size", "11px")
-            .text(function(d) { if (type == "review") {return "Review Scores ⟶"} else {return "Meta Review Scores ⟶"} });
+            .text(function(d) { if (type == "review") {return "Avg. Review Scores per Paper ⟶"} else {return "Meta Review Scores per Paper ⟶"} });
 
             if (type == "meta") {
                 svg.append("g")
