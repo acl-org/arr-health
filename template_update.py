@@ -13,6 +13,11 @@ def get_argparser():
     return parser
 
 if __name__ == '__main__':
+    """
+    Sample Command
+    
+    python template_update.py --month 2024/April
+    """
     args = get_argparser().parse_args() 
 
     os.chdir(os.path.join(os.getcwd(), iter_path))
