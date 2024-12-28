@@ -1,1 +1,3950 @@
-[]
+[
+  {
+    "name": "Catarina G Bel\u00e9m",
+    "institution": "University of California, Irvine",
+    "reviewed": "4",
+    "recognized": "4",
+    "percentage": "100"
+  },
+  {
+    "name": "Mihir Parmar",
+    "institution": "Arizona State University",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Mourad Heddaya",
+    "institution": "University of Chicago",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Shamik Roy",
+    "institution": "Amazon",
+    "reviewed": "5",
+    "recognized": "3",
+    "percentage": "60"
+  },
+  {
+    "name": "Arnav Arora",
+    "institution": "University of Copenhagen",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Irina Nikishina",
+    "institution": "Universit\u00e4t Hamburg",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Michael Ginn",
+    "institution": "University of Colorado at Boulder",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Iryna Gurevych",
+    "institution": "Institute for Computer Science, Artificial Intelligence and Technology",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Simon Ostermann",
+    "institution": "German Research Center for AI",
+    "reviewed": "5",
+    "recognized": "3",
+    "percentage": "60"
+  },
+  {
+    "name": "Apoorv Khandelwal",
+    "institution": "Brown University",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "R. Thomas McCoy",
+    "institution": "Yale University",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Michael Hanna",
+    "institution": "University of Amsterdam",
+    "reviewed": "4",
+    "recognized": "3",
+    "percentage": "75"
+  },
+  {
+    "name": "Tong Zhu",
+    "institution": "Soochow University, China",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Sergiu Nisioi",
+    "institution": "University of Bucharest",
+    "reviewed": "5",
+    "recognized": "2",
+    "percentage": "40"
+  },
+  {
+    "name": "Prashant Mathur",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Tom Bourgeade",
+    "institution": "LORIA, University of Lorraine",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "G. M. Shahariar Shibli",
+    "institution": "University of California, Riverside",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Seongsu Bae",
+    "institution": "Korea Advanced Institute of Science and Technology",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Gengze Zhou",
+    "institution": "University of Adelaide",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Chuan Xiao",
+    "institution": "Osaka University",
+    "reviewed": "5",
+    "recognized": "2",
+    "percentage": "40"
+  },
+  {
+    "name": "Gaurav Sahu",
+    "institution": "University of Waterloo",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Carina Silberer",
+    "institution": "University of Stuttgart, University of Stuttgart",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Kyuhong Shim",
+    "institution": "Qualcomm Inc, Qualcomm",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Yichen Wang",
+    "institution": "Department of Computer Science, University of Washington",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Can Ma",
+    "institution": "Institute of Information Engineering, Chinese Academy of Sciences",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "B\u00f6rje Karlsson",
+    "institution": "Beijing Academy of Artificial Intelligence (BAAI)",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "KyungTae Lim",
+    "institution": "Seoul National University of Science and Technology",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Bugeun Kim",
+    "institution": "Chung-Ang University",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Pere-Llu\u00eds Huguet Cabot",
+    "institution": "University of Roma \"La Sapienza\"",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Ting-Rui Chiang",
+    "institution": "University of Southern California",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Eugene Jang",
+    "institution": "S2W Inc.",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Julian Salazar",
+    "institution": "Google DeepMind",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Xiuwen Liu",
+    "institution": "Florida State University",
+    "reviewed": "8",
+    "recognized": "2",
+    "percentage": "25"
+  },
+  {
+    "name": "David Beauchemin",
+    "institution": "Universit\u00e9 Laval",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Jiho Kim",
+    "institution": "Korea Advanced Institute of Science & Technology",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Wei Liu",
+    "institution": "Huazhong University of Science and Technology",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Wessel Poelman",
+    "institution": "KU Leuven",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "William Gantt",
+    "institution": "Johns Hopkins University",
+    "reviewed": "5",
+    "recognized": "2",
+    "percentage": "40"
+  },
+  {
+    "name": "Dayne Freitag",
+    "institution": "SRI International",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Jialiang Guo",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "David Traum",
+    "institution": "University of Southern California",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Elena V. Epure",
+    "institution": "Deezer",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "David Martins de Matos",
+    "institution": "Instituto Superior T\u00e9cnico",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Rong Pan",
+    "institution": "SUN YAT-SEN UNIVERSITY",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Rohan Iyer",
+    "institution": "University of Pennsylvania, University of Pennsylvania",
+    "reviewed": "8",
+    "recognized": "2",
+    "percentage": "25"
+  },
+  {
+    "name": "James Gung",
+    "institution": "AWS AI Labs",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Emily Allaway",
+    "institution": "University of Edinburgh",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Daniela Teodorescu",
+    "institution": "University of Alberta",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Daniel Lowd",
+    "institution": "University of Oregon",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Joseph Dexter",
+    "institution": "Harvard University",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Jo\u00e3o Silva",
+    "institution": "Universidade de Lisboa",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Damien Nouvel",
+    "institution": "National Institute for Oriental Languages and Civilizations",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Esther Ploeger",
+    "institution": "Aalborg University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Ethan Perez",
+    "institution": "Anthropic",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Xinyi Mou",
+    "institution": "Fudan University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Yin Wu",
+    "institution": "Nanyang Technological University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Gene Louis Kim",
+    "institution": "University of South Florida",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Bj\u00f6rn Schuller",
+    "institution": "Technische Universit\u00e4t M\u00fcnchen",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Yuval Reif",
+    "institution": "Hebrew University of Jerusalem",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Huawei Lin",
+    "institution": "Rochester Institute of Technology",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Hyeonseok Moon",
+    "institution": "Korea University",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Hang Li",
+    "institution": "Michigan State University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "YunSeok Choi",
+    "institution": "SungKyunKwan University",
+    "reviewed": "8",
+    "recognized": "2",
+    "percentage": "25"
+  },
+  {
+    "name": "Yun Li",
+    "institution": "Fudan University",
+    "reviewed": "7",
+    "recognized": "2",
+    "percentage": "28"
+  },
+  {
+    "name": "Antonios Anastasopoulos",
+    "institution": "Athena Research Center",
+    "reviewed": "5",
+    "recognized": "2",
+    "percentage": "40"
+  },
+  {
+    "name": "Huiyao Chen",
+    "institution": "Tianjin University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Max Glockner",
+    "institution": "Technische Universit\u00e4t Darmstadt",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Nikolas Vitsakis",
+    "institution": "Heriot-Watt University",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Marek Suppa",
+    "institution": "Comenius University in Bratislava",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Zach Wood-Doughty",
+    "institution": "Northwestern University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Anej Svete",
+    "institution": "Department of Computer Science, ETHZ - ETH Zurich",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Akhil Arora",
+    "institution": "Aarhus University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Amir Abdullah",
+    "institution": "Cynch AI",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Zhe Lin",
+    "institution": "Alibaba Group",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Nader Akoury",
+    "institution": "Cornell University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Hainiu Xu",
+    "institution": "King's College London, University of London",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Go Inoue",
+    "institution": "Mohamed bin Zayed University of Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Arkadiy Saakyan",
+    "institution": "Columbia University",
+    "reviewed": "3",
+    "recognized": "2",
+    "percentage": "66"
+  },
+  {
+    "name": "Marc Marone",
+    "institution": "Johns Hopkins University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Yoshihiko Suhara",
+    "institution": "NVIDIA",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Lidia Pivovarova",
+    "institution": "University of Helsinki",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Abraham Israeli",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Yisong Miao",
+    "institution": "National University of Singapore",
+    "reviewed": "6",
+    "recognized": "2",
+    "percentage": "33"
+  },
+  {
+    "name": "Yiwei Guo",
+    "institution": "Shanghai Jiaotong University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Tiberiu Sosea",
+    "institution": "University of Illinois, Chicago",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Paolo Papotti",
+    "institution": "Eurecom",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Abeer Aldayel",
+    "institution": "King Saud University",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Allison Claire Lahnala",
+    "institution": "National Institutes of Health",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Lucas Georges Gabriel Charpentier",
+    "institution": "University of Oslo",
+    "reviewed": "5",
+    "recognized": "2",
+    "percentage": "40"
+  },
+  {
+    "name": "Li Lucy",
+    "institution": "University of California Berkeley",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Giuseppe Attanasio",
+    "institution": "Instituto de Telecomunica\u00e7\u00f5es",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Mingyang Zhou",
+    "institution": "CapitalOne",
+    "reviewed": "4",
+    "recognized": "2",
+    "percentage": "50"
+  },
+  {
+    "name": "Santosh Kesiraju",
+    "institution": "Brno University of Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Si-An Chen",
+    "institution": "National Taiwan University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sangwhan Moon",
+    "institution": "Google",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Siru Ouyang",
+    "institution": "University of Illinois Urbana-Champaign Champaign",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sihao Chen",
+    "institution": "Microsoft",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shuyue Stella Li",
+    "institution": "Department of Computer Science, University of Washington",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sean Trott",
+    "institution": "University of California, San Diego",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Simran Khanuja",
+    "institution": "CMU, Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sean Xie",
+    "institution": "Dartmouth College",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "See-Kiong Ng",
+    "institution": "National University of Singapore",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shuyang Cao",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Sanjana Ramprasad",
+    "institution": "Northeastern University ",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Shaochen Zhong",
+    "institution": "Rice University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Selma Tekir",
+    "institution": "izmir institute of technology",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Shiwen Ni",
+    "institution": "Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Samuel Cahyawijaya",
+    "institution": "Hong Kong University of Science and Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Shane Storks",
+    "institution": "University of Michigan",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Shaomu Tan",
+    "institution": "University of Amsterdam",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sharif Abuadbba",
+    "institution": "CSIRO's Data61",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shengqiang Zhang",
+    "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Shane Arora",
+    "institution": "University of Texas at Austin",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shiao Meng",
+    "institution": "Tsinghua University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shicheng Li",
+    "institution": "Peking University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Shalin Shah",
+    "institution": "Anvai",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Shaily Bhatt",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shanshan Xu",
+    "institution": "Technische Universit\u00e4t M\u00fcnchen",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shida Wang",
+    "institution": "National University of Singapore",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Shijie Han",
+    "institution": "Columbia University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Shinwoo Park",
+    "institution": "Yonsei University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Seokhee Hong",
+    "institution": "LG Corporation",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sandeep Mathias",
+    "institution": "Presidency University, Bangalore",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ranbir Singh Sanasam",
+    "institution": "Indian Institute of Technology, Guwahati, Dhirubhai Ambani Institute Of Information and Communication Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Samuel Ackerman",
+    "institution": "International Business Machines",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Nikolay Babakov",
+    "institution": "Univesity of Santiago de Compostela",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Pedro Henrique Luz de Araujo",
+    "institution": "Universit\u00e4t Vienna",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Parker Riley",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Parag Pravin Dakle",
+    "institution": "Fidelity Investments",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ori Ernst",
+    "institution": "Mila - Quebec Artificial Intelligence Institute",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Oren Tsur",
+    "institution": "Ben-Gurion University of the Negev",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Omar Shaikh",
+    "institution": "Stanford University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Oleg Vasilyev",
+    "institution": "Primer Technologies",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Oktie Hassanzadeh",
+    "institution": "International Business Machines",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Odysseas S. Chlapanis",
+    "institution": "Athens University of Economics and Business",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Niyati Bafna",
+    "institution": "Johns Hopkins University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Nishant Subramani",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Nishant Balepur",
+    "institution": "University of Maryland, College Park",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Nicholas Monath",
+    "institution": "Google",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Peng Lu",
+    "institution": "University of Montreal",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Nicholas Asher",
+    "institution": "CNRS",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Nicholas Andrews",
+    "institution": "Johns Hopkins University",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Neset TAN",
+    "institution": "University of Auckland",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Negar Foroutan",
+    "institution": "School of Computer and Communication Sciences, EPFL - EPF Lausanne",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Naman Bansal",
+    "institution": "Auburn University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Nachshon Cohen",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Myrthe Reuver",
+    "institution": "Vrije Universiteit Amsterdam",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Muhammad Bilal Zafar",
+    "institution": "Ruhr-Universit\u00e4t Bochum",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Muhammad Abdul-Mageed",
+    "institution": "University of British Columbia",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Mounica Maddela",
+    "institution": "Bloomberg",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Mohit Sharma",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Mohamed Elgaar",
+    "institution": "University of Massachusetts, Lowell",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Peinan Zhang",
+    "institution": "CyberAgent AI Lab",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Philipp Koehn",
+    "institution": "Johns Hopkins University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Samar Haider",
+    "institution": "University of Pennsylvania",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Reno Kriz",
+    "institution": "Johns Hopkins University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sainik Kumar Mahata",
+    "institution": "Institute of Engineering and Management",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Sagnik Ray Choudhury",
+    "institution": "National Board of Medical Examiners",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Runhui Wang",
+    "institution": "Rutgers University, New Brunswick",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Ruichao Yang",
+    "institution": "Hong Kong Baptist University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Roopal Garg",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ronny Luss",
+    "institution": "IBM",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Rong Ye",
+    "institution": "ByteDance",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Rodolfo Corona",
+    "institution": "University of California Berkeley",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Robin Marc Schmidt",
+    "institution": "Apple",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ritam Dutt",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ricardo Henao",
+    "institution": "Duke University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Revanth Gangi Reddy",
+    "institution": "University of Illinois at Urbana-Champaign",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Siva Reddy",
+    "institution": "Mila, McGill University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Phillip Benjamin Str\u00f6bel",
+    "institution": "University of Zurich",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Rahmad Mahendra",
+    "institution": "Royal Melbourne Institute of Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Raheel Qader",
+    "institution": "Universit\u00e9 Rennes I",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Quang Anh Nguyen",
+    "institution": "Universit\u00e9 Paris-Saclay",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Quan Guo",
+    "institution": "Sichuan University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Qisheng Hu",
+    "institution": "Nanyang Technological University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Qingyun Wang",
+    "institution": "University of Illinois, Urbana Champaign",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Qingbao Huang",
+    "institution": "Guangxi University",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Preethi Jyothi",
+    "institution": "Indian Institute of Technology Bombay",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Prashant Kodali",
+    "institution": "International Institute of Information Technology Hyderabad",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Prakhar Gupta",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Prajit Dhar",
+    "institution": "Universit\u00e4t Potsdam",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Pierre Zweigenbaum",
+    "institution": "LISN, CNRS, Universit\u00e9 Paris-Saclay",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Sitao Cheng",
+    "institution": "Nanjing University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Abdul Waheed",
+    "institution": "School of Computer Science, Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Siyi Liu",
+    "institution": "University of Pennsylvania, University of Pennsylvania",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Siyuan Cheng",
+    "institution": "Purdue University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Youngwoo Kim",
+    "institution": "University of Virginia, Charlottesville",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "YoungBin Kim",
+    "institution": "Chung-Ang University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yoshihide Kato",
+    "institution": "Nagoya University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yo Ehara",
+    "institution": "Tokyo Gakugei University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yixin Wan",
+    "institution": "University of California, Los Angeles",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yixiao Song",
+    "institution": "University of Massachusetts at Amherst",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yiqun Zhang",
+    "institution": "Northeastern University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yinghui Li",
+    "institution": "Tsinghua University, Tsinghua University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Ying Zhang",
+    "institution": "RIKEN",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yili Hsu",
+    "institution": "National Tsinghua University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yike Wang",
+    "institution": "Department of Computer Science, University of Washington",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yihong Liu",
+    "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Yige Yuan",
+    "institution": "Institute of Computing Technology, Chinese Academy of Sciences",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Yifan Xu",
+    "institution": "Tsinghua University, Tsinghua University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yerram Varun",
+    "institution": "Research, Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yerin Hwang",
+    "institution": "Seoul National University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Yekun Chai",
+    "institution": "Baidu",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yebowen Hu",
+    "institution": "University of Central Florida",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ye Wang",
+    "institution": "National University of Defense Technology",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yaushian Wang",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yassir Fathullah",
+    "institution": "University of Cambridge",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yaqi Xie",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yaping Zhang",
+    "institution": "Institute of automation, Chinese academy of science, Chinese Academy of Sciences",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yanzhu Guo",
+    "institution": "\u00c9cole Polytechnique",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yanzhi Tian",
+    "institution": "Beijing Institute of Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Yang Zhong",
+    "institution": "University of Pittsburgh",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Yanbo Fang",
+    "institution": "Rutgers University, New Brunswick",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Xuhui Zhou",
+    "institution": "CMU, Carnegie Mellon University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Xuanming Zhang",
+    "institution": "Columbia University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yu Bao",
+    "institution": "ByteDance Research",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Yu Wang",
+    "institution": "Shanghai Jiao Tong University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yudong Zhang",
+    "institution": "Tsinghua University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Zhengzhong Liu",
+    "institution": "Mohamed bin Zayed University of Artificial Intelligence",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "taolin zhang",
+    "institution": "Alibaba Group",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "pouya pezeshkpour",
+    "institution": "Megagon Labs",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zile Qiao",
+    "institution": "Alibaba Group",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhuohao Yu",
+    "institution": "Peking University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhouhang Xie",
+    "institution": "University of California, San Diego",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhisheng Zheng",
+    "institution": "University of Texas at Austin",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Zhilin Wang",
+    "institution": "NVIDIA",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Zhi-Qi Cheng",
+    "institution": "University of Washington",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Zheyuan Liu",
+    "institution": "University of Notre Dame",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhexiong Liu",
+    "institution": "University of Pittsburgh",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Zhenyu Pan",
+    "institution": "Northwestern University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Zhenwen Liang",
+    "institution": "University of Notre Dame",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhenjie Sun",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhengping Jiang",
+    "institution": "Johns Hopkins University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yue Fan",
+    "institution": "University of California, Santa Cruz",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zheng Xin Yong",
+    "institution": "Brown University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Zhen Guo",
+    "institution": "Virginia Polytechnic Institute and State University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zhang Daoan",
+    "institution": "University of Rochester",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Zecheng Zhang",
+    "institution": "Kumo.AI",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Yuxiao Dong",
+    "institution": "Tsinghua University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yuxiang Jia",
+    "institution": "Zhengzhou University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yuta Nakashima",
+    "institution": "Osaka University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yusuke Sakai",
+    "institution": "Nara Institute of Science and Technology, Japan",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yuling Gu",
+    "institution": "Allen Institute for Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Yuiga Wada",
+    "institution": "Keio University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Yuhan Liu",
+    "institution": "Renmin University of China",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yuelyu Ji",
+    "institution": "University of Pittsburgh",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Yue Guo",
+    "institution": "Hong Kong University of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xuanli He",
+    "institution": "University College London, University of London",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiutian Zhao",
+    "institution": "University of Edinburgh",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xinyu Zhu",
+    "institution": "University of Virginia, Charlottesville",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Teruko Mitamura",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Tzuf Paz-Argaman",
+    "institution": "Bar-Ilan University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Tushar Kataria",
+    "institution": "University of Utah",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Tsz Ting Chung",
+    "institution": "Hong Kong University of Science and Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Tong Liu",
+    "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Tom\u00e1\u0161 Musil",
+    "institution": "Charles University, Prague",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Tobias Eder",
+    "institution": "Technische Universit\u00e4t M\u00fcnchen",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Tingfeng Hui",
+    "institution": "Beijing University of Posts and Telecommunications",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Ting-Wei Wu",
+    "institution": "Apple",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "~Mitch_Paul_Mithun1",
+    "institution": "-",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Tin Nguyen",
+    "institution": "Auburn University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Tianyi Tang",
+    "institution": "Alibaba Group",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Tianyi Li",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Thomas Schaaf",
+    "institution": "Solventum",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Tengxiao Liu",
+    "institution": "University of California, Santa Barbara",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Vaidehi Patil",
+    "institution": "Department of Computer Science, University of North Carolina at Chapel Hill",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Taro Miyazaki",
+    "institution": "NHK Science and Technology Research Laboratories",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Tao Yang",
+    "institution": "SUN YAT-SEN UNIVERSITY",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Taku Hasegawa",
+    "institution": "NTT corporation",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Surendrabikram Thapa",
+    "institution": "Virginia Polytechnic Institute and State University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "St\u00e9phane CLINCHANT",
+    "institution": "Naver Labs Europe",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Steven R. Wilson",
+    "institution": "University of Michigan - Flint",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Stephen D. Richardson",
+    "institution": "Brigham Young University",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Stephanie Schoch",
+    "institution": "University of Virginia",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Stephanie Brandl",
+    "institution": "K\u00f8benhavns Universitet",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Soyoung Yoon",
+    "institution": "Seoul National University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Souvik Das",
+    "institution": "J.P. Morgan Chase",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Sougata Saha",
+    "institution": "Mohamed bin Zayed University of Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Skatje Myers",
+    "institution": "University of Wisconsin - Madison",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Usman Naseem",
+    "institution": "Macquarie University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Varun Gumma",
+    "institution": "Microsoft",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xinglin Wang",
+    "institution": "Beijing Institute of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wentao Ding",
+    "institution": "Beijing Institute for General Artificial Intelligence",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Xingchen Wan",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xin Tan",
+    "institution": "A*STAR",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiaoze Liu",
+    "institution": "Purdue University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiaoxia Cheng",
+    "institution": "Zhejiang University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiaofan Zhang",
+    "institution": "Shanghai Jiaotong University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiao Luo",
+    "institution": "University of California, Los Angeles",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiao Ding",
+    "institution": "Harbin Institute of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiangkun Hu",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Xiang Zhao",
+    "institution": "National University of Defense Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wojciech Kusa",
+    "institution": "Allegro",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "William Rudman",
+    "institution": "Brown University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "William P Hogan",
+    "institution": "University of California, San Diego",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wenxuan Wang",
+    "institution": "The Chinese University of Hong Kong",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wenqi Shi",
+    "institution": "University of Texas Southwestern Medical Center",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Venkata Subrahmanyan Govindarajan",
+    "institution": "Ithaca College",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wenjie Wang",
+    "institution": "ShanghaiTech University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Wenhao Zhu",
+    "institution": "Nanjing University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Wenhao Huang",
+    "institution": "Fudan University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Wenbo Hu",
+    "institution": "University of California, Los Angeles",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Wen Zhang",
+    "institution": "Xiaomi AI Lab",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Weiqi Wu",
+    "institution": "Shanghai Jiao Tong University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Vlad Niculae",
+    "institution": "University of Amsterdam",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Vishakh Padmakumar",
+    "institution": "New York University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Vil\u00e9m Zouhar",
+    "institution": "Department of Computer Science, ETHZ - ETH Zurich",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Viet Dac Lai",
+    "institution": "Adobe Systems",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Vidhisha Balachandran",
+    "institution": "Research, Microsoft",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Vered Shwartz",
+    "institution": "University of British Columbia",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Venktesh V",
+    "institution": "Delft University of Technology",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Mohamed Elaraby",
+    "institution": "University of Pittsburgh",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Manley Howell Roberts",
+    "institution": "Abridge",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Mir Tafseer Nayeem",
+    "institution": "University of Alberta",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Connor Baumler",
+    "institution": "University of Maryland, College Park",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Derek Chen",
+    "institution": "Soleda AI",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dennis Wei",
+    "institution": "International Business Machines",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "David Wan",
+    "institution": "Department of Computer Science, University of North Carolina at Chapel Hill",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "David Thulke",
+    "institution": "RWTH Aachen University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "David Jurgens",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "David Chan",
+    "institution": "University of California, Berkeley",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "David Arps",
+    "institution": "HHU D\u00fcsseldorf",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "David A. Smith",
+    "institution": "Northeastern University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Danqing Wang",
+    "institution": "CMU, Carnegie Mellon University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Danish Contractor",
+    "institution": "International Business Machines",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Daniel Preotiuc-Pietro",
+    "institution": "Bloomberg",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Daniel Braun",
+    "institution": "Unversity of Marburg",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dan Jurafsky",
+    "institution": "Stanford University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Coleman Haley",
+    "institution": "University of Edinburgh",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Changjiang Gao",
+    "institution": "nanjing university",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chunyuan Deng",
+    "institution": "Rice University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chunyang Jiang",
+    "institution": "Idiap Research Institute",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Chufan Gao",
+    "institution": "University of Illinois Urbana-Champaign",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Chuanyi Li",
+    "institution": "nanjing university",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Christopher Klamm",
+    "institution": "Universit\u00e4t Mannheim",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chiyu Zhang",
+    "institution": "Facebook",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chieh-Yang Huang",
+    "institution": "MetaMetrics",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chia-Hui Chang",
+    "institution": "Department of computer science and information engineering, National Central University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Cheryl Lee",
+    "institution": "Department of Computer Science and Engineering, The Chinese University of Hong Kong",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Chenpeng Du",
+    "institution": "ByteDance Inc.",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chengzhengxu Li",
+    "institution": "Xi'an Jiaotong University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Cheng Yang",
+    "institution": "Beijing University of Posts and Telecommunications",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chen-Yu Lee",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dhananjay Ram",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dhiman Goswami",
+    "institution": "George Mason University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Di Lu",
+    "institution": "Dataminr",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dinesh Khandelwal",
+    "institution": "International Business Machines",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gaurav Verma",
+    "institution": "Georgia Institute of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gaurav Arora",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gary Lee",
+    "institution": "POSTECH",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Fuxiao Liu",
+    "institution": "University of Maryland, College Park",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Fr\u00e9d\u00e9ric B\u00e9chet",
+    "institution": "Acad\u00e9mie d'Aix-Marseille",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Francois Meyer",
+    "institution": "University of Cape Town",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Francesco Cazzaro",
+    "institution": "Universidad Polit\u00e9cnica de Cataluna",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Fran Jeleni\u0107",
+    "institution": "University of Zagreb",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Forrest Bao",
+    "institution": "Vectara, Inc.",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Felix Stahlberg",
+    "institution": "Google",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Fabian David Schmidt",
+    "institution": "Bayerische Julius-Maximilians-Universit\u00e4t W\u00fcrzburg",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Etsuko Ishii",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Erica Kido Shimomoto",
+    "institution": "AIST, National Institute of Advanced Industrial Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Enrique Noriega-Atala",
+    "institution": "University of Arizona",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Elizabeth Kaye Nielsen",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Eleonora Gualdoni",
+    "institution": "Universitat Pompeu Fabra",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Elena Sofia Ruzzetti",
+    "institution": "Universit\u00e0 degli Studi di Roma Tor Vergata",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Elena Chistova",
+    "institution": "FRC CSC RAS",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "D\u00e1vid M\u00e1rk Nemeskey",
+    "institution": "E\u00f6tv\u00f6s Lor\u00e1nd University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "D\u00e1vid Javorsk\u00fd",
+    "institution": ", Charles University Prague",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Duarte Miguel Alves",
+    "institution": "Instituto Superior T\u00e9cnico",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Dongyuan Li",
+    "institution": "The University of Tokyo",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Dongyang Li",
+    "institution": "Shanghai University of Electric Power",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Do Xuan Long",
+    "institution": "National University of Singapore",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Djam\u00e9 Seddah",
+    "institution": "Inria Paris (on teaching leave from Sorbonne Universit\u00e9)",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Divyansh Agarwal",
+    "institution": "Salesforce.com",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Dipankar Das",
+    "institution": "Jadavpur University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Chaozhuo Li",
+    "institution": "Beijing University of Posts and Telecommunications",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Chan Young Park",
+    "institution": "Department of Computer Science, University of Washington",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gerasimos Spanakis",
+    "institution": "Maastricht University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ali Naseh",
+    "institution": "University of Massachusetts at Amherst",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Aparna Ananthasubramaniam",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Anupam Mondal",
+    "institution": "Institute of Engineering and Management",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Antonia Karamolegkou",
+    "institution": "University of Copenhagen",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Antoine Gourru",
+    "institution": "Universit\u00e9 Jean Monnet",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Anthony Zhe Liu",
+    "institution": "University of Michigan",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Anoop Kumar",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Anmol Goel",
+    "institution": "Technische Universit\u00e4t Darmstadt",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Anjishnu Mukherjee",
+    "institution": "George Mason University",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Andreas Spitz",
+    "institution": "Universit\u00e4t Konstanz",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Amit Agarwal",
+    "institution": "Oracle",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Amanda Bertsch",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Aman Chadha",
+    "institution": "Amazon Web Services",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Amalie Brogaard Pauli",
+    "institution": "Aarhus University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Alexander M Rush",
+    "institution": "Cornell University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Cedric Lothritz",
+    "institution": "Luxembourg Institute of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Alessia Battisti",
+    "institution": "University of Zurich",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Alejo Lopez-Avila",
+    "institution": "Huawei Technologies Ltd.",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Alberto Barr\u00f3n-Cede\u00f1o",
+    "institution": "Universit\u00e0 di Bologna",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Akshat Gupta",
+    "institution": "University of California, Berkeley",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Akhila Yerukola",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ajay Patel",
+    "institution": "University of Pennsylvania",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Agata Savary",
+    "institution": "Universit\u00e9 Paris-Saclay",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Agam Shah",
+    "institution": "Georgia Institute of Technology",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Afra Amini",
+    "institution": "ETHZ - ETH Zurich",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Adyasha Maharana",
+    "institution": "Department of Computer Science, University of North Carolina, Chapel Hill",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Adithya Pratapa",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Adarsh Pyarelal",
+    "institution": "University of Arizona",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Abulhair Saparov",
+    "institution": "Purdue University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Arijit Nag",
+    "institution": "Indian Institute of Technology Kharagpur, Dhirubhai Ambani Institute Of Information and Communication Technology",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Armineh Nourbakhsh",
+    "institution": "School of Computer Science, Carnegie Mellon University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Artem Vazhentsev",
+    "institution": "Skolkovo Institute of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Aryo Pradipta Gema",
+    "institution": "University of Edinburgh, University of Edinburgh",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Carolyn Rose",
+    "institution": "School of Computer Science, Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Carl Edwards",
+    "institution": "University of Illinois at Urbana-Champaign",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Caren Han",
+    "institution": "University of Melbourne",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Can Udomcharoenchaikit",
+    "institution": "Vidyasirimedhi Institute of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Byung-Doh Oh",
+    "institution": "New York University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Brodie Mather",
+    "institution": "The Institute for Human & Machine Cognition",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Brendan OConnor",
+    "institution": "University of Massachusetts, Amherst",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Bohao Yang",
+    "institution": "University of Manchester",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Bo Xiong",
+    "institution": "Stanford University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Bing Xue",
+    "institution": "Facebook",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Bin Wang",
+    "institution": "I2R, A*STAR",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Beno\u00eet Sagot",
+    "institution": "Inria",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Benjamin Van Durme",
+    "institution": "Microsoft",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Benfeng Xu",
+    "institution": "University of Science and Technology of China",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ben Kao",
+    "institution": "the University of Hong Kong, University of Hong Kong",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Belinda Zou Li",
+    "institution": "Massachusetts Institute of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Beiduo Chen",
+    "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Barbara Plank",
+    "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Baorong Huang",
+    "institution": "Shanghai International Studies University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Bang Wang",
+    "institution": "Huazhong University of Science and Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Bang An",
+    "institution": "University of Maryland, College Park",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Badr M Abdullah",
+    "institution": "Universit\u00e4t des Saarlandes",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Aviya Maimon",
+    "institution": "Bar-Ilan University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ashutosh Sathe",
+    "institution": "Indian Institute of Technology, Bombay",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ashish Sabharwal",
+    "institution": "Allen Institute for Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ashish Mittal",
+    "institution": "IBM Research, Indian Institute of Technology, Bombay",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ashish Khetan",
+    "institution": "Amazon",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Geewook Kim",
+    "institution": "NAVER Cloud",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Geza Kovacs",
+    "institution": "Google",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Minyi Zhao",
+    "institution": "Fudan University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Jyun-Yu Jiang",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Laura Biester",
+    "institution": "Middlebury College",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lannan Luo",
+    "institution": "George Mason University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Koustava Goswami",
+    "institution": "Adobe Systems",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Kosuke Akimoto",
+    "institution": "NEC Corporation",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Konstantinos Kogkalidis",
+    "institution": "Aalto University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Koji Inoue",
+    "institution": "Kyoto University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Kiril Gashteovski",
+    "institution": "NEC Laboratories Europe",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Khyati Mahajan",
+    "institution": "ServiceNow Inc",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Khoi-Nguyen Tran",
+    "institution": "International Business Machines",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Kelvin Han",
+    "institution": "LORIA/CNRS, Universit\u00e9 of Lorraine",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Kartik Talamadupula",
+    "institution": "Symbl.ai",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Kaicheng Yang",
+    "institution": "DeepGlint",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "J\u00f6rg Tiedemann",
+    "institution": "University of Helsinki",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Justin Lovelace",
+    "institution": "Cornell University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jinjun Xiong",
+    "institution": "State University of New York at Buffalo",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Junjun Guo",
+    "institution": "Kunming University of Science and technology",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Jungyeul Park",
+    "institution": "University of British Columbia",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Julius Steen",
+    "institution": "Institute for Computational Linguistics, Heidelberg University, Heidelberg University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Juhwan Choi",
+    "institution": "Chung-Ang University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Jue WANG",
+    "institution": "Together AI",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Josef van Genabith",
+    "institution": "German Research Center for AI",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Joonghyuk Hahn",
+    "institution": "Yonsei University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Joon-Young Choi",
+    "institution": "Korea University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jongho Kim",
+    "institution": "Seoul National University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Jonas Golde",
+    "institution": "Department of Computer Science, Humboldt University Berlin, Humboldt Universit\u00e4t Berlin",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "John Chen",
+    "institution": "Interactions LLC",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jixuan Wang",
+    "institution": "Pinterest, Inc.",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Jipeng Zhang",
+    "institution": "Department of Computer Science and Engineering, The Hong Kong University of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lauriane Aufrant",
+    "institution": "INRIA",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lavinia Dunagan",
+    "institution": "University of Michigan - Ann Arbor",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Li Yang",
+    "institution": "Institute of Software,Chinese Academy of Sciences",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Lianwen Jin",
+    "institution": "South China University of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Mingxu Tao",
+    "institution": "Peking University",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Mingwen Dong",
+    "institution": "Amazon",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Mingqi Gao",
+    "institution": "Peking University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ming Yin",
+    "institution": "Purdue University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ming Shen",
+    "institution": "Arizona State University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ming Li",
+    "institution": "University of Maryland, College Park",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Minda Hu",
+    "institution": "Department of Computer Science and Engineering, The Chinese University of Hong Kong",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Minbeom Kim",
+    "institution": "Seoul National University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Miles Williams",
+    "institution": "University of Sheffield",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Michal Nov\u00e1k",
+    "institution": "Charles University, Prague",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Michael Flor",
+    "institution": "Educational Testing Service",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Mengna Zhu",
+    "institution": "National University of Defense Technology",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Mehrnoush Shamsfard",
+    "institution": "Shahid Beheshti University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Mehdi Rezagholizadeh",
+    "institution": "Huawei Technologies Ltd.",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Md Nishat Raihan",
+    "institution": "George Mason University",
+    "reviewed": "8",
+    "recognized": "1",
+    "percentage": "12"
+  },
+  {
+    "name": "Mayank Kulkarni",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Matteo Gabburo",
+    "institution": "University of Trento",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Mateusz Krubi\u0144ski",
+    "institution": "Snowflake",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Massimo Poesio",
+    "institution": "Utrecht University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Margaret Fleck",
+    "institution": "University of Illinois, Urbana Champaign",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Mahmud Elahi Akhter",
+    "institution": "Queen Mary, University of London",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lun Du",
+    "institution": "Ant Research",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lucas Bandarkar",
+    "institution": "University of California, Los Angeles",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Louis-Philippe Morency",
+    "institution": "Carnegie Mellon University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Longshen Ou",
+    "institution": "National University of Singapore",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Long Bai",
+    "institution": "Institute of Computing Technology, Chinese Academy of Sciences",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Lihu Chen",
+    "institution": "Imperial College London",
+    "reviewed": "5",
+    "recognized": "1",
+    "percentage": "20"
+  },
+  {
+    "name": "Jinpeng Hu",
+    "institution": "Hefei University of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jinheon Baek",
+    "institution": "Korea Advanced Institute of Science & Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gilles Boulianne",
+    "institution": "Centre de recherche informatique de Montr\u00e9al (CRIM)",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Hang Jiang",
+    "institution": "Massachusetts Institute of Technology",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Hoang H Nguyen",
+    "institution": "University of Illinois at Chicago",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hiroki Teranishi",
+    "institution": "Nara Institute of Science and Technology, Japan",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  },
+  {
+    "name": "Hiroki Ouchi",
+    "institution": "NAIST",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hillary Dawkins",
+    "institution": "National Research Council Canada",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hengzhi Pei",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Heng Chang",
+    "institution": "Tsinghua University, Tsinghua University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Heming Xia",
+    "institution": "Hong Kong Polytechnic University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Haryo Akbarianto Wibowo",
+    "institution": "Mohamed bin Zayed University of Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hariram Veeramani",
+    "institution": "University of California, Los Angeles",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Haoyu Dong",
+    "institution": "Microsoft Research and AI",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Haotian Sun",
+    "institution": "Georgia Institute of Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Haoran Zhang",
+    "institution": "Chinese University of Hong Kong",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Haofei Yu",
+    "institution": "University of Illinois at Urbana-Champaign",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hammad Ayyubi",
+    "institution": "Columbia University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jingwei Ni",
+    "institution": "ETHZ - ETH Zurich",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Haishuo Fang",
+    "institution": "Technische Universit\u00e4t Darmstadt",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hainan Zhang",
+    "institution": "Beijing University of Aeronautics and Astronautics",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hafsteinn Einarsson",
+    "institution": "deCODE genetics",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Guy Rotman",
+    "institution": "Gong.io",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Guoxiu He",
+    "institution": "East China Normal University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gunhee Kim",
+    "institution": "Seoul National University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Guillaume Wisniewski",
+    "institution": "LLF / Universit\u00e9 Paris Cit\u00e9",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Guido Zuccon",
+    "institution": "The University of Queensland",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Guangyao Dou",
+    "institution": "University of Pennsylvania, University of Pennsylvania",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Gregor Geigle",
+    "institution": "Bayerische Julius-Maximilians-Universit\u00e4t W\u00fcrzburg",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Giuseppe Castellucci",
+    "institution": "Amazon",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Giulia Pucci",
+    "institution": "University of Aberdeen",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Giovanni Puccetti",
+    "institution": "CNR",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hong Yu",
+    "institution": "Apple",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hongchuan Zeng",
+    "institution": "Shanghai Jiao Tong University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Hongjin Qian",
+    "institution": "Beijing Academy of Artificial Intelligence",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hossein Fani",
+    "institution": "University of Windsor",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jingping Liu",
+    "institution": "East China University of Science and Technology",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Jinghan Zhang",
+    "institution": "Portland State University",
+    "reviewed": "7",
+    "recognized": "1",
+    "percentage": "14"
+  },
+  {
+    "name": "Jiaying Wu",
+    "institution": "National University of Singapore",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Jiayi Wang",
+    "institution": "University College London, University of London",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jiayang Cheng",
+    "institution": "Department of Computer Science and Engineering, Hong Kong University of Science and Technology",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jianjun Li",
+    "institution": "Huazhong University of Science and Technology",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Jian Zhu",
+    "institution": "University of British Columbia",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jiaming Luo",
+    "institution": "Google",
+    "reviewed": "1",
+    "recognized": "1",
+    "percentage": "100"
+  },
+  {
+    "name": "Jialiang Xu",
+    "institution": "Stanford University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jiahuan Li",
+    "institution": "Nanjing University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Jey Han Lau",
+    "institution": "The University of Melbourne",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Janghoon Han",
+    "institution": "LG AI Research",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "James Thorne",
+    "institution": "KAIST",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Jaewoo Ahn",
+    "institution": "Seoul National University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Jack LaViolette",
+    "institution": "Columbia University",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ivan Srba",
+    "institution": "Kempelen Institute of Intelligent Technologies",
+    "reviewed": "6",
+    "recognized": "1",
+    "percentage": "16"
+  },
+  {
+    "name": "Iustin Sirbu",
+    "institution": "University POLITEHNICA of Bucharest",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Inigo Jauregi Unanue",
+    "institution": "University of Technology Sydney",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ilseyar Alimova",
+    "institution": "Huawei Technologies Ltd.",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ieva Staliunaite",
+    "institution": "University of Cambridge",
+    "reviewed": "3",
+    "recognized": "1",
+    "percentage": "33"
+  },
+  {
+    "name": "Ibrahim Taha Aksu",
+    "institution": "SalesForce.com",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Ibraheem Muhammad Moosa",
+    "institution": "Pennsylvania State University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hyungjoo Chae",
+    "institution": "Yonsei University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hyundong Justin Cho",
+    "institution": "USC/ISI",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hyojun Go",
+    "institution": "Twelvelabs",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hyewon Jang",
+    "institution": "Universit\u00e4t Konstanz",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "Hwichan Kim",
+    "institution": "Tokyo Metropolitan University",
+    "reviewed": "4",
+    "recognized": "1",
+    "percentage": "25"
+  },
+  {
+    "name": "yisheng xiao",
+    "institution": "Suzhou University",
+    "reviewed": "2",
+    "recognized": "1",
+    "percentage": "50"
+  }
+]
