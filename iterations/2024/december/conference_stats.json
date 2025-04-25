@@ -1,14 +1,14 @@
 {
     "iteration": "December 2024",
-    "update-date": "2025-04-14",
+    "update-date": "2025-04-24",
     "submission-deadline": "2024-12-15",
-    "review-deadline": "2025-01-21",
-    "meta-deadline": "2025-02-04",
+    "review-deadline": "2025-02-28",
+    "meta-deadline": "2025-02-08",
     "notification": "2025-02-15",
     "submissions": 2383,
-    "withdrawn": 255,
+    "withdrawn": 248,
     "desk-rejects": 144,
-    "active-submissions": 1984,
+    "active-submissions": 1991,
     "ae-pool": 1669,
-    "rev-pool": 11166
+    "rev-pool": 11165
 }
