@@ -1,6 +1,6 @@
 {
     "iteration": "May 2026",
-    "update-date": "2026-08-19",
+    "update-date": "2026-09-03",
     "submission-deadline": "2026-05-25",
     "review-deadline": "2026-07-02",
     "meta-deadline": "2026-07-30",
@@ -8,7 +8,7 @@
     "submissions": 17087,
     "withdrawn": 2032,
     "desk-rejects": 1387,
-    "active-submissions": 13668,
     "ae-pool": 2058,
-    "rev-pool": 15518
+    "rev-pool": 15518,
+    "active-submissions": 13668
 }
