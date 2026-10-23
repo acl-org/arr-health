@@ -1,0 +1,16 @@
+score,value,type
+1.0,13,review
+1.0,26,meta
+1.5,151,meta
+1.5,171,review
+2.0,905,review
+2.0,985,meta
+2.5,955,meta
+2.5,1396,review
+3.0,923,meta
+3.0,808,review
+3.5,304,meta
+3.5,137,review
+4.0,7,review
+4.0,92,meta
+4.5,1,meta
